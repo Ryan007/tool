@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>小马内部系统</title>
+  <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.css" type="text/css"/>
+  <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.print.css" type="text/css" media='print'/>
+  <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/cupertino/theme.css" type="text/css" media='print'/>
+
+
+  <!-- JQuery engine script-->
+  <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery_1.7.1.min.js"></script>
+  <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.min.js"></script>
+  <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery_ujs.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!-- Start #header-status -->
+<div id="header-status">
+    <div class="container_12">
+        <div class="grid_8">
+            <% if user_signed_in? %>
+            您好,<%= current_user.username %>
+            <% else %>
+            <%= link_to "[登录]", new_user_session_path, :method => :get %> |
+            <%= link_to "[注册]", "/users/sign_up", :method => :get %>
+            <% end %>
+        </div>
+        <div class="grid_4">
+          <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, :method => :delete ,:id => "logout"%>
+            <% end %>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div> 
+<!-- End #header-status -->
+
+<!-- devise的提示信息 start -->
+ 
+    <% if flash[:notice] %>
+    <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if flash[:alert] %>
+    <p class="alert"><%= alert %></p>
+    <% end %>
+    <% if flash[:error] %>
+    <p class="error"><%= flash[:error] %></p>
+    <% end %>
+    <% if flash[:success] %>
+    <p class="success"><%= flash[:success] %></p>
+    <% end %>
+<!-- devise的提示信息 end -->
+
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,2378 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 16:47:17 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 42ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 16:47:21 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (1.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (109.0ms)
+Completed 200 OK in 185ms (Views: 112.8ms | ActiveRecord: 47.8ms)
+Connecting to database specified by database.yml
+  [1m[36m (162.6ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (218.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to DeviseCreateUsers (20121214005918)
+  [1m[35m (76.8ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255) DEFAULT '' NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `confirmation_token` varchar(255), `confirmed_at` datetime, `confirmation_sent_at` datetime, `unconfirmed_email` varchar(255), `failed_attempts` int(11) DEFAULT 0, `unlock_token` varchar(255), `locked_at` datetime, `authentication_token` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (174.9ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)[0m
+  [1m[35m (115.6ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)
+  [1m[36m (144.6ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_confirmation_token` ON `users` (`confirmation_token`)[0m
+  [1m[35m (134.7ms)[0m  CREATE UNIQUE INDEX `index_users_on_unlock_token` ON `users` (`unlock_token`)
+  [1m[36m (166.5ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_authentication_token` ON `users` (`authentication_token`)[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20121214005918')
+  [1m[36m (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 16:57:28 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 157ms (Views: 40.9ms | ActiveRecord: 84.1ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:07:04 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (1.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (126.0ms)
+Completed 200 OK in 193ms (Views: 140.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:07:06 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:11:27 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (61.3ms)
+Completed 200 OK in 122ms (Views: 72.7ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:11:29 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:11:29 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:11:30 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:13:43 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (60.7ms)
+Completed 200 OK in 120ms (Views: 72.2ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:13:44 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:13:45 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 17:13:50 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:13:52 +0800
+Processing by RegistrationsController#new as HTML
+  Parameters: {"authenticity_token"=>"f/syri77Al09Lrb9GSrcZgGT6hxmEkJ7Ysz7sKnH0Bs="}
+  Rendered devise/shared/_links.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:14:55 +0800
+Processing by RegistrationsController#new as HTML
+  Parameters: {"authenticity_token"=>"f/syri77Al09Lrb9GSrcZgGT6hxmEkJ7Ysz7sKnH0Bs="}
+  Rendered devise/shared/_links.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:14:57 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:15:19 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 68ms (Views: 20.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:15:21 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:17:00 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 82ms (Views: 21.6ms | ActiveRecord: 16.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:17:01 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:17:02 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:17:45 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:17:45 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-12-17 17:19:44 +0800
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f/syri77Al09Lrb9GSrcZgGT6hxmEkJ7Ysz7sKnH0Bs=", "user"=>{"username"=>"ryan", "email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 1ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: username):
+  app/controllers/registrations_controller.rb:15:in `create'
+
+
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-12-17 17:21:00 +0800
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f/syri77Al09Lrb9GSrcZgGT6hxmEkJ7Ysz7sKnH0Bs=", "user"=>{"username"=>"ryan", "email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (23.0ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'RmqEzxYx6uGqrxptN2op' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2012-12-17 09:21:00', 'RmqEzxYx6uGqrxptN2op', NULL, '2012-12-17 09:21:00', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$10$t0vvZH7zl8po91NGAIE9R.uy3/2a9S3BzCOIZstsl5A1/xxQEaoTy', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2012-12-17 09:21:00', 'ryan')
+  Rendered devise/mailer/confirmation_instructions.html.erb (21.7ms)
+  [1m[36m (15.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 1070ms
+
+ActionView::Template::Error (undefined method `confirmation_url' for #<#<Class:0x007fddb36abf10>:0x007fddb36b7ef0>):
+    2: 
+    3: <p>您可以通过点击下面的链接来验证您的邮箱,并完成注册:</p>
+    4: 
+    5: <p><%= link_to '现在就完成在crm.xiaoma.com的验证,请点击此链接', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+  app/views/devise/mailer/confirmation_instructions.html.erb:5:in `_app_views_devise_mailer_confirmation_instructions_html_erb__2613714196685777970_70295087311140'
+  app/controllers/registrations_controller.rb:16:in `create'
+
+
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (93.2ms)[0m  [1mDROP DATABASE IF EXISTS `tools_development`[0m
+  [1m[35m (0.8ms)[0m  DROP DATABASE IF EXISTS `tools_test`
+  [1m[36m (0.4ms)[0m  [1mCREATE DATABASE `tools_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`[0m
+  [1m[35m (0.3ms)[0m  CREATE DATABASE `tools_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (109.1ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255) DEFAULT '' NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `confirmation_token` varchar(255), `confirmed_at` datetime, `confirmation_sent_at` datetime, `unconfirmed_email` varchar(255), `failed_attempts` int(11) DEFAULT 0, `unlock_token` varchar(255), `locked_at` datetime, `authentication_token` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (210.0ms)[0m  CREATE UNIQUE INDEX `index_users_on_authentication_token` ON `users` (`authentication_token`)
+  [1m[36m (120.0ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_confirmation_token` ON `users` (`confirmation_token`)[0m
+  [1m[35m (176.6ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)
+  [1m[36m (182.6ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)[0m
+  [1m[35m (284.7ms)[0m  CREATE UNIQUE INDEX `index_users_on_unlock_token` ON `users` (`unlock_token`)
+  [1m[36m (231.9ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (205.8ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20121214005918')
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+
+
+Started POST "/users" for 127.0.0.1 at 2012-12-17 17:21:56 +0800
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f/syri77Al09Lrb9GSrcZgGT6hxmEkJ7Ysz7sKnH0Bs=", "user"=>{"username"=>"ryan", "email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = '4JqeEyKkr8KbeEzsVxHy' LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2012-12-17 09:21:57', '4JqeEyKkr8KbeEzsVxHy', NULL, '2012-12-17 09:21:57', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$10$b52hsnSDJIsq6m.qxPN5zuGKLId0k5t8V1nrAqbELfSjmRVPoSTWi', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2012-12-17 09:21:57', 'ryan')
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.7ms)
+
+Sent mail to zhanghuaxun@xiaoma.com (1997ms)
+Date: Mon, 17 Dec 2012 17:21:57 +0800
+From: team_leader@xiaoma.com
+Reply-To: team_leader@xiaoma.com
+To: zhanghuaxun@xiaoma.com
+Message-ID: <50cee435b23c3_d5e43fe2828664fc639f9@localhost.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHJ5YW4hPC9wPgoKPHA+5oKo5Y+v5Lul6YCa6L+H54K5
+5Ye75LiL6Z2i55qE6ZO+5o6l5p2l6aqM6K+B5oKo55qE6YKu566xLOW5tuWu
+jOaIkOazqOWGjDo8L3A+Cgo8cD48YSBocmVmPSJodHRwOi8vbG9jYWxob3N0
+OjMwMDAvdXNlcnMvY29uZmlybWF0aW9uP2NvbmZpcm1hdGlvbl90b2tlbj00
+SnFlRXlLa3I4S2JlRXpzVnhIeSI+546w5Zyo5bCx5a6M5oiQ5ZyoY3JtLnhp
+YW9tYS5jb23nmoTpqozor4Es6K+354K55Ye75q2k6ZO+5o6lPC9hPjwvcD4K
+
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/awaiting_confirmation?email=zhanghuaxun@xiaoma.com
+Completed 302 Found in 2668ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/awaiting_confirmation?email=zhanghuaxun@xiaoma.com" for 127.0.0.1 at 2012-12-17 17:21:59 +0800
+Processing by RegistrationsController#awaiting_confirmation as HTML
+  Parameters: {"email"=>"zhanghuaxun@xiaoma.com"}
+  Rendered devise/registrations/awaiting_confirmation.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (79.0ms)[0m  [1mDROP DATABASE IF EXISTS `tools_development`[0m
+  [1m[35m (0.6ms)[0m  DROP DATABASE IF EXISTS `tools_test`
+  [1m[36m (0.4ms)[0m  [1mCREATE DATABASE `tools_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`[0m
+  [1m[35m (0.3ms)[0m  CREATE DATABASE `tools_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (211.6ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255) DEFAULT '' NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `confirmation_token` varchar(255), `confirmed_at` datetime, `confirmation_sent_at` datetime, `unconfirmed_email` varchar(255), `failed_attempts` int(11) DEFAULT 0, `unlock_token` varchar(255), `locked_at` datetime, `authentication_token` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (535.3ms)[0m  CREATE UNIQUE INDEX `index_users_on_authentication_token` ON `users` (`authentication_token`)
+  [1m[36m (360.6ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_confirmation_token` ON `users` (`confirmation_token`)[0m
+  [1m[35m (368.6ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)
+  [1m[36m (245.6ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)[0m
+  [1m[35m (258.9ms)[0m  CREATE UNIQUE INDEX `index_users_on_unlock_token` ON `users` (`unlock_token`)
+  [1m[36m (285.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (426.8ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (27.8ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20121214005918')
+  [1m[36m (24.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 17:28:17 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 76ms (Views: 75.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-17 17:28:19 +0800
+Processing by RegistrationsController#new as HTML
+  Parameters: {"authenticity_token"=>"f/syri77Al09Lrb9GSrcZgGT6hxmEkJ7Ysz7sKnH0Bs="}
+  Rendered devise/shared/_links.erb (4.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (41.1ms)
+Completed 200 OK in 100ms (Views: 54.9ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-12-17 17:28:34 +0800
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f/syri77Al09Lrb9GSrcZgGT6hxmEkJ7Ysz7sKnH0Bs=", "user"=>{"username"=>"ryan", "email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'kKuEJkzZZEfhWzyj1nrq' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2012-12-17 09:28:34', 'kKuEJkzZZEfhWzyj1nrq', NULL, '2012-12-17 09:28:34', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$10$h8d7isgab9cbKkQ8XT/XHu3.OOsw05Ed2FLkyxb/C8jvqrFaIzUnK', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2012-12-17 09:28:34', 'ryan')
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.3ms)
+
+Sent mail to zhanghuaxun@xiaoma.com (5957ms)
+Date: Mon, 17 Dec 2012 17:28:35 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: zhanghuaxun@xiaoma.com
+Message-ID: <50cee5c358322_dee13fe1a5d88be859637@localhost.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHJ5YW4hPC9wPgoKPHA+5oKo5Y+v5Lul6YCa6L+H54K5
+5Ye75LiL6Z2i55qE6ZO+5o6l5p2l6aqM6K+B5oKo55qE6YKu566xLOW5tuWu
+jOaIkOazqOWGjDo8L3A+Cgo8cD48YSBocmVmPSJodHRwOi8vbG9jYWxob3N0
+OjMwMDAvdXNlcnMvY29uZmlybWF0aW9uP2NvbmZpcm1hdGlvbl90b2tlbj1r
+S3VFSmt6WlpFZmhXenlqMW5ycSI+546w5Zyo5bCx5a6M5oiQ5ZyoY3JtLnhp
+YW9tYS5jb23nmoTpqozor4Es6K+354K55Ye75q2k6ZO+5o6lPC9hPjwvcD4K
+
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/awaiting_confirmation?email=zhanghuaxun@xiaoma.com
+Completed 302 Found in 7098ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/awaiting_confirmation?email=zhanghuaxun@xiaoma.com" for 127.0.0.1 at 2012-12-17 17:28:41 +0800
+Processing by RegistrationsController#awaiting_confirmation as HTML
+  Parameters: {"email"=>"zhanghuaxun@xiaoma.com"}
+  Rendered devise/registrations/awaiting_confirmation.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=kKuEJkzZZEfhWzyj1nrq" for 127.0.0.1 at 2012-12-17 17:28:53 +0800
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"kKuEJkzZZEfhWzyj1nrq"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'kKuEJkzZZEfhWzyj1nrq' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2012-12-17 09:28:53', `updated_at` = '2012-12-17 09:28:53' WHERE `users`.`id` = 1
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2012-12-17 09:28:53', `current_sign_in_at` = '2012-12-17 09:28:53', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2012-12-17 09:28:53' WHERE `users`.`id` = 1[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 17:28:53 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-12-17 17:28:55 +0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"f/syri77Al09Lrb9GSrcZgGT6hxmEkJ7Ysz7sKnH0Bs="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 42ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 17:28:55 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 17:28:57 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 18:08:01 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 61ms (Views: 61.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-17 18:08:02 +0800
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"co1HNRvWKYsJd2uxpFc+68xpxBOi/6cK/l6l+rjF6oI="}
+  Rendered devise/shared/_links.erb (2.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 68ms (Views: 66.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2012-12-17 18:08:09 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"co1HNRvWKYsJd2uxpFc+68xpxBOi/6cK/l6l+rjF6oI=", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (159.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `current_sign_in_at` = '2012-12-17 10:08:09', `sign_in_count` = 2, `updated_at` = '2012-12-17 10:08:09' WHERE `users`.`id` = 1[0m
+  [1m[35m (16.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 283ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 18:08:09 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-12-17 18:08:12 +0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"co1HNRvWKYsJd2uxpFc+68xpxBOi/6cK/l6l+rjF6oI="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-17 18:08:12 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+<<<<<<< HEAD
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 10:14:16 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 76ms (Views: 75.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-28 10:14:19 +0800
+Processing by RegistrationsController#new as HTML
+  Parameters: {"authenticity_token"=>"sa2js0cMezNCMRvJHnv2iZZ3Q5voRnA+VBhwrueRqv8="}
+  Rendered devise/shared/_links.erb (2.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 172ms (Views: 54.2ms | ActiveRecord: 93.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-28 10:18:08 +0800
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"sa2js0cMezNCMRvJHnv2iZZ3Q5voRnA+VBhwrueRqv8="}
+  Rendered devise/shared/_links.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 88ms (Views: 28.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2012-12-28 10:18:15 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sa2js0cMezNCMRvJHnv2iZZ3Q5voRnA+VBhwrueRqv8=", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (19.8ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2012-12-17 10:08:09', `current_sign_in_at` = '2012-12-28 02:18:16', `sign_in_count` = 3, `updated_at` = '2012-12-28 02:18:16' WHERE `users`.`id` = 1[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 398ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 10:18:16 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 10:18:55 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 796ms (Views: 66.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 10:19:48 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 3.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2012-12-28 10:19:55 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 40ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2012-12-28 10:24:22 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2012-12-28 10:29:59 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 12ms (Views: 3.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2012-12-28 10:31:04 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/home/index" for 127.0.0.1 at 2012-12-28 10:33:14 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 175ms (Views: 64.8ms | ActiveRecord: 2.6ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 10:55:48 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (17.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 314ms (Views: 156.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 10:55:54 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 12ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-12-28 11:05:03 +0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sa2js0cMezNCMRvJHnv2iZZ3Q5voRnA+VBhwrueRqv8="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 200ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 11:05:04 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 44ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-28 11:05:05 +0800
+Processing by RegistrationsController#new as HTML
+  Parameters: {"authenticity_token"=>"PBI4sbNj22QxY2OoGtCxvN9TQ6c8C1BHsdHD/jv990Y="}
+  Rendered devise/shared/_links.erb (3.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 51ms (Views: 49.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-12-28 11:05:22 +0800
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PBI4sbNj22QxY2OoGtCxvN9TQ6c8C1BHsdHD/jv990Y=", "user"=>{"username"=>"ryan", "email"=>"goodboyryan@126.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = '6nmS3Gs3ubo2Js1Q2TaF' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2012-12-28 03:05:23', '6nmS3Gs3ubo2Js1Q2TaF', NULL, '2012-12-28 03:05:23', NULL, NULL, 'goodboyryan@126.com', '$2a$10$eyBUtPOWrp9KBDdGDemcOe74WvyVk6g71LJUuqAfQ6No.a9KpBysu', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2012-12-28 03:05:23', 'ryan')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.8ms)
+
+Sent mail to goodboyryan@126.com (3862ms)
+Date: Fri, 28 Dec 2012 11:05:23 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50dd0c733a496_767d3ffcbd4f041c99670@localhost.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHJ5YW4hPC9wPgoKPHA+5oKo5Y+v5Lul6YCa6L+H54K5
+5Ye75LiL6Z2i55qE6ZO+5o6l5p2l6aqM6K+B5oKo55qE6YKu566xLOW5tuWu
+jOaIkOazqOWGjDo8L3A+Cgo8cD48YSBocmVmPSJodHRwOi8vbG9jYWxob3N0
+OjMwMDAvdXNlcnMvY29uZmlybWF0aW9uP2NvbmZpcm1hdGlvbl90b2tlbj02
+bm1TM0dzM3VibzJKczFRMlRhRiI+546w5Zyo5bCx5a6M5oiQ5ZyoY3JtLnhp
+YW9tYS5jb23nmoTpqozor4Es6K+354K55Ye75q2k6ZO+5o6lPC9hPjwvcD4K
+
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/awaiting_confirmation?email=goodboyryan@126.com
+Completed 302 Found in 4160ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/awaiting_confirmation?email=goodboyryan@126.com" for 127.0.0.1 at 2012-12-28 11:05:27 +0800
+Processing by RegistrationsController#awaiting_confirmation as HTML
+  Parameters: {"email"=>"goodboyryan@126.com"}
+  Rendered devise/registrations/awaiting_confirmation.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=6nmS3Gs3ubo2Js1Q2TaF" for 127.0.0.1 at 2012-12-28 11:05:38 +0800
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"6nmS3Gs3ubo2Js1Q2TaF"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = '6nmS3Gs3ubo2Js1Q2TaF' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2012-12-28 03:05:38', `updated_at` = '2012-12-28 03:05:38' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2012-12-28 03:05:38', `current_sign_in_at` = '2012-12-28 03:05:38', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2012-12-28 03:05:38' WHERE `users`.`id` = 2
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 11:05:38 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Completed 200 OK in 16ms (Views: 3.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 11:05:43 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 5.2ms | ActiveRecord: 0.3ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 11:21:36 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (3.8ms)
+  Rendered comment_mailer/comment_notify_email.text.erb (0.3ms)
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 339ms (Views: 108.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 11:24:53 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.1ms)
+  Rendered comment_mailer/comment_notify_email.text.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Completed 200 OK in 85ms (Views: 60.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 11:25:37 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered comment_mailer/comment_notify_email.text.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (3.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 83ms (Views: 34.1ms | ActiveRecord: 5.2ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 14:16:05 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (4.4ms)
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 401 Unauthorized in 390ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 14:16:06 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 11ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-28 14:16:19 +0800
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"PBI4sbNj22QxY2OoGtCxvN9TQ6c8C1BHsdHD/jv990Y="}
+  Rendered devise/shared/_links.erb (4.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (52.4ms)
+Completed 200 OK in 79ms (Views: 77.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2012-12-28 14:16:25 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PBI4sbNj22QxY2OoGtCxvN9TQ6c8C1BHsdHD/jv990Y=", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2012-12-28 02:18:16', `current_sign_in_at` = '2012-12-28 06:16:25', `sign_in_count` = 4, `updated_at` = '2012-12-28 06:16:25' WHERE `users`.`id` = 1
+  [1m[36m (11.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 244ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 14:16:25 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 11ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 14:42:02 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (4.0ms)
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 291ms (Views: 120.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 14:43:19 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (3.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 50ms (Views: 33.0ms | ActiveRecord: 4.9ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:00:34 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (2.0ms)
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 128ms (Views: 57.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:03:44 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 13ms (Views: 4.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:07:45 +0800
+Processing by HomeController#index as HTML
+Completed 500 Internal Server Error in 26ms
+
+SyntaxError (/Users/ryan007/xiaoma/tool/app/mailers/comment_mailer.rb:29: syntax error, unexpected keyword_end, expecting $end):
+  app/controllers/home_controller.rb:3:in `index'
+
+
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails3.2.8/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:08:08 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.6ms)
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (20.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 303ms (Views: 73.7ms | ActiveRecord: 93.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:08:20 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.1ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 47ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:08:21 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 24ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:10:27 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 21ms (Views: 4.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:10:28 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 25ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-12-28 15:15:28 +0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PBI4sbNj22QxY2OoGtCxvN9TQ6c8C1BHsdHD/jv990Y="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 122ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:15:28 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 47ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-28 15:15:31 +0800
+Processing by RegistrationsController#new as HTML
+  Parameters: {"authenticity_token"=>"XTmwgMoH9h9CunScIK9hUKePUQJRGCO0FSsruKrOzhU="}
+  Rendered devise/shared/_links.erb (2.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (50.5ms)
+Completed 200 OK in 75ms (Views: 73.9ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/users" for 127.0.0.1 at 2012-12-28 15:16:06 +0800
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XTmwgMoH9h9CunScIK9hUKePUQJRGCO0FSsruKrOzhU=", "user"=>{"username"=>"goodboy", "email"=>"goodboyryan@126.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (12.8ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered devise/shared/_links.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 342ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-12-28 15:16:29 +0800
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XTmwgMoH9h9CunScIK9hUKePUQJRGCO0FSsruKrOzhU=", "user"=>{"username"=>"goodboy", "email"=>"goodboyryan007@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan007@gmail.com' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'giMM6wmpAtUKaSbwqFnP' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2012-12-28 07:16:29', 'giMM6wmpAtUKaSbwqFnP', NULL, '2012-12-28 07:16:29', NULL, NULL, 'goodboyryan007@gmail.com', '$2a$10$92HdsKdL2sEkNVCOJ/f1ZONdIab0zSmWPEXkXq6mXM9mbHnHVavAq', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2012-12-28 07:16:29', 'goodboy')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.9ms)
+
+Sent mail to goodboyryan007@gmail.com (8545ms)
+Date: Fri, 28 Dec 2012 15:16:29 +0800
+From: goodboyryan007@gmail.com
+Reply-To: goodboyryan007@gmail.com
+To: goodboyryan007@gmail.com
+Message-ID: <50dd474d97f0d_112143fcd6925c9f4583be@localhost.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIGdvb2Rib3khPC9wPgoKPHA+5oKo5Y+v5Lul6YCa6L+H
+54K55Ye75LiL6Z2i55qE6ZO+5o6l5p2l6aqM6K+B5oKo55qE6YKu566xLOW5
+tuWujOaIkOazqOWGjDo8L3A+Cgo8cD48YSBocmVmPSJodHRwOi8vbG9jYWxo
+b3N0OjMwMDAvdXNlcnMvY29uZmlybWF0aW9uP2NvbmZpcm1hdGlvbl90b2tl
+bj1naU1NNndtcEF0VUthU2J3cUZuUCI+546w5Zyo5bCx5a6M5oiQ5ZyoY3Jt
+LnhpYW9tYS5jb23nmoTpqozor4Es6K+354K55Ye75q2k6ZO+5o6lPC9hPjwv
+cD4K
+
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/awaiting_confirmation?email=goodboyryan007@gmail.com
+Completed 302 Found in 8781ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/awaiting_confirmation?email=goodboyryan007@gmail.com" for 127.0.0.1 at 2012-12-28 15:16:38 +0800
+Processing by RegistrationsController#awaiting_confirmation as HTML
+  Parameters: {"email"=>"goodboyryan007@gmail.com"}
+  Rendered devise/registrations/awaiting_confirmation.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:18:42 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.3ms)
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 30ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=giMM6wmpAtUKaSbwqFnP" for 127.0.0.1 at 2012-12-28 15:18:48 +0800
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"giMM6wmpAtUKaSbwqFnP"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'giMM6wmpAtUKaSbwqFnP' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2012-12-28 07:18:48', `updated_at` = '2012-12-28 07:18:48' WHERE `users`.`id` = 3[0m
+  [1m[35m (11.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2012-12-28 07:18:48', `current_sign_in_at` = '2012-12-28 07:18:48', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2012-12-28 07:18:48' WHERE `users`.`id` = 3
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 27ms (ActiveRecord: 14.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:18:49 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.1ms)
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 29ms (Views: 5.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:19:06 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 48ms (Views: 3.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:19:07 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.1ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 24ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:20:10 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (3.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 89ms (Views: 33.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:28:38 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (3.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 95ms (Views: 62.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:29:44 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 113ms (Views: 63.0ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:30:03 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.1ms)
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 52ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:32:27 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered comment_mailer/comment_notify_email.html.erb (0.1ms)
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (3.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 104ms (Views: 32.1ms | ActiveRecord: 4.9ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:44:47 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (2.8ms)
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+
+Sent mail to zhanghuaxun@xiaoma.com (10275ms)
+Date: Fri, 28 Dec 2012 15:44:48 +0800
+From: goodboyryan007@gmail.com
+To: zhanghuaxun@xiaoma.com
+Message-ID: <50dd4df050726_14d6c3fda3407d1c45823e@localhost.mail>
+Subject: Comment notify email
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_50dd4df01c83b_14d6c3fda3407d1c4579f2";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_50dd4df01c83b_14d6c3fda3407d1c4579f2
+Date: Fri, 28 Dec 2012 15:44:48 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50dd4df04d866_14d6c3fda3407d1c458039@localhost.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50dd4df01c83b_14d6c3fda3407d1c4579f2
+Date: Fri, 28 Dec 2012 15:44:48 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50dd4df04ee43_14d6c3fda3407d1c458189@localhost.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50dd4df01c83b_14d6c3fda3407d1c4579f2
+Date: Fri, 28 Dec 2012 15:44:48 +0800
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=rails.png
+Content-ID: <50dd4df06597_14d6c3fda3407d1c45781e@localhost.mail>
+
+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
+
+
+----==_mimepart_50dd4df01c83b_14d6c3fda3407d1c4579f2--
+
+  Rendered home/index.html.erb within layouts/application (31.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 10795ms (Views: 128.5ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:46:28 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+
+Sent mail to goodboyryan@126.com (10801ms)
+Date: Fri, 28 Dec 2012 15:46:28 +0800
+From: goodboyryan007@gmail.com
+To: goodboyryan@126.com
+Message-ID: <50dd4e549b7bc_14d6c3fda340b469c587e8@localhost.mail>
+Subject: Comment notify email
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_50dd4e5495970_14d6c3fda340b469c5847f";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_50dd4e5495970_14d6c3fda340b469c5847f
+Date: Fri, 28 Dec 2012 15:46:28 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50dd4e549a385_14d6c3fda340b469c5853c@localhost.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50dd4e5495970_14d6c3fda340b469c5847f
+Date: Fri, 28 Dec 2012 15:46:28 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50dd4e549abca_14d6c3fda340b469c586f9@localhost.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50dd4e5495970_14d6c3fda340b469c5847f
+Date: Fri, 28 Dec 2012 15:46:28 +0800
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=rails.png
+Content-ID: <50dd4e5493afc_14d6c3fda340b469c58368@localhost.mail>
+
+iVBORw0KGgoAAAANSUhEUgAAADIAAABACAYAAABY1SR7AAAAGXRFWHRTb2Z0
+d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAGZhJREFUeNqsWwmUXGWV/t5S
+r9aurl6qO0l3Z9/DEoJh18gZQGAUxPHIyQHH7eioZ8bjnAFHZ0RndNxxRBhG
+cUbxoKIHBkTEcUYREIHIGpKQjUDS6U660/tSVV3Lq/fefPf/Xy2dBFGYx3np
+qvde/e/e/97v3u/e/8e4Lt2L8DCCAFcGwF8ZBjYbgM1rAZoO+WLwZhDMu9y4
++YcOozbAqzwXNA3GdzX/5hV+KnKO2+GXFj/AvzmW8e72iG202CYiphbY403f
+9/k3QHZtJ9oWtyCQe7wGX79TKVb7rP9pXJPDVxf0Rz+oyxm4HNWrahFNixdk
+3EAJbERMWOm4ulctVODNVeEVK0DeRVDgb1wfJgcqUo6duaKnFOH7bm6JmH+5
+LOEgZprwRIHAV3JYfLjKM55Noz3bBqdcgt0Wg52Kq/cHHkXns0qIukKBlltk
+9rU2QaiouiefPQ+RdBuseAJeqYTK1CTH8mE4NsyIpRWu8nssCs+xULWpjGVw
+TvieKl/sV6mIXzOib/OftzuG8d6l8SiVMODyRb46oazg8YPP2Wnvy9ISNqpl
+zsxYAW6hjGhHEmYiBoPC+hRMfFMrESgrBC5n0KS+lq1nPahZh2OXymg9bSNW
+X/u3FKyKI//7Exx96B4Y8RiCEseq8t0VznyxjMDidFIJ8QSf3hJEOFbZEAHV
+hIkFTX54fxtnIW5pJUQIeZ8ooZShkInuDOLpFIX1ldtCBix7KI/k4E7OwbTj
+cNIdiCQzsONp2LEk7GgUnZsuQN9lW2En45xlukrUghWzeZq8FsXsi8+gND6M
+SCqD9k3nwulIUShKZxt0LYPWortRSY0NXreC8J6pZNDChEDh53PT1NIPLaEn
+LbQKNTETEaR7sycA0jD1INXZAnzObjTbiWh7Vr1A3Knn4nciu+lCvstUig09
+cp96cVCtcELoFpEIFUjjyIM/osWIg+IMXS3DcfNwZ3NQHmmKU9OqroX2jWdg
+atduuPkpmA4ViZrK9RqKABEBtg9tDeW+oUIyTIYuFaX7eCG4aqbU+hhKocD3
+UBoZISBLiC9cpAQKyq5SQo6OjVswtec5VHLTiHUuIN4WonXlqUj2riS0DIUX
+wZlERFHSK+SQGzqI3MHdmNm7CzMvvowF527B8qvejZ3/+iXk9vVTao5tiTKN
+0OUHISZEGS/8W6UbRdoTSHe3E1f+CRaR3xhBLVJSIQ7qleZQGBigZYoYdR+E
+lUjBaW3H6JMPIrV0Hdo2bEayZ7my0KsdLctPBS64EuWZMYw/9wTGnvod0mtz
+WH71Vuz66o10bVpK8FIx6orUMejpCKYBTvfM9HXBJtA8z3/1BKDivaksVJma
+YsgsYPDnd6LzzAuw8I1XUIGleC1HtDWLnguv5BiX4+jDD2D4sQeV1bQvNXBi
+6vAb1MGtrEEHjRPgqfZ0qMRJElYYSudfq12nmzAvtJ2yib69iRadRGnySD0U
+v5bDtCPou/gqnPY3N6DnLRczgtHxCf4aVnUeUdgw6i6FqM1w292Ujo/TJdB5
+wHcJ2iDCaBTRmVfw4rkw4yksuvQyJJf0YvrgNiayvBLESS9AYuFqJLLLCPb4
+SQWulosojhxmeCeoDeaQSoVuy8lPtSKxYKnC2Bmf+DwtvBgv3/qfTI6uEtGu
+JV7PCBTIq5zNtt5uxBgyvap30pf55TISfX1Y/PatGPrVvcgPvEyAJ1GenaPZ
+LSy//G2IL+qki43CNCMwk620iovy9FGUJgYwm8gwpK/guRJOS5dyD688h+n9
+z2L28F4Ujx2ia04jEl8Ad3oGVTePaGcnQ3sKLb1rkD3nIqx594dRIh733n6P
+mmrrvGj671sjVlxczRWAkxZ0r+rTrhfMJ0uEM8xKUYXONR+5nr57BdpP24TC
+sX6M/f5F5AYLWPauK9F11htUwjOIL8GNZH1qpKwiyVGELk0OoDj2EtziFOaO
+DSN3aC/v24xmZzAU51TgcJKd/DktHo9jyRXvg0Or7PvejTj22KPKiyafew6z
+g8MYypVLNsLkJ2bxaZXM4i5EmCBPsEaoWJUUpfeSK7DgvEtQmh4ihTDQdf5F
+OHDHr7HqPVeh99KL4OVzpE50N18CtqnCdBCY6rsEcTsqIGUGD6rY9e3bMPzI
+HmTWLsbqa7ai84wL6YrTqEyOqEmwonEExSoO//R7dLcJWiWCueF+7P7mjZAU
+Y8YdJZqySMo24j5zQSybQdeyhdrX5imho4NhEEnkRbkDQyjSRVJLeziCgef/
+6avIrFuOtR95P2lJNSSshg4l6rdm+Ht9inWsqIOX7voN+u/eRoEM5PvHMbbj
+Gcwcfg7jO3YxbCcRiaaYQOXnpEaFGeahGQaMCidJRidt8RghS6Q344XQIowm
+Fq2QXdLNdwsx8zUFqCOQNIECVqdp8pESB53Fvhdux9T2FxBb1AWX4XbjDX/H
+FzjEmgedB4XYKT5D4T0VTLRCtIiTwOBvfovpvS8T+Bm4MyW6jw13tIIDt/9G
+/TTWk8HKvzgbmd4+YldYQIdixgHJYkC82Ul6UDnQSbEGdsFGZlEWyUyLyiEy
+YwajRVAoAXNlEjR+pjUCUmiDQcKOORwwgpFfP4cg5mPzTZ9FoqePdGVWuZRP
+YQNPcgrd0/dCpqpdy3DIsQ4fxtiTu7Hxkx8iRXkcB+94iM86/K0Jx4opi5aO
+zGJs14toWeLAdYXWxFQCtJlkA+LUq+bI7QR3mj3YoqVNgGcXd5NWUOiZAk9G
+H86S4jK25jWBLVREl1uK5Voywz6WXf1WLHjTm0lPigSyxoUpnEqU8c26Wyk/
+Y24RMjhw/yMoj+cQbWvH0isuwuijL6BwaJwcyq7XUTaBP7N3HOU3ke7HSONJ
+b8RTBGoGKZPFyTE8saTZyCPtrC2coxOoTuY5+x4UTzHNsNjR6d6Qa8JJ5BIV
+8ksVtKzpwcr3v5dyOrzHKMWXizsZAnK6k1ImPDmAqjOmdr9AwXcodzr4kwfQ
+fuY6VKbzyhpGU96S75WxIqb2DaPnvNWKklQD4WSuzB+sVILjOYjm/VARSWKT
+BQQzlZCFmErYeubzVJJR14SlQtVQMjO0xrXvoulXkq3OKnxAXqSsoSmNUbOM
+/BV35RjDDz9JrBXpnnEM3vsYjj38LLyZihI8QNAgQhITOCmTO46i+6w1MPm8
+6RVIiC09/RJUGcECCe2UU0G6QIyUjEC5hGaCNd4RqHKU6VuDylQlI2N8hfXD
+WibEdyhCKXREuZUVUX8lyhh2+Jl5Q/6akSgT4izGn3wBFu+JwYOKj8qwtsbJ
+aYmJuYEZ5AYmFOWXPCN1jTodzeuqM0WtSI1rzXrV0LSNKRFuZLYQ2EYVPjEQ
+VuQUMsCya65GvL1HWUwJS+FNUcBsUiZUQv7aLGlndr+I8ug4XUMVAJw4U7Fm
+I8SFETTmUaGK2gas1SeeP8znoizIEso9DaUIy2FWkNU5V0VYs/azWXKncuCH
+qgQq1CHiY831H8TGr34erRvXKdD6LD3b+HnRn12qGgdqlmxHZe2aRcy6NbQS
+cl8y8dSOfWQE1yK9YYmqXYww3xhNObemUI2IWraF2d1HMTeeh83MbkUiylKi
+iMdy2wjzXBjxWYdRiSkhfDVVKGSstxM9l16JxZe/E2+848c49bPXK9D2vPUy
+EsBOVZMINmpCW6HgEOuIQjXF6FYuAV2aHsWyrVfj9C9er5SR5Kms0PTf8QoZ
+tIo7WSJW+mmRJLGSpDK2ipzV2bK6X6fxtWOCicYVqyhGXkXn+WeTcfape5ZD
+sPGM91C5iy8LI0s445bd9FkrAFHICt1N8DE+gdyeQczs34+uzeei68LNLGfd
+ea50st6VbiyYmHq+nxTFRSSRVsD3ii7xyeQbdt/M5h/MERMT4i6GjlAWeUxh
+6HCN8+LIz+5H5zlUbtHSOnVp4MCa51JaIQ16i0kwP9CP0uExPP+JL2DggfuY
+N8jTJClYxnH4aNimdpp0r7nDkyx9h5gE0+RqSVTyZXXTsMz5FaJyMJrrGLNo
+pyWUIImj//1LjPzuUZLCC5gzVqMwPIglV7/rxCaihFaCPCDOxDUl1EoylFP4
+mUlFCgPDStLKWB47PnUjrSSsNqrJsa/zR02ZwGjYRoVkEZh0ZHzbfmTPXE85
+SWrnKip6GeFE2I1iKVBCzNK9pmiVhS1x+Axx7myRJesvgHvvR3rNKmQ3n/OK
+PVGND1MVXTqHiFK6qVFiwlXgTVDhkq+ChhnyJCW9GeaoIGQOdV0M9YhYZWbv
+UXrIJJ+rKL6lJ9CYj5Fai0iKqyPkx0HcUsJYrBbtREIJ2H72GxTI/2CL1zAb
+LkZ8WIxYgUvsKebq6Zl3rEZvymx6echo1N+au9XcS3oHsxWMPrGTFH+CLhsm
+bhMNRWrNB4SZVSwyJ5WDFRb3DAAmaXf2rPP+6BpbkmStkBLAWwkHmdNWKfYq
+FaZRp2GGdo+mhpv6bBkNhepRzERpdASeW1aKSZ5RidpoUsRAvQ+NJCnJHHl+
+bcZ80vjkij661vo/rWMQSitWskgnNv7LP+MNN38NadYuCPtYCItIFTjMRgfe
+qClkhkFZ+FXCQmpFuyKXii7xNI93LT9szdrUMsNZnJkuwZX6zlKdaqRXrESi
+q/e19kBC3NisLt+Gc/7jW0gtZ51Bl1MCmUaoM//aRv0aapnF0l362KIUnI6E
+yuhCUOuWrIVfAZcRAj5NJWJ0C5epP19y1awJLWhdt/a1t3KcGF8Yxb5bbsLI
+toeYmxZRkRWq46IrR9StX/tcw4oKsYH+nlrZpmbcZQ7R1tDPBvMbdIwofLpV
+KIfcJy5nCa5WRhnDFkVOx+s5kr29GPzpfUxsuxg0zlQUxSZudG/CqNOSIJxY
+CclGCA7fDRDpiCK6gIVfidVmWXrHRh0fmBd+eSYIIEcWdRhdJJsWp+aQT1vI
+9nYjnl3wuhSJLuhAJJ1WQWDisadUELCi0bD1WlscMpq6lrV1Ft0riC9tVcFD
+8odfDVS9bod5pNGgC3+XFnxsXA2rsw25/gHMTcwiRxdbvLgPsY7s61IktWSZ
+inw6l8SbupNGvUlphB1yZY3aIhfZtRmz4XS3oMoA5JP6BywdvBIr24ytMdzs
+WjHaMcnI0nXRG5FkdCrnS6gy6QzccxeMZDsJW+r1KbJ4pbKAVy6huXoyauVU
+aAUjRK5WjN9cH05PCiZl84VfsXaSVTKf191C6F61qCXjtjAORtvTSPb0sgYo
+Ei/UmEmnMj6JkpXA6z2cTAbxxV26GdEEZB12DVVV63BrIuwYaWpCGZyuJBWS
+FSxPLTB5PH1+rhDDKlQbuvajNUzE+UVyRTTdQt+zWIrGWIJOozo8hjmashq8
+PkXsZAoty1Yqi/gVnq6ru+p1pUKFTM3dENJzu421TiqKKq3hhUp45apSyM1V
+GMH0xOi+liz0yOxUyijs2w2DlRjI+8tHB3XUIP+fGBxA9+LFr1kRgwV769p1
+fPkEQ+9KRq+dKE9MsGKc1BmxltEC7W6CEdW0aUtocIvw0tcSt5JGu3R4OA+z
+IxW1uKoUOUZzFxmxRp/ai+iz+xi9CK5EVJGdqBNBlG4xdvBlRq9eTQteawhm
+0MgPLsSGj92gVqjKk8ew/TOfxPjjz8BKxhvLFGHjWUBuJh0Cu6pqD7WCTGz4
+BDqKpE30rIlj05rw6sKFxuCXPP9O8MEjxQqOTuQwNjJLa1mItaRRGB3GLHnO
+6znaNmxC/nA/cocPKNoS61iEZVdfEy5LBHVKUieCLY5eeKIiXp6RapJuNVJF
+MCamYGnOUFyslBo0Xronai0dIfXmnZIqtKhgNIaj/F3ULSLx4j60dnXXy8s/
+OZe0dyGW7cLOL34arevXI9rayWgYhZPtoJtNqsTbyPKUgwzamyCw867MtG5N
+BUF9bSBXLCkeKOzDroUutaZODax52yUk5sfgsyrL897+PXtQHTmK7vWnomPp
+CkSTf3pI7j7/Qmz/5HWY3r5LNziYeC3WPlYsovOJJ7VKVbuPENcgXEyvuV3I
+bKXpPlcqqh0acqGe2S1oq1jzqmZ+b0mGDJNaM2bnjrHuPnYUifZOtDMKda9a
+h1RnZ30F99WO9jM2MzouZw0vLdJIuCsiUInOz0vbiVNa9DSBtITyWo3VAV/X
+G/KmPEuBKrmard7rNxKiyCoN7EBnpXlLCiYTmfibuEHSSSkLV4uzGNr5NEYP
+7EZb31J0rd6AzMIevtf+g4oIg+7e8iYM3H03J5muw9n3ZquqfwU3aGDdMBqd
+ztr+lXBbhyg+R2xYTb5jN7YG6SKnyh870r8Ki6Py0CiO3fcTNWaCBU3E8FVD
+r7ZPRjbcDLHO30N/TmazdLk+JFMxVoZh6errUrcmnDQp5o4MocrI4o3N6dmX
+hp1hoHkOFV2R5CXtVwm3Qc0aBip8Z6lY0HtRpJ8GYz5pVFgxgkaHiaCuDE1g
+fOAhFdNbJIKxplCKNJqqyoqi0CT9tp9/IyyPE2SryYyDKD9LVKxKUqXbuFOM
++yVDN/Rq+0ia1mLmtYNqK8rhTiSpLLNbLkDLuZvQ0X8QBoG+//5fIMjP4AQ/
+kJkuM+vW+sS1wkgiVSTi0Fq2XqoLFfFYMMkyHSFL2mOpHQmy+aU4xXHoLk6r
+rIkYiE1JNpZOJjO1ivduOLSkZeuk6/YBwR54jaVv6chXpmZQmJnEssveQjwV
+cPCXv1IWt4//sUVB7K4WpGTREqhvJCrO5MhtGLMTKWU5pUSpDKs1glhbB4W3
+VCSpTM6gOl2GQzxJt+RQUMFcOoENrXG0FEhESSvMmIVIZ6uaHL9QZn6Y067V
+NJueV4bdmYDdktJ7pAJNKKfG+pG/cz8GH/gfGLIARF4o9fs8RWSrUmZxN7Z+
+9za0sooTPiRuI22bsUMHsevWW1B+iFnYdOgqFWTPPxWnXPdxtK5eV8fB9IH9
+2Pn1m1hz7MQh00Xm/C34+K23MiOXsPvLX8bgbXej5bz1OPs7tzIhduHgnXfg
+hX/8OplEsr6U4ZtV9G69HMvf8wEkKUfgaUeWbs4zX/8Sxm/+AbzxCRVF1VpF
+M9hrvS2ZmZbuRUh2LpxPw7t60EWK8vgHPoCZ5w4i1pvBps99Bu2nbJ73XLyz
+B4kvLcAPt27F2LFR9MTjSKbb1L1h4mIq4iNL14u2ZRFJysazZCNHqA0DZXRc
+uBGnf+bz6v4JLDqVgk3r247DnMdJDkOzffJtDfoY2b0dg08/gbZlq7BiyyWk
++MuQ2bAGU9v2snTtQnxBj3pu9OnfYXr/Hiq1EZ0bz0ZsUS+sFUvgDB+DFfh1
+v3X9Kg4xknfLRNZ21h2/RYTX29avU0pUSwUcuP07KLw0oBZrA5bGozt2MlA5
+updgzGuJnYyp6rt7778HP37fX+OJW77ZaKzKoo5eOdfRhMehO3+EbXzu8H/d
+XW/SOTwj0gZqeoVck+h3xES9LDjpVp3QXeRdqSVLkDllrepy5oeHMPH0brq2
+qdteRmNJwj7pYKFVlr75YrztKw6ya9aFTzF8Tk+pBZrmXRGRdCsSLMiQbKlf
+E7PLrjarCcSSA0QZvQQevGKncnrfXpVwZTde3+XvqN9b8d4PYfuNn8O+b9zO
+56K6oGpOiMYreNfSc7eoE+FO00P334XJx3fQzM685zd8/Hqs/uCHGGEy9QEs
+laT0Cm9t7rVyYqnGWogEGIl+nqUTmyxwTj62HTs/91ks3XqN2u8VBLKZoVt1
+4pe/42oc/O6dzB2+qnEMNGHEPHHbSfiSqloakGP7D7+Dpz79BfT6cRXu5rHa
+tk51Nh9aEaOJu2mOZIf36uDu6EDi3PVoIQGV5efiwSG1Rjny8COY3P4sI1WM
+2HKx4bpPYdEFlzA9RMOlhCAsLJssYqGxRbcZI8//9MfIrliDvjPOwqqL/xwD
+996P6rY9zGHWPNMNPf8UJl9+Cdm169G9YWOdapjB8auShsJMc85YdekVWL7l
+QgroKHd68qMfRcAEu+lrX1GdSdmBKjQn0aOrU9lso5bK53uSLiyscNu10tAy
+66FganAQD9zwD6jM5ZBe2IeLbvoGWs5YofZQyfKXxbpejl133omfXfth7P/F
+z8NRLbXgb0nGNe26GhGST5MzFmEYll2oCl+sd2IZCcWtTKxd6rokwdYVpyK9
+fB1z1KnIrD0NDt1WiNGB738X3kxJVapiWVmR5pCurc2iSaIkmNJ0Hr+9+WYk
+Mu0YfHI7Dv9+J+766Eew8vSNiFP4WGsGBanhh6bw1K3fRjSdwfSel5FikTT6
+7At4+t9vgVssojA0Rp6VwOyhfjx9262qABrfw1KaJW15YprXvsVcEG1sT5eC
+ji40fXSURVyAvTd9TSmv6nTVifQx/uwzmHiU7kb3Clu+GC27MsY247p07+Si
+hN0m/Kgc6EXRIjmMgDvCF9mcsXJxDgniZSnN3xFLIcc6Yormd1mhCX2QpWc7
+SteolNUpNUQkIUvJpDkUrsrfqy1L8ZjaFSTrJKLsCbvz6BqxaBwdBReWbJmF
+3kTa2NYRVYFGHEYKqqFKFXtzMg6uUhaJyzZyQ/d/FdUm8LwmAuYwO/vhQBU+
+m+ddmy+NpBKNWpIzF7EdRSxrOygMMl6LruUw2tQXOTy1akNFk/XtU/V70H3g
+6YyNNk5GtOIp/DYvlKp9LoJLWuIl2fADfJ/X71PQ8Jo2Vzbv620OAFI9jtIq
+CQ7tnfC/JxhNT4dShds4UKvB66s1ftPnRqOh/l13hDDqWGhxqUgTsIV1Fzg5
+Y7TEpKsK+B/w+sdqUWuqv1CxUN8K/MqHLMnhj/g/J/4/juDky9VSg0kh/zQj
+322897Pao/8nwAC+AZicLeuzngAAAABJRU5ErkJggg==
+
+
+----==_mimepart_50dd4e5495970_14d6c3fda340b469c5847f--
+
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (3.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 10904ms (Views: 64.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 15:50:21 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+
+Sent mail to zhanghuaxun@xiaoma.com (10303ms)
+Date: Fri, 28 Dec 2012 15:50:21 +0800
+From: goodboyryan007@gmail.com
+To: zhanghuaxun@xiaoma.com
+Message-ID: <50dd4f3dc2a9a_14d6c3fda343c889c592fa@localhost.mail>
+Subject: Comment notify email
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_50dd4f3db7eec_14d6c3fda343c889c589f9";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_50dd4f3db7eec_14d6c3fda343c889c589f9
+Date: Fri, 28 Dec 2012 15:50:21 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50dd4f3dbc090_14d6c3fda343c889c590e@localhost.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50dd4f3db7eec_14d6c3fda343c889c589f9
+Date: Fri, 28 Dec 2012 15:50:21 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50dd4f3dbc89d_14d6c3fda343c889c591e2@localhost.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50dd4f3db7eec_14d6c3fda343c889c589f9
+Date: Fri, 28 Dec 2012 15:50:21 +0800
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=rails.png
+Content-ID: <50dd4f3db612d_14d6c3fda343c889c5882@localhost.mail>
+
+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
+
+
+----==_mimepart_50dd4f3db7eec_14d6c3fda343c889c589f9--
+
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 10409ms (Views: 66.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 16:06:59 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 65ms (Views: 64.8ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 16:09:43 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 48ms (Views: 47.6ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 16:32:05 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 51ms (Views: 50.4ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 16:33:20 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (4.9ms)
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+
+Sent mail to goodboyryan@126.com (9649ms)
+Date: Fri, 28 Dec 2012 16:33:20 +0800
+From: goodboyryan007@gmail.com
+To: goodboyryan@126.com
+Message-ID: <50dd5950e38a3_307e3ffa8ece13dc957a3@localhost.mail>
+Subject: Comment notify email
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_50dd5950af136_307e3ffa8ece13dc954b6";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_50dd5950af136_307e3ffa8ece13dc954b6
+Date: Fri, 28 Dec 2012 16:33:20 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50dd5950dfc4b_307e3ffa8ece13dc9559a@localhost.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50dd5950af136_307e3ffa8ece13dc954b6
+Date: Fri, 28 Dec 2012 16:33:20 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50dd5950e1f49_307e3ffa8ece13dc9566e@localhost.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50dd5950af136_307e3ffa8ece13dc954b6
+Date: Fri, 28 Dec 2012 16:33:20 +0800
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=rails.png
+Content-ID: <50dd59509a823_307e3ffa8ece13dc953b5@localhost.mail>
+
+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
+
+
+----==_mimepart_50dd5950af136_307e3ffa8ece13dc954b6--
+
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10033ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 16:34:37 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 42ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 16:34:38 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 16:34:39 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 16:34:39 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-28 16:34:56 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (0.3ms)
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+
+Sent mail to goodboyryan@126.com (8751ms)
+Date: Fri, 28 Dec 2012 16:34:56 +0800
+From: goodboyryan007@gmail.com
+To: goodboyryan@126.com
+Message-ID: <50dd59b09c721_33433fc3b2cd4b907508a@localhost.mail>
+Subject: Comment notify email
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_50dd59b087746_33433fc3b2cd4b90747ca";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_50dd59b087746_33433fc3b2cd4b90747ca
+Date: Fri, 28 Dec 2012 16:34:56 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50dd59b099ea1_33433fc3b2cd4b9074885@localhost.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50dd59b087746_33433fc3b2cd4b90747ca
+Date: Fri, 28 Dec 2012 16:34:56 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50dd59b09b140_33433fc3b2cd4b907493a@localhost.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50dd59b087746_33433fc3b2cd4b90747ca
+Date: Fri, 28 Dec 2012 16:34:56 +0800
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=rails.png
+Content-ID: <50dd59b07b108_33433fc3b2cd4b9074679@localhost.mail>
+
+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
+
+
+----==_mimepart_50dd59b087746_33433fc3b2cd4b90747ca--
+
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 8932ms (Views: 36.3ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-29 11:10:42 +0800
+Processing by HomeController#index as HTML
+  Rendered comment_mailer/comment_notify_email.html.erb (15.3ms)
+  Rendered comment_mailer/comment_notify_email.html.erb (0.0ms)
+
+Sent mail to goodboyryan@126.com (10234ms)
+Date: Sat, 29 Dec 2012 11:10:43 +0800
+From: goodboyryan007@gmail.com
+To: goodboyryan@126.com
+Message-ID: <50de5f3322efb_ef4f3ff1d9005be440383@ryan.local.mail>
+Subject: Comment notify email
+Mime-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="--==_mimepart_50de5f32dfd78_ef4f3ff1d9005be440054";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+
+----==_mimepart_50de5f32dfd78_ef4f3ff1d9005be440054
+Date: Sat, 29 Dec 2012 11:10:43 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50de5f331f98d_ef4f3ff1d9005be440136@ryan.local.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50de5f32dfd78_ef4f3ff1d9005be440054
+Date: Sat, 29 Dec 2012 11:10:43 +0800
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <50de5f332166b_ef4f3ff1d9005be44022@ryan.local.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>There is a new comment on your blog</h1>
+    hello world heml!
+  </body>
+</html>
+
+----==_mimepart_50de5f32dfd78_ef4f3ff1d9005be440054
+Date: Sat, 29 Dec 2012 11:10:43 +0800
+Mime-Version: 1.0
+Content-Type: image/png;
+ charset=UTF-8;
+ filename=rails.png
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=rails.png
+Content-ID: <50de5f32c2657_ef4f3ff1d9005be439971@ryan.local.mail>
+
+iVBORw0KGgoAAAANSUhEUgAAADIAAABACAYAAABY1SR7AAAAGXRFWHRTb2Z0
+d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAGZhJREFUeNqsWwmUXGWV/t5S
+r9aurl6qO0l3Z9/DEoJh18gZQGAUxPHIyQHH7eioZ8bjnAFHZ0RndNxxRBhG
+cUbxoKIHBkTEcUYREIHIGpKQjUDS6U660/tSVV3Lq/fefPf/Xy2dBFGYx3np
+qvde/e/e/97v3u/e/8e4Lt2L8DCCAFcGwF8ZBjYbgM1rAZoO+WLwZhDMu9y4
++YcOozbAqzwXNA3GdzX/5hV+KnKO2+GXFj/AvzmW8e72iG202CYiphbY403f
+9/k3QHZtJ9oWtyCQe7wGX79TKVb7rP9pXJPDVxf0Rz+oyxm4HNWrahFNixdk
+3EAJbERMWOm4ulctVODNVeEVK0DeRVDgb1wfJgcqUo6duaKnFOH7bm6JmH+5
+LOEgZprwRIHAV3JYfLjKM55Noz3bBqdcgt0Wg52Kq/cHHkXns0qIukKBlltk
+9rU2QaiouiefPQ+RdBuseAJeqYTK1CTH8mE4NsyIpRWu8nssCs+xULWpjGVw
+TvieKl/sV6mIXzOib/OftzuG8d6l8SiVMODyRb46oazg8YPP2Wnvy9ISNqpl
+zsxYAW6hjGhHEmYiBoPC+hRMfFMrESgrBC5n0KS+lq1nPahZh2OXymg9bSNW
+X/u3FKyKI//7Exx96B4Y8RiCEseq8t0VznyxjMDidFIJ8QSf3hJEOFbZEAHV
+hIkFTX54fxtnIW5pJUQIeZ8ooZShkInuDOLpFIX1ldtCBix7KI/k4E7OwbTj
+cNIdiCQzsONp2LEk7GgUnZsuQN9lW2En45xlukrUghWzeZq8FsXsi8+gND6M
+SCqD9k3nwulIUShKZxt0LYPWortRSY0NXreC8J6pZNDChEDh53PT1NIPLaEn
+LbQKNTETEaR7sycA0jD1INXZAnzObjTbiWh7Vr1A3Knn4nciu+lCvstUig09
+cp96cVCtcELoFpEIFUjjyIM/osWIg+IMXS3DcfNwZ3NQHmmKU9OqroX2jWdg
+atduuPkpmA4ViZrK9RqKABEBtg9tDeW+oUIyTIYuFaX7eCG4aqbU+hhKocD3
+UBoZISBLiC9cpAQKyq5SQo6OjVswtec5VHLTiHUuIN4WonXlqUj2riS0DIUX
+wZlERFHSK+SQGzqI3MHdmNm7CzMvvowF527B8qvejZ3/+iXk9vVTao5tiTKN
+0OUHISZEGS/8W6UbRdoTSHe3E1f+CRaR3xhBLVJSIQ7qleZQGBigZYoYdR+E
+lUjBaW3H6JMPIrV0Hdo2bEayZ7my0KsdLctPBS64EuWZMYw/9wTGnvod0mtz
+WH71Vuz66o10bVpK8FIx6orUMejpCKYBTvfM9HXBJtA8z3/1BKDivaksVJma
+YsgsYPDnd6LzzAuw8I1XUIGleC1HtDWLnguv5BiX4+jDD2D4sQeV1bQvNXBi
+6vAb1MGtrEEHjRPgqfZ0qMRJElYYSudfq12nmzAvtJ2yib69iRadRGnySD0U
+v5bDtCPou/gqnPY3N6DnLRczgtHxCf4aVnUeUdgw6i6FqM1w292Ujo/TJdB5
+wHcJ2iDCaBTRmVfw4rkw4yksuvQyJJf0YvrgNiayvBLESS9AYuFqJLLLCPb4
+SQWulosojhxmeCeoDeaQSoVuy8lPtSKxYKnC2Bmf+DwtvBgv3/qfTI6uEtGu
+JV7PCBTIq5zNtt5uxBgyvap30pf55TISfX1Y/PatGPrVvcgPvEyAJ1GenaPZ
+LSy//G2IL+qki43CNCMwk620iovy9FGUJgYwm8gwpK/guRJOS5dyD688h+n9
+z2L28F4Ujx2ia04jEl8Ad3oGVTePaGcnQ3sKLb1rkD3nIqx594dRIh733n6P
+mmrrvGj671sjVlxczRWAkxZ0r+rTrhfMJ0uEM8xKUYXONR+5nr57BdpP24TC
+sX6M/f5F5AYLWPauK9F11htUwjOIL8GNZH1qpKwiyVGELk0OoDj2EtziFOaO
+DSN3aC/v24xmZzAU51TgcJKd/DktHo9jyRXvg0Or7PvejTj22KPKiyafew6z
+g8MYypVLNsLkJ2bxaZXM4i5EmCBPsEaoWJUUpfeSK7DgvEtQmh4ihTDQdf5F
+OHDHr7HqPVeh99KL4OVzpE50N18CtqnCdBCY6rsEcTsqIGUGD6rY9e3bMPzI
+HmTWLsbqa7ai84wL6YrTqEyOqEmwonEExSoO//R7dLcJWiWCueF+7P7mjZAU
+Y8YdJZqySMo24j5zQSybQdeyhdrX5imho4NhEEnkRbkDQyjSRVJLeziCgef/
+6avIrFuOtR95P2lJNSSshg4l6rdm+Ht9inWsqIOX7voN+u/eRoEM5PvHMbbj
+Gcwcfg7jO3YxbCcRiaaYQOXnpEaFGeahGQaMCidJRidt8RghS6Q344XQIowm
+Fq2QXdLNdwsx8zUFqCOQNIECVqdp8pESB53Fvhdux9T2FxBb1AWX4XbjDX/H
+FzjEmgedB4XYKT5D4T0VTLRCtIiTwOBvfovpvS8T+Bm4MyW6jw13tIIDt/9G
+/TTWk8HKvzgbmd4+YldYQIdixgHJYkC82Ul6UDnQSbEGdsFGZlEWyUyLyiEy
+YwajRVAoAXNlEjR+pjUCUmiDQcKOORwwgpFfP4cg5mPzTZ9FoqePdGVWuZRP
+YQNPcgrd0/dCpqpdy3DIsQ4fxtiTu7Hxkx8iRXkcB+94iM86/K0Jx4opi5aO
+zGJs14toWeLAdYXWxFQCtJlkA+LUq+bI7QR3mj3YoqVNgGcXd5NWUOiZAk9G
+H86S4jK25jWBLVREl1uK5Voywz6WXf1WLHjTm0lPigSyxoUpnEqU8c26Wyk/
+Y24RMjhw/yMoj+cQbWvH0isuwuijL6BwaJwcyq7XUTaBP7N3HOU3ke7HSONJ
+b8RTBGoGKZPFyTE8saTZyCPtrC2coxOoTuY5+x4UTzHNsNjR6d6Qa8JJ5BIV
+8ksVtKzpwcr3v5dyOrzHKMWXizsZAnK6k1ImPDmAqjOmdr9AwXcodzr4kwfQ
+fuY6VKbzyhpGU96S75WxIqb2DaPnvNWKklQD4WSuzB+sVILjOYjm/VARSWKT
+BQQzlZCFmErYeubzVJJR14SlQtVQMjO0xrXvoulXkq3OKnxAXqSsoSmNUbOM
+/BV35RjDDz9JrBXpnnEM3vsYjj38LLyZihI8QNAgQhITOCmTO46i+6w1MPm8
+6RVIiC09/RJUGcECCe2UU0G6QIyUjEC5hGaCNd4RqHKU6VuDylQlI2N8hfXD
+WibEdyhCKXREuZUVUX8lyhh2+Jl5Q/6akSgT4izGn3wBFu+JwYOKj8qwtsbJ
+aYmJuYEZ5AYmFOWXPCN1jTodzeuqM0WtSI1rzXrV0LSNKRFuZLYQ2EYVPjEQ
+VuQUMsCya65GvL1HWUwJS+FNUcBsUiZUQv7aLGlndr+I8ug4XUMVAJw4U7Fm
+I8SFETTmUaGK2gas1SeeP8znoizIEso9DaUIy2FWkNU5V0VYs/azWXKncuCH
+qgQq1CHiY831H8TGr34erRvXKdD6LD3b+HnRn12qGgdqlmxHZe2aRcy6NbQS
+cl8y8dSOfWQE1yK9YYmqXYww3xhNObemUI2IWraF2d1HMTeeh83MbkUiylKi
+iMdy2wjzXBjxWYdRiSkhfDVVKGSstxM9l16JxZe/E2+848c49bPXK9D2vPUy
+EsBOVZMINmpCW6HgEOuIQjXF6FYuAV2aHsWyrVfj9C9er5SR5Kms0PTf8QoZ
+tIo7WSJW+mmRJLGSpDK2ipzV2bK6X6fxtWOCicYVqyhGXkXn+WeTcfape5ZD
+sPGM91C5iy8LI0s445bd9FkrAFHICt1N8DE+gdyeQczs34+uzeei68LNLGfd
+ea50st6VbiyYmHq+nxTFRSSRVsD3ii7xyeQbdt/M5h/MERMT4i6GjlAWeUxh
+6HCN8+LIz+5H5zlUbtHSOnVp4MCa51JaIQ16i0kwP9CP0uExPP+JL2DggfuY
+N8jTJClYxnH4aNimdpp0r7nDkyx9h5gE0+RqSVTyZXXTsMz5FaJyMJrrGLNo
+pyWUIImj//1LjPzuUZLCC5gzVqMwPIglV7/rxCaihFaCPCDOxDUl1EoylFP4
+mUlFCgPDStLKWB47PnUjrSSsNqrJsa/zR02ZwGjYRoVkEZh0ZHzbfmTPXE85
+SWrnKip6GeFE2I1iKVBCzNK9pmiVhS1x+Axx7myRJesvgHvvR3rNKmQ3n/OK
+PVGND1MVXTqHiFK6qVFiwlXgTVDhkq+ChhnyJCW9GeaoIGQOdV0M9YhYZWbv
+UXrIJJ+rKL6lJ9CYj5Fai0iKqyPkx0HcUsJYrBbtREIJ2H72GxTI/2CL1zAb
+LkZ8WIxYgUvsKebq6Zl3rEZvymx6echo1N+au9XcS3oHsxWMPrGTFH+CLhsm
+bhMNRWrNB4SZVSwyJ5WDFRb3DAAmaXf2rPP+6BpbkmStkBLAWwkHmdNWKfYq
+FaZRp2GGdo+mhpv6bBkNhepRzERpdASeW1aKSZ5RidpoUsRAvQ+NJCnJHHl+
+bcZ80vjkij661vo/rWMQSitWskgnNv7LP+MNN38NadYuCPtYCItIFTjMRgfe
+qClkhkFZ+FXCQmpFuyKXii7xNI93LT9szdrUMsNZnJkuwZX6zlKdaqRXrESi
+q/e19kBC3NisLt+Gc/7jW0gtZ51Bl1MCmUaoM//aRv0aapnF0l362KIUnI6E
+yuhCUOuWrIVfAZcRAj5NJWJ0C5epP19y1awJLWhdt/a1t3KcGF8Yxb5bbsLI
+toeYmxZRkRWq46IrR9StX/tcw4oKsYH+nlrZpmbcZQ7R1tDPBvMbdIwofLpV
+KIfcJy5nCa5WRhnDFkVOx+s5kr29GPzpfUxsuxg0zlQUxSZudG/CqNOSIJxY
+CclGCA7fDRDpiCK6gIVfidVmWXrHRh0fmBd+eSYIIEcWdRhdJJsWp+aQT1vI
+9nYjnl3wuhSJLuhAJJ1WQWDisadUELCi0bD1WlscMpq6lrV1Ft0riC9tVcFD
+8odfDVS9bod5pNGgC3+XFnxsXA2rsw25/gHMTcwiRxdbvLgPsY7s61IktWSZ
+inw6l8SbupNGvUlphB1yZY3aIhfZtRmz4XS3oMoA5JP6BywdvBIr24ytMdzs
+WjHaMcnI0nXRG5FkdCrnS6gy6QzccxeMZDsJW+r1KbJ4pbKAVy6huXoyauVU
+aAUjRK5WjN9cH05PCiZl84VfsXaSVTKf191C6F61qCXjtjAORtvTSPb0sgYo
+Ei/UmEmnMj6JkpXA6z2cTAbxxV26GdEEZB12DVVV63BrIuwYaWpCGZyuJBWS
+FSxPLTB5PH1+rhDDKlQbuvajNUzE+UVyRTTdQt+zWIrGWIJOozo8hjmashq8
+PkXsZAoty1Yqi/gVnq6ru+p1pUKFTM3dENJzu421TiqKKq3hhUp45apSyM1V
+GMH0xOi+liz0yOxUyijs2w2DlRjI+8tHB3XUIP+fGBxA9+LFr1kRgwV769p1
+fPkEQ+9KRq+dKE9MsGKc1BmxltEC7W6CEdW0aUtocIvw0tcSt5JGu3R4OA+z
+IxW1uKoUOUZzFxmxRp/ai+iz+xi9CK5EVJGdqBNBlG4xdvBlRq9eTQteawhm
+0MgPLsSGj92gVqjKk8ew/TOfxPjjz8BKxhvLFGHjWUBuJh0Cu6pqD7WCTGz4
+BDqKpE30rIlj05rw6sKFxuCXPP9O8MEjxQqOTuQwNjJLa1mItaRRGB3GLHnO
+6znaNmxC/nA/cocPKNoS61iEZVdfEy5LBHVKUieCLY5eeKIiXp6RapJuNVJF
+MCamYGnOUFyslBo0Xronai0dIfXmnZIqtKhgNIaj/F3ULSLx4j60dnXXy8s/
+OZe0dyGW7cLOL34arevXI9rayWgYhZPtoJtNqsTbyPKUgwzamyCw867MtG5N
+BUF9bSBXLCkeKOzDroUutaZODax52yUk5sfgsyrL897+PXtQHTmK7vWnomPp
+CkSTf3pI7j7/Qmz/5HWY3r5LNziYeC3WPlYsovOJJ7VKVbuPENcgXEyvuV3I
+bKXpPlcqqh0acqGe2S1oq1jzqmZ+b0mGDJNaM2bnjrHuPnYUifZOtDMKda9a
+h1RnZ30F99WO9jM2MzouZw0vLdJIuCsiUInOz0vbiVNa9DSBtITyWo3VAV/X
+G/KmPEuBKrmard7rNxKiyCoN7EBnpXlLCiYTmfibuEHSSSkLV4uzGNr5NEYP
+7EZb31J0rd6AzMIevtf+g4oIg+7e8iYM3H03J5muw9n3ZquqfwU3aGDdMBqd
+ztr+lXBbhyg+R2xYTb5jN7YG6SKnyh870r8Ki6Py0CiO3fcTNWaCBU3E8FVD
+r7ZPRjbcDLHO30N/TmazdLk+JFMxVoZh6errUrcmnDQp5o4MocrI4o3N6dmX
+hp1hoHkOFV2R5CXtVwm3Qc0aBip8Z6lY0HtRpJ8GYz5pVFgxgkaHiaCuDE1g
+fOAhFdNbJIKxplCKNJqqyoqi0CT9tp9/IyyPE2SryYyDKD9LVKxKUqXbuFOM
++yVDN/Rq+0ia1mLmtYNqK8rhTiSpLLNbLkDLuZvQ0X8QBoG+//5fIMjP4AQ/
+kJkuM+vW+sS1wkgiVSTi0Fq2XqoLFfFYMMkyHSFL2mOpHQmy+aU4xXHoLk6r
+rIkYiE1JNpZOJjO1ivduOLSkZeuk6/YBwR54jaVv6chXpmZQmJnEssveQjwV
+cPCXv1IWt4//sUVB7K4WpGTREqhvJCrO5MhtGLMTKWU5pUSpDKs1glhbB4W3
+VCSpTM6gOl2GQzxJt+RQUMFcOoENrXG0FEhESSvMmIVIZ6uaHL9QZn6Y067V
+NJueV4bdmYDdktJ7pAJNKKfG+pG/cz8GH/gfGLIARF4o9fs8RWSrUmZxN7Z+
+9za0sooTPiRuI22bsUMHsevWW1B+iFnYdOgqFWTPPxWnXPdxtK5eV8fB9IH9
+2Pn1m1hz7MQh00Xm/C34+K23MiOXsPvLX8bgbXej5bz1OPs7tzIhduHgnXfg
+hX/8OplEsr6U4ZtV9G69HMvf8wEkKUfgaUeWbs4zX/8Sxm/+AbzxCRVF1VpF
+M9hrvS2ZmZbuRUh2LpxPw7t60EWK8vgHPoCZ5w4i1pvBps99Bu2nbJ73XLyz
+B4kvLcAPt27F2LFR9MTjSKbb1L1h4mIq4iNL14u2ZRFJysazZCNHqA0DZXRc
+uBGnf+bz6v4JLDqVgk3r247DnMdJDkOzffJtDfoY2b0dg08/gbZlq7BiyyWk
++MuQ2bAGU9v2snTtQnxBj3pu9OnfYXr/Hiq1EZ0bz0ZsUS+sFUvgDB+DFfh1
+v3X9Kg4xknfLRNZ21h2/RYTX29avU0pUSwUcuP07KLw0oBZrA5bGozt2MlA5
+updgzGuJnYyp6rt7778HP37fX+OJW77ZaKzKoo5eOdfRhMehO3+EbXzu8H/d
+XW/SOTwj0gZqeoVck+h3xES9LDjpVp3QXeRdqSVLkDllrepy5oeHMPH0brq2
+qdteRmNJwj7pYKFVlr75YrztKw6ya9aFTzF8Tk+pBZrmXRGRdCsSLMiQbKlf
+E7PLrjarCcSSA0QZvQQevGKncnrfXpVwZTde3+XvqN9b8d4PYfuNn8O+b9zO
+56K6oGpOiMYreNfSc7eoE+FO00P334XJx3fQzM685zd8/Hqs/uCHGGEy9QEs
+laT0Cm9t7rVyYqnGWogEGIl+nqUTmyxwTj62HTs/91ks3XqN2u8VBLKZoVt1
+4pe/42oc/O6dzB2+qnEMNGHEPHHbSfiSqloakGP7D7+Dpz79BfT6cRXu5rHa
+tk51Nh9aEaOJu2mOZIf36uDu6EDi3PVoIQGV5efiwSG1Rjny8COY3P4sI1WM
+2HKx4bpPYdEFlzA9RMOlhCAsLJssYqGxRbcZI8//9MfIrliDvjPOwqqL/xwD
+996P6rY9zGHWPNMNPf8UJl9+Cdm169G9YWOdapjB8auShsJMc85YdekVWL7l
+QgroKHd68qMfRcAEu+lrX1GdSdmBKjQn0aOrU9lso5bK53uSLiyscNu10tAy
+66FganAQD9zwD6jM5ZBe2IeLbvoGWs5YofZQyfKXxbpejl133omfXfth7P/F
+z8NRLbXgb0nGNe26GhGST5MzFmEYll2oCl+sd2IZCcWtTKxd6rokwdYVpyK9
+fB1z1KnIrD0NDt1WiNGB738X3kxJVapiWVmR5pCurc2iSaIkmNJ0Hr+9+WYk
+Mu0YfHI7Dv9+J+766Eew8vSNiFP4WGsGBanhh6bw1K3fRjSdwfSel5FikTT6
+7At4+t9vgVssojA0Rp6VwOyhfjx9262qABrfw1KaJW15YprXvsVcEG1sT5eC
+ji40fXSURVyAvTd9TSmv6nTVifQx/uwzmHiU7kb3Clu+GC27MsY247p07+Si
+hN0m/Kgc6EXRIjmMgDvCF9mcsXJxDgniZSnN3xFLIcc6Yormd1mhCX2QpWc7
+SteolNUpNUQkIUvJpDkUrsrfqy1L8ZjaFSTrJKLsCbvz6BqxaBwdBReWbJmF
+3kTa2NYRVYFGHEYKqqFKFXtzMg6uUhaJyzZyQ/d/FdUm8LwmAuYwO/vhQBU+
+m+ddmy+NpBKNWpIzF7EdRSxrOygMMl6LruUw2tQXOTy1akNFk/XtU/V70H3g
+6YyNNk5GtOIp/DYvlKp9LoJLWuIl2fADfJ/X71PQ8Jo2Vzbv620OAFI9jtIq
+CQ7tnfC/JxhNT4dShds4UKvB66s1ftPnRqOh/l13hDDqWGhxqUgTsIV1Fzg5
+Y7TEpKsK+B/w+sdqUWuqv1CxUN8K/MqHLMnhj/g/J/4/juDky9VSg0kh/zQj
+322897Pao/8nwAC+AZicLeuzngAAAABJRU5ErkJggg==
+
+
+----==_mimepart_50de5f32dfd78_ef4f3ff1d9005be440054--
+
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 10742ms (Views: 91.3ms | ActiveRecord: 0.0ms)
+=======
+>>>>>>> b85904694adc9eb4204102f6ea3082fcabc1e4ee
