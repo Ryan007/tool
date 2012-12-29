@@ -4,15 +4,12 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-<<<<<<< HEAD
+  
   if Rails.env.product?
     config.mailer_sender = "noreply@xiaoma.com"
   else
     config.mailer_sender = "goodboyryan007@gmail.com"
   end
-=======
-  config.mailer_sender = "noreply@xiaoma.com"
->>>>>>> b85904694adc9eb4204102f6ea3082fcabc1e4ee
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -127,20 +124,14 @@ Devise.setup do |config|
   # Email regex used to validate email formats. It simply asserts that
   # an one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-<<<<<<< HEAD
+
   config.email_regexp = /\A[^@]+@[^@]+\z/
-=======
-  # config.email_regexp = /\A[^@]+@[^@]+\z/
->>>>>>> b85904694adc9eb4204102f6ea3082fcabc1e4ee
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-<<<<<<< HEAD
   config.timeout_in = 30.minutes
-=======
   # config.timeout_in = 30.minutes
->>>>>>> b85904694adc9eb4204102f6ea3082fcabc1e4ee
   
   # If true, expires auth token on session timeout.
   # config.expire_auth_token_on_timeout = false

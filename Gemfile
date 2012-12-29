@@ -67,10 +67,8 @@ group :development do
   gem 'capistrano-rvm'
 end
  
-<<<<<<< HEAD
 gem "mail"
-=======
->>>>>>> b85904694adc9eb4204102f6ea3082fcabc1e4ee
+
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 

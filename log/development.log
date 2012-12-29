@@ -2376,3 +2376,5 @@ Y7TEpKsK+B/w+sdqUWuqv1CxUN8K/MqHLMnhj/g/J/4/juDky9VSg0kh/zQj
 Completed 200 OK in 10742ms (Views: 91.3ms | ActiveRecord: 0.0ms)
 =======
 >>>>>>> b85904694adc9eb4204102f6ea3082fcabc1e4ee
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
