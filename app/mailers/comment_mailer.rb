@@ -1,6 +1,7 @@
 # encoding: utf-8
 class CommentMailer < ActionMailer::Base
-  default :from => "goodboyryan007@gmail.com"
+  # default :from => "goodboyryan007@gmail.com"
+  default :from => "noreply@xiaoma.com"
 
 
   def comment_notify_email(recipient, subject, message)
