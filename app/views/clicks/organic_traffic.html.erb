@@ -1,0 +1,39 @@
+<h1>引荐流量来源</h1>
+<%= link_to '返回', clicks_path %>
+<h4>昨日共：<%= @count_triffs%>次访问</h4>
+<%= link_to "导出Excel", root_url%>  
+<table border='1'>
+	<tr>
+		<td>日期</td>
+		<td>关键字</td>
+		<td>点击次数</td>
+		<td>产品浏览</td>
+		<td>转化率1</td>
+		<td>乐语点击</td>
+		<td>转化率2</td>
+	</tr>
+	<% @triffs.each do |t|%>
+	<tr>
+		<td><%= t.current_date%></td>
+		<td><%= t.keyword %></td>
+		<td><%= t.clicks%></td>
+		<td><%= t.goal1 %></td>
+		<td>
+			<% if t.goal1 == 0 || t.conversion1_rate == '0.0'%>
+			0
+			<% else %>
+			<%= t.conversion1_rate %>
+			<% end %>
+		</td>
+		<td><%= t.goal3 %></td>
+		<td>
+			<% if t.goal3 == 0 || t.conversion3_rate == '0.0'%>
+			0
+			<% else %>
+			<%= t.conversion3_rate%>
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+<%=h will_paginate @triffs, :previous_label => '上一页',  :next_label => '下一页'%>

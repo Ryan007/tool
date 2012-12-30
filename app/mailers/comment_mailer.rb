@@ -9,11 +9,22 @@ class CommentMailer < ActionMailer::Base
 	    @url  = "http://example.com/login"
 	    attachments["rails.png"] = File.read("#{Rails.root}/app/assets/images/rails.png")
 	    
-	    mail(:to => recipient, :subject => "Welcome to My Awesome Site") do |format|
-	       format.html
-	      # format.html{render 'another_template'}
-	      # format.text{render :text => 'Render text'}
-	    end
+	    @now = Time.now
+
+	    @recipients = recipient
+	    @from = 'noreply@xiaoma.com'
+	    @subject = "流量数据统计表"
+	    
+	    attachments["引荐流量#{@now.strftime("%Y-%m-%d")}.xls"] = File.read("#{Rails.root}/download/triffs/#{@now.strftime('%Y-%m-%d')}-ReferralTraffic.xls")
+	    # attachments["自然流量#{@now.strftime("%Y-%m-%d")}.xls"] = File.read("#{Rails.root}/download/triffs/#{@now.strftime('%Y-%m-%d')}-OrganicTraffic.xls")
+	    # attachments["产品流量#{@now.strftime("%Y-%m-%d")}.xls"] = File.read("#{Rails.root}/download/triffs/#{@now.strftime('%Y-%m-%d')}-Campaign.xls")
+
+	    mail(:to => "#{recipient}", :subject => @subject)
+	    # mail(:to => recipient, :subject => "Welcome to My Awesome Site") do |format|
+	    #    format.html
+	    #   # format.html{render 'another_template'}
+	    #   # format.text{render :text => 'Render text'}
+	    # end
 	    # puts "----#{recipient}----#{subject} ----#{message}"
 	    # puts mail.class
 

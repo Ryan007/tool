@@ -1,0 +1,29 @@
+<%= form_tag(sum_position_clicks_path, :method => :get) do %>
+  <%= render 'search'%>
+<% end %>
+
+<h1>位置统计总表</h1>
+<%= link_to '返回', clicks_path %>
+<table>
+  <tr>
+    <th>名称</th>
+    <th>总点击量</th>
+  </tr>
+
+<% @all.each do |p| %>
+  <tr>
+    <td>
+    	<% if p.position%>
+    	<%= link_to Position.find(p.position).name, "/positions/detail?id=#{p.position}"  %>
+  		<% else %>
+  		no data
+    	<% end %>
+    </td>
+    <td>
+      <% if p.sum_position%>
+      <%= number_with_precision(p.sum_position, :precision => 0) %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,52 @@
+<h1>谷歌数据列表（编辑版）</h1>
+<ul>
+  <li><h4><%= link_to "类别", tag_categories_path %>：<%= link_to "父类别", tag_categories_path%>：<%= link_to "页面", web_pages_path%>：<%= link_to "位置", positions_path %>：<%= link_to "活动", campaigns_path %></h4></li>
+</ul>
+
+<table border="1">
+  <tr>
+    <th width="20%">日期</th>
+    <th width="12%">UV</th>
+    <th width="12%">PV</th>
+    <th width="12%">Sat</th>
+    <th width="12%">Toefl</th>
+    <th width="12%">Gre</th>
+    <th width="12%">Ielts</th>
+    <th width="12%">Liuxue</th>
+  </tr>
+
+<% @google_analytics.each do |google_analytic| %>
+  <tr>
+    <td><%= google_analytic.current_date %></td>
+    <td><%= google_analytic.unique_visitor %></td>
+    <td><%= google_analytic.page_view %></td>
+    <td>
+        <% if google_analytic.sat %>
+        <%= link_to google_analytic.sat, "/google_analytics/show_traffic?dt=#{google_analytic.current_date}&t=0"%>
+        <% end %>
+    </td>
+    <td>
+        <% if google_analytic.toefl %>
+        <%= link_to google_analytic.toefl, "/google_analytics/show_traffic?dt=#{google_analytic.current_date}&t=2" %>
+        <% end %>
+    </td>
+    <td>
+        <% if google_analytic.gre%>
+        <%= link_to google_analytic.gre, "/google_analytics/show_traffic?dt=#{google_analytic.current_date}&t=1"%>
+        <% end %>
+    </td>
+    <td>
+        <% if google_analytic.ielts%>
+        <%= link_to google_analytic.ielts, "/google_analytics/show_traffic?dt=#{google_analytic.current_date}&t=3"%>
+        <% end %>
+    </td>
+    <td>
+        <% if google_analytic.liuxue%>
+        <%= link_to google_analytic.liuxue, "/google_analytics/show_traffic?dt=#{google_analytic.current_date}&t=4"%>
+        <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%=h will_paginate @google_analytics, :previous_label => '上一页',  :next_label => '下一页'%>

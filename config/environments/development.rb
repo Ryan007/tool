@@ -42,24 +42,24 @@ Xmims::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
 
-  # config.action_mailer.smtp_settings = {
-  #   :address              => "smtp.qq.com",
-  #   :port                 => 25,
-  #   :domain               => 'www.xiaoma.com',
-  #   :user_name            => 'noreply@xiaoma.com',
-  #   :password             => '1q2w3e4r',
-  #   :authentication       => 'plain',
-  #   :enable_starttls_auto => true  }
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.qq.com",
+    :port                 => 25,
+    :domain               => 'www.xiaoma.com',
+    :user_name            => 'noreply@xiaoma.com',
+    :password             => '1q2w3e4r',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
 
-  ActionMailer::Base.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => "gmail.com",
-    :user_name            => "goodboyryan007",
-    :password             => "www785010278",
-    :authentication       => "plain",
-    :enable_starttls_auto => true
-  }
+  # ActionMailer::Base.smtp_settings = {
+  #   :address              => "smtp.gmail.com",
+  #   :port                 => 587,
+  #   :domain               => "gmail.com",
+  #   :user_name            => "goodboyryan007",
+  #   :password             => "www785010278",
+  #   :authentication       => "plain",
+  #   :enable_starttls_auto => true
+  # }
   # ActionMailer::Base.default_url_options[:host] = "localhost:3000"
 
 end

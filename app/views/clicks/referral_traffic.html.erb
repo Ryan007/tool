@@ -1,0 +1,42 @@
+<h1>引荐流量来源</h1>
+<%= link_to '返回', clicks_path %>
+
+<h4>昨日共：<%= @count_triffs%>次访问</h4>
+<table border='1'>
+	<tr>
+		<td>日期</td>
+		<td>来源名称</td>
+		<td>点击次数</td>
+		<td>产品浏览</td>
+		<td>转化率1</td>
+		<td>乐语点击</td>
+		<td>转化率2</td>
+	</tr>
+	<% @triffs.each do |t|%>
+	<tr>
+		<td><%= t.current_date%></td>
+		<td><%= t.source_name %></td>
+		<td><%= t.clicks%></td>
+		<td><%= t.goal1 %></td>
+		<td>
+			<% if t.goal1 == 0 || t.conversion1_rate == '0.0'%>
+			0
+			<% else %>
+			<%= t.conversion1_rate %>
+			<% end %>
+		</td>
+		<td><%= t.goal3 %></td>
+		<td>
+			<% if t.goal3 == 0 || t.conversion3_rate == '0.0'%>
+			0
+			<% else %>
+			<%= t.conversion3_rate%>
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+
+<%= form_tag(home_send_mail_path) %>
+	<%= text_field_tag 'email'%>
+	<%= submit_tag("发送")%>

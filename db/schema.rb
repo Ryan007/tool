@@ -11,7 +11,88 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121214005918) do
+ActiveRecord::Schema.define(:version => 20121229292946) do
+
+  create_table "campaigns", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "clicks", :force => true do |t|
+    t.string  "tagname"
+    t.integer "clicks"
+    t.date    "record_date"
+    t.integer "campaign"
+    t.integer "page"
+    t.integer "up_category"
+    t.string  "tag_type"
+    t.integer "position"
+    t.integer "category"
+  end
+
+  create_table "google_analytics", :force => true do |t|
+    t.date    "current_date"
+    t.integer "unique_visitor"
+    t.integer "visit_product"
+    t.integer "product_page"
+    t.integer "average_page"
+    t.string  "conversion1"
+    t.string  "stay_time"
+    t.string  "bounce_rate"
+    t.integer "click"
+    t.string  "conversion2"
+    t.integer "sat"
+    t.integer "gre"
+    t.integer "toefl"
+    t.integer "ielts"
+    t.integer "liuxue"
+    t.integer "page_view"
+  end
+
+  create_table "google_traffic_rankings", :force => true do |t|
+    t.date    "current_date"
+    t.string  "source_name"
+    t.integer "visits"
+    t.integer "channel_type"
+  end
+
+  create_table "organic_traffics", :force => true do |t|
+    t.string  "keyword"
+    t.integer "goal1"
+    t.string  "conversion1_rate"
+    t.integer "goal3"
+    t.string  "conversion3_rate"
+    t.date    "current_date"
+    t.integer "clicks"
+  end
+
+  create_table "positions", :force => true do |t|
+    t.string   "name"
+    t.integer  "upid"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "referral_traffics", :force => true do |t|
+    t.string  "source_name"
+    t.integer "clicks"
+    t.integer "goal1"
+    t.string  "conversion1_rate"
+    t.integer "goal3"
+    t.string  "conversion3_rate"
+    t.date    "current_date"
+  end
+
+  create_table "tag_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "uid"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username",               :default => "", :null => false
@@ -42,5 +123,13 @@ ActiveRecord::Schema.define(:version => 20121214005918) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "web_pages", :force => true do |t|
+    t.string   "domain"
+    t.integer  "categroy"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "content"
+  end
 
 end
