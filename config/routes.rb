@@ -42,6 +42,7 @@ Xmims::Application.routes.draw do
   end
 
   get "home/index"
+  get "home/introduction"
   # 发送邮件到指定email里面
   post "home/send_mail"
 

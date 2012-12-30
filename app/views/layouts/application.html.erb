@@ -1,56 +1,58 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-  <title>小马内部系统</title>
-  <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.css" type="text/css"/>
-  <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.print.css" type="text/css" media='print'/>
-  <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/cupertino/theme.css" type="text/css" media='print'/>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>小马网络部</title>
+      <!-- JQuery engine script-->
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery_1.8.3.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery-ui-1.8.18.custom.min.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery_ujs.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery.ui.datepicker-zh-CN.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery.relatedselects.min.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.min.js"></script>
 
-  <!-- JQuery engine script-->
-  <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery_1.7.1.min.js"></script>
-  <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.min.js"></script>
-  <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery_ujs.js"></script>
-  <%= csrf_meta_tags %>
-</head>
+    <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/south-street/jquery-ui-1.8.18.custom.css" type="text/css"/>
+    <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>style/style.css" type="text/css"/>
+    <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.css" type="text/css"/>
+    <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.print.css" type="text/css" media='print'/>
+    <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/cupertino/theme.css" type="text/css" media='print'/>
+    <%= csrf_meta_tags %>
+  </head>
 <body>
-
-<!-- Start #header-status -->
-<div id="header-status">
-        <div style="dispaly:inline;">
+    <div class="page">
+      <div class="header">
+        <a href="<%= root_url%>" id="logo"><img src="<%= Xmims::Application.config.staticfile_server_url %>images/logo.png" alt="小马过河网络部系统"/></a>
+        <ul>
+          <li class="selected"><a href="<%= root_url%>">首页</a></li>
+          <li><a href="<%= root_url%>"></a></li>
+          <li>
             <% if user_signed_in? %>
-            您好,<%= current_user.username %>
-            <% else %>
-            <%= link_to "[登录]", new_user_session_path, :method => :get %> |
-            <%= link_to "[注册]", "/users/sign_up", :method => :get %>
+                <%= link_to '流量管理', clicks_path%>
             <% end %>
+          </li>
+          <li>
+              <% if user_signed_in? %>
+              您好,<%= current_user.username %>
+              <%= link_to "退出", destroy_user_session_path, :method => :delete %>
+              <% else %>
+              <%= link_to "[登录]", new_user_session_path, :method => :get %> |
+              <%= link_to "[注册]", "/users/sign_up", :method => :get %>
+              <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="body">
+          <%= yield %>
+      </div>
+      <div class="footer">
+        <p>&#169; Copyright &#169; 2012. xiaoma all rights reserved. collect from</p>
+        <div class="connect">
+          <a href="http://www.xiaoma.com" target="_blank" alt="小马过河国际教育官网"><img src="<%= Xmims::Application.config.staticfile_server_url %>images/logo.png"/></a>
+          <a href="http://dept.vip.xiaoma.com/" id="vimeo">vimeo</a>
         </div>
-        <div style="dispaly:inline;float=left;">
-          <% if user_signed_in? %>
-              <%= link_to "Logout", destroy_user_session_path, :method => :delete ,:id => "logout"%>
-              <%= link_to '流量管理', clicks_path%>
-          <% end %>
-        </div>
-</div> 
-<!-- End #header-status -->
-
-<!-- devise的提示信息 start -->
- 
-    <% if flash[:notice] %>
-    <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if flash[:alert] %>
-    <p class="alert"><%= alert %></p>
-    <% end %>
-    <% if flash[:error] %>
-    <p class="error"><%= flash[:error] %></p>
-    <% end %>
-    <% if flash[:success] %>
-    <p class="success"><%= flash[:success] %></p>
-    <% end %>
-<!-- devise的提示信息 end -->
-
-
-<%= yield %>
-
-</body>
-</html>
+      </div>
+    </div>
+  </body>
+</html>  

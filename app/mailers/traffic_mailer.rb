@@ -5,8 +5,8 @@ class TrafficMailer < ActionMailer::Base
   @@arr = []
   def send_traffic(recipient)
     # # 先生成excel文件
-    time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-    @yd = Time.now - 1.day
+    time_range = (Time.now.midnight - 2.day)..(Time.now.midnight - 1.day)
+    @yd = Time.now - 2.day
     @@arr = []
     traverse_dir("#{Rails.root}/download/triffs/")
     # 计算总的点击次数 uv
@@ -14,20 +14,21 @@ class TrafficMailer < ActionMailer::Base
     @count_uv = ReferralTraffic.where('current_date' => time_range).sum("clicks")
     @count_uv1 = OrganicTraffic.where('current_date' => time_range).sum("clicks")
 
-    
+    puts "-----------------start------"
     if !@@arr.include?"#{@yd.strftime('%Y-%m-%d')}-ReferralTraffic.xls"
+        puts "-----------------end------"
         @triffs = ReferralTraffic.where('current_date' => time_range).order("clicks DESC")
-        export_xls(@triffs, ReferralTraffic, @count_uv)
+        export_xls(@triffs, ReferralTraffic, @count_uv, @yd)
     end
     if !@@arr.include?"#{@yd.strftime('%Y-%m-%d')}-OrganicTraffic.xls"
         @triff1s = OrganicTraffic.where('current_date' => time_range).order("clicks DESC")
-        export_xls(@triff1s, OrganicTraffic, @count_uv1)
+        export_xls(@triff1s, OrganicTraffic, @count_uv1, @yd)
     end
     if !@@arr.include?"#{@yd.strftime('%Y-%m-%d')}-Campaign.xls"
         @all = Click.select("*, sum(clicks) as sum_campaign").group("campaign").where('record_date' => time_range).order("sum_campaign DESC")
-        export_camp_xls(@all, @count_clicks, Campaign)
+        export_camp_xls(@all, @count_clicks, Campaign, @yd)
     end
-
+    puts "-----------------end------"
 
     @recipients = recipient
     @from = 'noreply@xiaoma.com'
@@ -55,7 +56,7 @@ class TrafficMailer < ActionMailer::Base
 
   private  
     # 导出流量数据
-    def export_xls(objs, model, count_click)
+    def export_xls(objs, model, count_click, yd)
       count_row = 0
       count_col = 0
       xls_report = StringIO.new  
@@ -89,13 +90,13 @@ class TrafficMailer < ActionMailer::Base
         count_row = count_row + 1
       end  
       
-      filepath=Rails.root+"download/triffs/#{(Time.now-1.day).strftime('%Y-%m-%d')}-#{model}.xls" 
+      filepath=Rails.root+"download/triffs/#{(yd).strftime('%Y-%m-%d')}-#{model}.xls" 
       book.write filepath
       xls_report.string
     end 
 
     # 导出流量数据
-    def export_camp_xls(objs, count_all, model)
+    def export_camp_xls(objs, count_all, model, yd)
       count_row = 0
       count_col = 0
       xls_report = StringIO.new  
@@ -123,7 +124,7 @@ class TrafficMailer < ActionMailer::Base
         count_row = count_row + 1
       end  
       
-      filepath=Rails.root+"download/triffs/#{(Time.now-1.day).strftime('%Y-%m-%d')}-#{model}.xls" 
+      filepath=Rails.root+"download/triffs/#{(yd).strftime('%Y-%m-%d')}-#{model}.xls" 
       book.write filepath
       xls_report.string
     end 

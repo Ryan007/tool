@@ -1,7 +1,7 @@
-<script>
+<script type="text/javascript">
   $(function() {
     $( "#datepicker" ).datepicker();
-    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy--mm--dd" );
     $( "#datepicker" ).val("<%= @time %>");
     $( "#web_page" ).val("<%= @web_page%>");
     $( "#category" ).val("<%= @category%>");
@@ -10,7 +10,7 @@
   });
 </script>
 <style type="text/css">
-  table tr td{ border:#4C4C4C solid 0.5px; text-align:center; line-height:24px;}
+  table tr td{ border:#4C4C4C solid 0.5px; text--align:center; line--height:24px;}
 </style>
 <h1>点击量分类列表</h1>
 <h4>根据条件查询</h4>
@@ -31,11 +31,11 @@
   <div style="display:inline;"><%= link_to "Campaign视图", index_campaign_clicks_path %></div>
   <div style="display:inline;"><%= link_to "引荐流量", referral_traffic_clicks_path %></div>
   <div style="display:inline;"><%= link_to "自然搜索流量", organic_traffic_clicks_path %></div>
-  <div style="display:inline;"><%= link_to "[编辑]", user_index_google_analytics_path%></div>
+  <div style="display:inline;"><%= link_to "编辑", user_index_google_analytics_path%></div>
 </div>
 
 <ul>
-  <li><h4><%= link_to "类别", tag_categories_path %>：<%= link_to "父类别", tag_categories_path%>：<%= link_to "页面", web_pages_path%>：<%= link_to "位置", positions_path %>：<%= link_to "活动", campaigns_path %></h4></li>
+  <li><h4><%= link_to "类别", tag_categories_path %>--<%= link_to "父类别", tag_categories_path%>--<%= link_to "页面", web_pages_path%>--<%= link_to "位置", positions_path %>--<%= link_to "活动", campaigns_path %></h4></li>
 </ul>
 
 

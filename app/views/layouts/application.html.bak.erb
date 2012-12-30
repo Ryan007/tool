@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>小马网络部</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+      <!-- JQuery engine script-->
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery_1.8.3.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery-ui-1.8.18.custom.min.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery_ujs.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery.ui.datepicker-zh-CN.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/jquery.relatedselects.min.js"></script>
+    <script type="text/javascript" src="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.min.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/south-street/jquery-ui-1.8.18.custom.css" type="text/css"/>
+    <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>style/style.css" type="text/css"/>
+    <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.css" type="text/css"/>
+    <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/fullcalendar.print.css" type="text/css" media='print'/>
+    <link rel="stylesheet" href="<%= Xmims::Application.config.staticfile_server_url %>jquery/fullcalendar/cupertino/theme.css" type="text/css" media='print'/>
+
+    <%= csrf_meta_tags %>
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="css/ie7.css" type="text/css" />
+    <![endif]-->
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <a href="index.html" id="logo"><img src="images/logo.gif" alt=""/></a>
+        <ul>
+          <li class="selected"><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="services.html">Services</a></li>
+        </ul>
+          <div style="dispaly:inline;">
+              <% if user_signed_in? %>
+              您好,<%= current_user.username %>
+              <% else %>
+              <%= link_to "[登录]", new_user_session_path, :method => :get %> |
+              <%= link_to "[注册]", "/users/sign_up", :method => :get %>
+              <% end %>
+          </div>
+          <div style="dispaly:inline;float=left;">
+            <% if user_signed_in? %>
+                <%= link_to "Logout", destroy_user_session_path, :method => :delete ,:id => "logout"%>
+                <%= link_to '流量管理', clicks_path%>
+            <% end %>
+          </div>
+      </div>
+      <div class="body">
+        <!-- devise的提示信息 start -->
+ 
+          <% if flash[:notice] %>
+          <p class="notice"><%= notice %></p>
+          <% end %>
+          <% if flash[:alert] %>
+          <p class="alert"><%= alert %></p>
+          <% end %>
+          <% if flash[:error] %>
+          <p class="error"><%= flash[:error] %></p>
+          <% end %>
+          <% if flash[:success] %>
+          <p class="success"><%= flash[:success] %></p>
+          <% end %>
+      <!-- devise的提示信息 end -->
+
+
+        <%= yield %>
+
+        <div id="featured">
+          <h3>This is a FREE website template</h3>
+          <p>This website template has been collect from Free Website Templates for you, for free. You can 
+          replace all this text with your own text. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+          sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi 
+          enim ad minim veniam, quis nostrud exerci tation ullamcorper</p>
+          <input type="button" value="Read more" onClick="parent.location='blog.html'"/>
+        </div>
+
+        <ul class="blog">
+          <li>
+            <div>
+              <a href="blog.html"><img src="images/pastries.jpg" alt=""/></a>
+              <p>This website template has been collect from Free Website Templates for you, for free. 
+              You can replace all this text with your own text.</p>
+              <a href="blog.html">Click to read more</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="blog.html"><img src="images/fruits.jpg" alt=""/></a>
+              <p>This website template has been collect from Free Website Templates for you, for free. 
+              You can replace all this text with your own text.</p>
+              <a href="blog.html">Click to read more</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="blog.html"><img src="images/cosmetics.jpg" alt=""/></a>
+              <p>This website template has been collect from Free Website Templates for you, for free. 
+              You can replace all this text with your own text.</p>
+              <a href="blog.html">Click to read more</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="services.html">Gallery</a></li>
+        </ul>
+        <p>&#169; Copyright &#169; 2012. Company name all rights reserved. collect from <a href="http://www.cssmoban.com/" title="模板之家">模板之家</a></p>
+        <div class="connect">
+          <a href="#" id="facebook">facebook</a>
+          <a href="#" id="twitter">twitter</a>
+          <a href="http://dept.vip.xiaoma" id="vimeo">vimeo</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> 
