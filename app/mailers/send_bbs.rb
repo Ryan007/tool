@@ -60,7 +60,7 @@ class SendBbs < ActionMailer::Base
     
     count_row = count_row + 2
     count_col = 0
-    
+    puts "------------"
     objs.each do |obj|
       @cols.each do |col| 
         sheet1[count_row,count_col]=obj["#{col}"]
@@ -69,6 +69,7 @@ class SendBbs < ActionMailer::Base
       count_col = 0 
       count_row = count_row + 1
     end  
+    puts "------------"
     
     filepath=Rails.root+"download/bbs/core/#{(yd).strftime('%Y-%m-%d')}-#{model}.xls" 
     book.write filepath
