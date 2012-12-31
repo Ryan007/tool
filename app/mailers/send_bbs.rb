@@ -21,7 +21,7 @@ class SendBbs < ActionMailer::Base
     @subject = "BBS核心用户统计表"
     attachments["BBS核心用户统计表#{@yd.strftime('%Y-%m-%d')}.xls"] = File.read("#{Rails.root}/download/bbs/core/#{@yd.strftime('%Y-%m-%d')}-BbsCoreCustomer.xls")
 
-    # mail(:to => "#{recipient}", :subject => @subject)
+    mail(:to => "#{recipient}", :subject => @subject)
   end
 
   # 查询目录下面的文件
