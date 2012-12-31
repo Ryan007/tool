@@ -45,6 +45,8 @@ Xmims::Application.routes.draw do
   get "home/introduction"
   # 发送邮件到指定email里面
   post "home/send_mail"
+  # 发送核心会员方法
+  post "home/send_bbs_core_mail"
 
 
   # 流量相关的数据
