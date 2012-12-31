@@ -5,8 +5,8 @@ class TrafficMailer < ActionMailer::Base
   @@arr = []
   def send_traffic(recipient)
     # # 先生成excel文件
-    time_range = (Time.now.midnight - 2.day)..(Time.now.midnight - 1.day)
-    @yd = Time.now - 2.day
+    time_range = (Time.now.midnight - 1.day)..(Time.now.midnight - 0.day)
+    @yd = Time.now - 1.day
     @@arr = []
     traverse_dir("#{Rails.root}/download/triffs/")
     # 计算总的点击次数 uv
