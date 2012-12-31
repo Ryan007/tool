@@ -4,7 +4,7 @@
 <table border='1'>
 	<tr>
 		<td>用户编号</td>
-		<td>日期</td>
+		<td>用户名称</td>
 		<td>好友</td>
 		<td>操作数</td>
 		<td>日志数</td>
@@ -14,11 +14,12 @@
 		<td>总在线时间</td>
 		<td>昨天在线时间</td>
 		<td>回复数</td>
+		<td>日期</td>
 	</tr>
 	<% @customers.each do |c| %>
 	<tr>
 		<td><%= c.uid%></td>
-		<td><%= c.current_date %></td>
+		<td><%= c.username %></td>
 		<td><%= c.friend %></td>
 		<td><%= c.doing %></td>
 		<td><%= c.blog %></td>
@@ -28,6 +29,8 @@
 		<td><%= c.online %></td>
 		<td><%= c.yd_time %></td>
 		<td><%= c.post_back %></td>
+		<td><%= c.current_date %></td>
 	</tr>
 	<% end %>
 </table>
+<%=h will_paginate @customers, :previous_label => '上一页',  :next_label => '下一页'%>

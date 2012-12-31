@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121231080152) do
+ActiveRecord::Schema.define(:version => 20121231084207) do
 
   create_table "bbs_core_customers", :force => true do |t|
     t.integer "uid"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20121231080152) do
     t.integer "post_back"
     t.integer "yd_time"
     t.date    "current_date"
+    t.string  "username"
   end
 
   create_table "campaigns", :force => true do |t|
