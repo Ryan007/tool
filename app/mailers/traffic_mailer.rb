@@ -14,9 +14,8 @@ class TrafficMailer < ActionMailer::Base
     @count_uv = ReferralTraffic.where('current_date' => time_range).sum("clicks")
     @count_uv1 = OrganicTraffic.where('current_date' => time_range).sum("clicks")
 
-    puts "-----------------start------"
+
     if !@@arr.include?"#{@yd.strftime('%Y-%m-%d')}-ReferralTraffic.xls"
-        puts "-----------------end------"
         @triffs = ReferralTraffic.where('current_date' => time_range).order("clicks DESC")
         export_xls(@triffs, ReferralTraffic, @count_uv, @yd)
     end
@@ -28,7 +27,6 @@ class TrafficMailer < ActionMailer::Base
         @all = Click.select("*, sum(clicks) as sum_campaign").group("campaign").where('record_date' => time_range).order("sum_campaign DESC")
         export_camp_xls(@all, @count_clicks, Campaign, @yd)
     end
-    puts "-----------------end------"
 
     @recipients = recipient
     @from = 'noreply@xiaoma.com'
