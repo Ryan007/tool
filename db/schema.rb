@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121229292946) do
+ActiveRecord::Schema.define(:version => 20121231080152) do
+
+  create_table "bbs_core_customers", :force => true do |t|
+    t.integer "uid"
+    t.integer "friend"
+    t.integer "doing"
+    t.integer "blog"
+    t.integer "post"
+    t.integer "thread"
+    t.integer "share"
+    t.integer "online"
+    t.integer "post_back"
+    t.integer "yd_time"
+    t.date    "current_date"
+  end
 
   create_table "campaigns", :force => true do |t|
     t.string   "name"

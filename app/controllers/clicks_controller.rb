@@ -327,4 +327,14 @@ class ClicksController < ApplicationController
     end
   end
 
+  # bbs核心用户
+  def bbs_core_customer
+    time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    @customers = BbsCoreCustomer.where('current_date' => time_range).paginate(:page => params[:page], :per_page => 20)
+    # @click_count = Click.where('current_date' => time_range).sum(:clicks)
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+
 end

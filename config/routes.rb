@@ -75,8 +75,11 @@ Xmims::Application.routes.draw do
     get 'sum_child_category', :on => :collection
     get 'search_result', :on => :collection
 
-    get 'core_customer', :on => :collection
+    # 论坛核心用户
+    get 'bbs_core_customer', :on => :collection
+    # 引荐流量
     get 'referral_traffic', :on => :collection
+    # 自然访问流量
     get 'organic_traffic', :on => :collection
     get 'index_campaign', :on => :collection
   end
