@@ -21,7 +21,7 @@ class SendBbs < ActionMailer::Base
     @subject = "BBS核心用户统计表"
     attachments["BBS核心用户统计表#{@yd.strftime('%Y-%m-%d')}.xls"] = File.read("#{Rails.root}/download/bbs/core/#{@yd.strftime('%Y-%m-%d')}-BbsCoreCustomer.xls")
 
-    mail(:to => "#{recipient}", :subject => @subject)
+    # mail(:to => "#{recipient}", :subject => @subject)
   end
 
   # 查询目录下面的文件
@@ -60,7 +60,7 @@ class SendBbs < ActionMailer::Base
     
     count_row = count_row + 2
     count_col = 0
-    puts "------------"
+
     objs.each do |obj|
       @cols.each do |col| 
         sheet1[count_row,count_col]=obj["#{col}"]
@@ -68,9 +68,8 @@ class SendBbs < ActionMailer::Base
       end
       count_col = 0 
       count_row = count_row + 1
-    end  
-    puts "------------"
-    
+    end
+
     filepath=Rails.root+"download/bbs/core/#{(yd).strftime('%Y-%m-%d')}-#{model}.xls" 
     book.write filepath
     xls_report.string
