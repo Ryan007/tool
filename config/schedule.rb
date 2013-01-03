@@ -23,7 +23,7 @@
 # 	runner "User.send_bbs_core_mail('zhanghuaxun@xiaoma.com')"
 # end
 
-every :hour do # Many shortcuts available: :hour, :day, :month, :year, :reboot
+every :day, :at =&gt; '6:12' do # Many shortcuts available: :hour, :day, :month, :year, :reboot
   # runner "SomeModel.ladeeda"
   rake "bbs:core"
   rake "google_analytic:daily"

@@ -53,7 +53,7 @@ end
 
 # 设置定时执行任务的task
 task :update_crontab, :roles => :web, :except => { :no_release => true } do
-  run "cd #{release_path} && #{try_sudo} whenever --update-crontab #{application}"
+  run "cd #{release_path} && rvmsudo whenever --update-crontab #{application}"
 end
 
 after "bundle:install", "symlink_database_yml"
