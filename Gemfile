@@ -81,3 +81,5 @@ gem "passenger", "~> 3.0.18"
 gem "spreadsheet", "~> 0.7.3"
 # 定时任务
 gem "whenever"
+
+gem "whatever", "~> 0.0.3"

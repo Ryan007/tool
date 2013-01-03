@@ -205,6 +205,7 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     websocket (1.0.6)
+    whatever (0.0.3)
     whenever (0.8.1)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
@@ -244,5 +245,6 @@ DEPENDENCIES
   therubyracer
   turn
   uglifier (>= 1.0.3)
+  whatever (~> 0.0.3)
   whenever
   will_paginate
