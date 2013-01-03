@@ -35,7 +35,7 @@ role :app, "inc.tools.xiaoma.com"                          # This may be the sam
 role :db,  "inc.tools.xiaoma.com", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 set :port, 22229
-set :use_sudo, false
+set :use_sudo, true
 set :user, "wch"
 set :web_user, "nobody"
 default_run_options[:pty] = true
@@ -56,7 +56,7 @@ end
 
 # 设置定时执行任务的task
 task :update_crontab, :roles => :db do
-  run "cd #{release_path} && #{try_sudo} whenever --update-crontab"
+  run "cd #{release_path} && #{try_rvmsudo} whenever --update-crontab"
 end
 
 after "bundle:install", "symlink_database_yml"
