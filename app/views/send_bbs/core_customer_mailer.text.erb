@@ -1,3 +1,4 @@
-SendBbs#core_customer_mailer
-
-<%= @greeting %>, find me in app/views/app/views/send_bbs/core_customer_mailer.text.erb
+<%= @yd.strftime('%Y-%m-%d')%><%= @subject %>
+Welcome,<%= @recipients %>
+这封邮件是来自<%= @from %>在<%= @now %>发送给您的，注意保管，请勿回复
+如有意见或建议请发送到zhanghuaxun@xiaoma.com

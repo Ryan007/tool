@@ -15,15 +15,6 @@ set :bundle_cmd, "/usr/local/rvm/gems/ruby-1.9.3-p125@global/bin/bundle"
 set :passenger_cmd,  "#{bundle_cmd} exec passenger"
 set :rake, "/usr/local/rvm/gems/ruby-1.9.3-p125@rails328_listen/bin/rake"
 set :normalize_asset_timestamps, false
-# set :default_environment, {
-#   'PATH'            => "/usr/local/rvm/gems/ruby-1.9.3-p125@rails328_listen/bin:
-#       /usr/local/rvm/gems/ruby-1.9.3-p125@global/bin:/usr/local/rvm/rubies/ruby-1.9.3-p125/bin:
-#       /usr/local/rvm/bin:/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/x86_64-pc-linux-gnu/gcc-bin/4.4.4:$PATH",
-#   'RUBY_VERSION'    => '/usr/local/rvm/rubies/ruby-1.9.3-p125',
-#   'GEM_HOME'        => "#{rvm_path}/gems/#{rvm_ruby_string}",
-#   'GEM_PATH'        => "#{rvm_path}/gems/#{rvm_ruby_string}",
-#   'BUNDLE_PATH'     => "#{rvm_path}/gems/#{rvm_ruby_string}"
-# }
 
 set :application, "inc.tools.xiaoma.com"
 set :repository,  "git@github.com:Ryan007/tool.git"
@@ -36,6 +27,12 @@ role :db,  "inc.tools.xiaoma.com", :primary => true # This is where Rails migrat
 #role :db,  "your slave db-server here"
 set :port, 22229
 set :use_sudo, true
+
+set :sudo, 'rvmsudo'
+# set :sudo, 'rvmsudo'
+# set :sudo_prompt, 'password: 1q2w3e4r'
+# set :password, '1q2w3e4r'
+# set :whenever_command, "bundle exec whenever"
 set :user, "wch"
 set :web_user, "nobody"
 default_run_options[:pty] = true
@@ -55,8 +52,8 @@ task :symlink_database_yml do
 end
 
 # 设置定时执行任务的task
-task :update_crontab, :roles => :db do
-  run "cd #{release_path} && #{try_rvmsudo} whenever --update-crontab"
+task :update_crontab, :roles => :web, :except => { :no_release => true } do
+  run "cd #{release_path} && #{try_sudo} whenever --update-crontab #{application}"
 end
 
 after "bundle:install", "symlink_database_yml"
