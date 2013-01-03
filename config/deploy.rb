@@ -1,5 +1,7 @@
 require 'rvm/capistrano'
 require 'bundler/capistrano'
+# require "whenever/capistrano"
+
 
 set :rails_env, 'production'
 set :rvm_type, :system
@@ -52,7 +54,13 @@ task :symlink_database_yml do
   run "ln -sfn #{shared_path}/config/environments/production.rb #{release_path}/config/environments/production.rb"
 end
 
-# after "bundle:install", "symlink_database_yml"
+# 设置定时执行任务的task
+task :update_crontab, :roles => :db do
+  run "cd #{release_path} && whenever --update-crontab #{application}"
+end
+
+after "bundle:install", "symlink_database_yml"
+# after "bundle:install", "symlink_corntab"
 
 namespace :deploy do
   task :start, :roles => :web, :except => { :no_release => true } do 

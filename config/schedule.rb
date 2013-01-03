@@ -25,7 +25,9 @@
 
 every :hour do # Many shortcuts available: :hour, :day, :month, :year, :reboot
   # runner "SomeModel.ladeeda"
-  runner "User.send_bbs_core_mail('zhanghuaxun@xiaoma.com')"
+  rake "bbs:core"
+  rake "google_analytic:daily"
+  # runner "User.send_bbs_core_mail('zhanghuaxun@xiaoma.com')"
 end
 
 # def test
