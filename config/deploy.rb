@@ -60,7 +60,7 @@ task :update_crontab, :roles => :db do
 end
 
 after "bundle:install", "symlink_database_yml"
-after "bundle:install", "symlink_corntab"
+after "bundle:install", "update_crontab"
 
 namespace :deploy do
   task :start, :roles => :web, :except => { :no_release => true } do 
