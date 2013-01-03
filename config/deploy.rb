@@ -29,10 +29,9 @@ set :port, 22229
 set :use_sudo, true
 
 set :sudo, 'rvmsudo'
-# set :sudo, 'rvmsudo'
 # set :sudo_prompt, 'password: 1q2w3e4r'
 # set :password, '1q2w3e4r'
-# set :whenever_command, "bundle exec whenever"
+set :whenever_command, "bundle exec whenever"
 set :user, "wch"
 set :web_user, "nobody"
 default_run_options[:pty] = true
@@ -53,7 +52,7 @@ end
 
 # 设置定时执行任务的task
 task :update_crontab, :roles => :web, :except => { :no_release => true } do
-  run "cd #{release_path} && rvmsudo whenever --update-crontab #{application}"
+  run "cd #{release_path} && #{whenever_command} --update-crontab #{application}"
 end
 
 after "bundle:install", "symlink_database_yml"
