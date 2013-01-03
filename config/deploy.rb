@@ -1,6 +1,6 @@
 require 'rvm/capistrano'
 require 'bundler/capistrano'
-# require "whenever/capistrano"
+require "whenever/capistrano"
 
 
 set :rails_env, 'production'
