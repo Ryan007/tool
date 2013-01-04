@@ -329,7 +329,7 @@ class ClicksController < ApplicationController
 
   # bbs核心用户
   def bbs_core_customer
-    if !params[:start_date].empty?
+    if !params[:start_date].nil?
       @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
       @time = @t.strftime("%Y-%m-%d")
       time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
