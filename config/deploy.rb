@@ -1,6 +1,6 @@
 require 'rvm/capistrano'
 require 'bundler/capistrano'
-require "whenever/capistrano"
+# require "whenever/capistrano"
 
 
 set :rails_env, 'production'
@@ -26,12 +26,12 @@ role :app, "inc.tools.xiaoma.com"                          # This may be the sam
 role :db,  "inc.tools.xiaoma.com", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 set :port, 22229
-set :use_sudo, true
+# set :use_sudo, true
 
-set :sudo, 'rvmsudo'
-# set :sudo_prompt, 'password: 1q2w3e4r'
+# set :sudo, 'rvmsudo'
+# set :sudo_prompt, 'password: '
 # set :password, '1q2w3e4r'
-set :whenever_command, "bundle exec whenever"
+# set :whenever_command, "bundle exec whenever"
 set :user, "wch"
 set :web_user, "nobody"
 default_run_options[:pty] = true
@@ -52,11 +52,11 @@ end
 
 # 设置定时执行任务的task
 task :update_crontab, :roles => :web, :except => { :no_release => true } do
-  run "cd #{release_path} && #{try_sudo} whenever --update-crontab "
+  run "cd #{release_path} && rvmsudo -p '#{sudo_prompt}' whenever --update-crontab"
 end
 
 after "bundle:install", "symlink_database_yml"
-after "bundle:install", "update_crontab"
+# after "bundle:install", "update_crontab"
 
 namespace :deploy do
   task :start, :roles => :web, :except => { :no_release => true } do 
