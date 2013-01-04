@@ -1,22 +1,63 @@
 <h1>论坛管理员</h1>
-`uid`, `username`, `modaction`, `count`, `posts`, `dateline`
-<table>
-	<tr>
-		<td>用户id</td>
-		<td>名称</td>
-		<td>访问类型</td>
-		<td>访问次数</td>
-		<td>登陆次数</td>
-		<td>时间</td>
+
+<table style="width: 1800px;overflow: scroll;">
+	<trstyle="width: 1800px;">
+		<th width="2%">时间</th>
+		<th width="2%">用户id</th>
+		<th width="2%">名称</th>
+		<th width="2%">访问次数</th>
+		<th width="2%">登陆次数</th>
+		<th width="2%">编辑</th>
+		<th width="2%">删除</th>
+		<th width="2%">删除点评</th>
+		<th width="2%">加入精华</th>
+		<th width="2%">关闭</th>
+		<th width="2%">置顶</th>
+		<th width="2%">合并</th>
+		<th width="2%">设置高亮</th>
+		<th width="2%">提升</th>
+		<th width="2%">下沉</th>
+		<th width="2%">移动</th>
+		<th width="2%">分类</th>
+		<th width="2%">审核通过</th>
+		<th width="2%">推送主题</th>
+		<th width="2%">解除推送</th>
+		<th width="2%">取消悬赏</th>
+		<th width="2%">屏蔽帖子</th>
+		<th width="2%">解除屏蔽</th>
+		<th width="2%">推荐</th>
+		<th width="2%">解除推荐</th>
+		<th width="2%">合计</th>
 	</tr>
 	<% @admins.each do |ad|%>
 	<tr>
+		<td><%= ad.dateline%></td>
 		<td><%= ad.uid%></td>
 		<td><%= ad.username%></td>
-		<td><%= ad.modaction%></td>
 		<td><%= ad.count%></td>
 		<td><%= ad.posts%></td>
-		<td><%= ad.dateline%></td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
+		<td>1</td>
 	</tr>
 	<% end %>
 </table>

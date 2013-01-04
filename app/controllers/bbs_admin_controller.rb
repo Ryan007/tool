@@ -11,6 +11,7 @@ class BbsAdminController < ApplicationController
 # 'EOP' => 'CLS',
 # 'USR' => 'CLS', 
 # 'UEO' => 'CLS',
+# ['OPN', 'ECL', 'UEC', 'EOP', 'USR', 'UEO', 'CLS']
 # 'UDG' => 'DIG',#加入精华
 # 'EDI' => 'DIG', 
 # 'UED' => 'DIG', 
