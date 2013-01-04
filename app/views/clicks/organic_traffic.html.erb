@@ -1,9 +1,7 @@
 <h1>引荐流量来源</h1>
 <%= link_to '返回', clicks_path %>
 <h4>昨日共：<%= @count_triffs%>次访问</h4>
-<%= form_tag(home_send_bbs_core_mail_path) %>
-	<%= text_field_tag 'email'%>
-	<%= submit_tag("发送")%>
+
 <table border='1'>
 	<tr>
 		<td>日期</td>

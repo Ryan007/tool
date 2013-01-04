@@ -2,6 +2,10 @@
 Xmims::Application.routes.draw do
   
 
+  get "bbs_admin/index"
+
+  get "bbs_admin/admin"
+
   # 统计谷歌广告
   resources :google_analytics do
     get 'show_traffic', :on => :collection

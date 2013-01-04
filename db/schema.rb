@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121231084207) do
+ActiveRecord::Schema.define(:version => 20130104080126) do
+
+  create_table "bbs_admins", :force => true do |t|
+    t.integer "uid"
+    t.string  "modaction"
+    t.date    "dateline"
+    t.integer "count"
+    t.integer "posts"
+  end
 
   create_table "bbs_core_customers", :force => true do |t|
     t.integer "uid"
