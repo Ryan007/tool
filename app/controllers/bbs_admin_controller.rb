@@ -3,6 +3,7 @@ class BbsAdminController < ApplicationController
   end
 
   def admin
+  	@admins = BbsAdmin.all
   end
 # 'OPN' => 'CLS',#close 
 # 'ECL' => 'CLS', 

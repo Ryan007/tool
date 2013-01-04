@@ -1,2 +1,22 @@
-<h1>BbsAdmin#admin</h1>
-<p>Find me in app/views/bbs_admin/admin.html.erb</p>
+<h1>论坛管理员</h1>
+`uid`, `username`, `modaction`, `count`, `posts`, `dateline`
+<table>
+	<tr>
+		<td>用户id</td>
+		<td>名称</td>
+		<td>访问类型</td>
+		<td>访问次数</td>
+		<td>登陆次数</td>
+		<td>时间</td>
+	</tr>
+	<% @admins.each do |ad|%>
+	<tr>
+		<td><%= ad.uid%></td>
+		<td><%= ad.username%></td>
+		<td><%= ad.modaction%></td>
+		<td><%= ad.count%></td>
+		<td><%= ad.posts%></td>
+		<td><%= ad.dateline%></td>
+	</tr>
+	<% end %>
+</table>
