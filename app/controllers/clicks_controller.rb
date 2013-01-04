@@ -327,4 +327,21 @@ class ClicksController < ApplicationController
     end
   end
 
+  # bbs核心用户
+  def bbs_core_customer
+    if !params[:start_date].empty?
+      @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
+      @time = @t.strftime("%Y-%m-%d")
+      time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
+    else
+      time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    end
+
+    @customers = BbsCoreCustomer.where('current_date' => time_range).paginate(:page => params[:page], :per_page => 20)
+    @total = BbsCoreCustomer.where('current_date' => time_range)
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+
 end

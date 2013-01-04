@@ -26,7 +26,8 @@
         <a href="<%= root_url%>" id="logo"><img src="<%= Xmims::Application.config.staticfile_server_url %>images/logo.png" alt="小马过河网络部系统"/></a>
         <ul>
           <li class="selected"><a href="<%= root_url%>">首页</a></li>
-          <li><a href="<%= root_url%>"></a></li>
+          <li><a href="<%= root_url%>">日报</a></li>
+          <li><a href="<%= root_url%>">月报</a></li>
           <li>
             <% if user_signed_in? %>
                 <%= link_to '流量管理', clicks_path%>
@@ -35,10 +36,10 @@
           <li>
               <% if user_signed_in? %>
               您好,<%= current_user.username %>
-              <%= link_to "退出", destroy_user_session_path, :method => :delete %>
+                <%= link_to "退出", destroy_user_session_path, :method => :delete %>
               <% else %>
-              <%= link_to "[登录]", new_user_session_path, :method => :get %> |
-              <%= link_to "[注册]", "/users/sign_up", :method => :get %>
+                <%= link_to "登录", new_user_session_path, :method => :get %> |
+                <%= link_to "注册", "/users/sign_up", :method => :get %>
               <% end %>
           </li>
         </ul>

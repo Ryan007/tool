@@ -41,7 +41,8 @@ gem 'jquery-rails'
 group :test, :development do
   gem "rspec-rails", "~> 2.8.1"
 end
- 
+
+
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
@@ -49,8 +50,10 @@ group :test do
   gem 'turn', :require => false
   gem "factory_girl_rails"
   gem "minitest"
+  gem 'launchy'
+  gem 'email_spec'
 end
- 
+
 gem 'devise-encryptable'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -72,5 +75,11 @@ gem "mail"
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+# 自动化部署的gem包 
 gem "passenger", "~> 3.0.18"
+# 操作excel的gem包
 gem "spreadsheet", "~> 0.7.3"
+# 定时任务
+gem "whenever"
+
+gem "whatever", "~> 0.0.3"
