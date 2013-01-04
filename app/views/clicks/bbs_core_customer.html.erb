@@ -2,23 +2,28 @@
 <script type="text/javascript">
   $(function() {
     $( "#datepicker" ).datepicker();
-    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy--mm--dd" );
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
     $( "#datepicker" ).val("<%= @time %>");
   });
 </script>
 <style type="text/css">
   table tr td{ border:#4C4C4C solid 0.5px; text--align:center; line--height:24px;}
 </style>
-<h3>昨日核心用户共：<%= @total.count %></h3>
 
-<%= form_tag(search_result_clicks_path, :method => :get) do %>
+<%= form_tag(bbs_core_customer_clicks_path, :method => :get) do %>
   <p>
     日期: <input type="text" id="datepicker" name="start_date">
-  </p>
     <%= submit_tag("查询") %>
   </p>
 <% end %>
 
+<h3>昨日统计：</h3>
+<div style="font-size:16px;margin:3px;">
+	<div style="display:inline;margin-right:2px;">核心用户共：<%= @total.count %></div>
+	<div style="display:inline;">操作数共：<%= @total.sum('doing') %></div>
+	<div style="display:inline;">帖子数共：<%= @total.sum('post') %></div>
+	<div style="display:inline;">主题数共：<%= @total.sum('thread') %></div>
+</div>
 <table border='1'>
 	<tr>
 		<td>用户编号</td>
