@@ -3,7 +3,8 @@ class BbsAdminController < ApplicationController
   end
 
   def admin
-  	@admins = BbsAdmin.all
+  	time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+  	@admins = BbsAdmin.where('dateline' => time_range).group("uid")
   end
 # 'OPN' => 'CLS',#close 
 # 'ECL' => 'CLS', 
