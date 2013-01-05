@@ -26,6 +26,7 @@
 every :day, :at => '6:11 am' do # Many shortcuts available: :hour, :day, :month, :year, :reboot
   # runner "SomeModel.ladeeda"
   rake "bbs:core"
+  rake "bbs:admin"
   rake "google_analytic:daily"
   # runner "User.send_bbs_core_mail('zhanghuaxun@xiaoma.com')"
 end
