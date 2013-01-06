@@ -8,10 +8,6 @@
 <h1>论坛管理员工作情况</h1>
 <div style="margin-bottom:5px;"><%= link_to '返回', bbs_admin_index_path%></div>
 
-<style type="text/css">
-  table tr td{ border:#4C4C4C solid 0.5px; text--align:center; line--height:24px;}
-</style>
-
 <%= form_tag(bbs_admin_admin_path, :method => :get) do %>
   <p>
     日期: <input type="text" id="datepicker" name="start_date">
@@ -20,178 +16,178 @@
 <% end %>
 
 
-<div style="overflow: scroll; width:1000px;backgroud: #FFF;border:1px solid;">
-<table style="width: 1800px;overflow: scroll;margin:1px;" border=1>
-	<tr>
-		<th width="4%">时间</th>
-		<th width="4%">用户id</th>
-		<th width="4%">名称</th>
-		<th width="3%">编辑</th>
-		<th width="3%">删除</th>
-		<th width="3%">加入精华</th>
-		<th width="3%">关闭</th>
-		<th width="3%">置顶</th>
-		<th width="3%">设置高亮</th>
-		<th width="3%">移动</th>
-		<th width="3%">分类</th>
-		<th width="3%">屏蔽帖子</th>
-		<th width="3%">推荐</th>
-		<th width="3%">解除推荐</th>
-		<th width="3%">合计</th>
-	</tr>
-	<% @admins.each do |ad|%>
-	<tr>
-		<th width="3%"><%= ad.dateline%></td>
-		<th width="3%"><%= ad.uid%></td>
-		<th width="4%"><%= ad.username%></td>
-		<td colspan="21" width="90%">
-			<table border=1 width="1600px;">
-				<% 
-					@arr = []
-					@bbs_admins = @bbs.where("uid=?", "#{ad.uid}")
-					@bbs_admins.each do |bb|
-						@arr << bb.modaction
-					end
-				%>
+<div style="overflow: scroll; width:800px;">
+	<table border=1  width="1260px;">
+		<tr>
+			<th width="100px;">时间</th>
+			<th width="100px;">用户id</th>
+			<th width="100px;">名称</th>
+			<th width="80px;">编辑</th>
+			<th width="80px;">删除</th>
+			<th width="80px;">加入精华</th>
+			<th width="80px;">关闭</th>
+			<th width="80px;">置顶</th>
+			<th width="80px;">设置高亮</th>
+			<th width="80px;">移动</th>
+			<th width="80px;">分类</th>
+			<th width="80px;">屏蔽帖子</th>
+			<th width="80px;">推荐</th>
+			<th width="80px;">解除推荐</th>
+			<th width="80px;">合计</th>
+		</tr>
+		<% @admins.each do |ad|%>
+		<tr>
+			<th width="100px;"><%= ad.dateline%></td>
+			<th width="100px;"><%= ad.uid%></td>
+			<th width="100px;"><%= ad.username%></td>
+			<td colspan="21">
+				<table border=1>
+					<% 
+						@arr = []
+						@bbs_admins = @bbs.where("uid=?", "#{ad.uid}")
+						@bbs_admins.each do |bb|
+							@arr << bb.modaction
+						end
+					%>
 
-				<tr>
+					<tr>
 
-					<% edt = ['ABL', 'EDT', 'RBL']&@arr %>
-					<% if !edt.empty? %>
-						<% if edt.size == 1 %>
-							<td width="3%"><%= @bbs_admins.where("modaction = #{edt[0]}").sum("`count`")%></td>
-						<%	elsif edt.size ==2%>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{edt[0]}','#{edt[1]}')").sum("`count`")%></td>
-						<%	elsif edt.size == 3%>
-							<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
-						<%	end %>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
-
-					<% del = ['DLP', 'PRN', 'UDL', 'DEL']&@arr %>
-					<% if !del.empty? %>
-						<% if del.size == 1%>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{del[0]}')").sum("`count`")%></td>
-						<% elsif del.size == 2 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{del[0]}', '#{del[1]}')").sum("`count`")%></td>
-						<% elsif del.size == 3 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{del[0]}', '#{del[1]}', '#{del[2]}')").sum("`count`")%></td>
-						<% elsif del.size == 4 %>
-							<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
+						<% edt = ['ABL', 'EDT', 'RBL']&@arr %>
+						<% if !edt.empty? %>
+							<% if edt.size == 1 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction = #{edt[0]}").sum("`count`")%></td>
+							<%	elsif edt.size ==2%>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{edt[0]}','#{edt[1]}')").sum("`count`")%></td>
+							<%	elsif edt.size == 3%>
+								<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+							<%	end %>
+						<% else %>
+							<td width="80px;"></td>
 						<% end %>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
 
-					<% great = ['UDG', 'EDI','UED','DIG']&@arr %>
-					<% if !great.empty? %>
-						<% if great.size == 1%>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{great[0]}')").sum("`count`")%></td>
-						<% elsif great.size == 2 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{great[0]}', '#{great[1]}')").sum("`count`")%></td>
-						<% elsif great.size == 3 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{great[0]}', '#{great[1]}', '#{great[2]}')").sum("`count`")%></td>
-						<% elsif great.size == 4 %>
-							<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
+						<% del = ['DLP', 'PRN', 'UDL', 'DEL']&@arr %>
+						<% if !del.empty? %>
+							<% if del.size == 1%>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{del[0]}')").sum("`count`")%></td>
+							<% elsif del.size == 2 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{del[0]}', '#{del[1]}')").sum("`count`")%></td>
+							<% elsif del.size == 3 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{del[0]}', '#{del[1]}', '#{del[2]}')").sum("`count`")%></td>
+							<% elsif del.size == 4 %>
+								<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+							<% end %>
+						<% else %>
+							<td width="80px;"></td>
 						<% end %>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
 
-					<% cls = ['OPN', 'ECL', 'UEC', 'EOP', 'USR', 'UEO', 'CLS']&@arr %>
-					<% if !cls.empty? %>
-						<% if cls.size == 1%>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{cls[0]}')").sum("`count`")%></td>
-						<% elsif cls.size == 2 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{cls[0]}', '#{cls[1]}')").sum("`count`")%></td>
-						<% elsif cls.size == 3 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{cls[0]}', '#{cls[1]}', '#{cls[2]}')").sum("`count`")%></td>
-						<% elsif cls.size == 4 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{cls[0]}', '#{cls[1]}', '#{cls[2]}','#{cls[3]}')").sum("`count`")%></td>
-						<% elsif cls.size == 5 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{cls[0]}', '#{cls[1]}', '#{cls[2]}', '#{cls[3]}', '#{cls[4]}')").sum("`count`")%></td>
-						<% elsif cls.size == 6 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{cls[0]}', '#{cls[1]}', '#{cls[2]}','#{cls[3]}', '#{cls[4]}','#{cls[5]}')").sum("`count`")%></td>
-						<% elsif cls.size == 7 %>
-							<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
+						<% great = ['UDG', 'EDI','UED','DIG']&@arr %>
+						<% if !great.empty? %>
+							<% if great.size == 1%>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{great[0]}')").sum("`count`")%></td>
+							<% elsif great.size == 2 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{great[0]}', '#{great[1]}')").sum("`count`")%></td>
+							<% elsif great.size == 3 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{great[0]}', '#{great[1]}', '#{great[2]}')").sum("`count`")%></td>
+							<% elsif great.size == 4 %>
+								<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+							<% end %>
+						<% else %>
+							<td width="80px;"></td>
 						<% end %>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
 
-					<% top = ['UST', 'EST', 'UES', 'BMP', 'STK']&@arr %>
-					<% if !top.empty? %>
-						<% if top.size == 1%>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{top[0]}')").sum("`count`")%></td>
-						<% elsif top.size == 2 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{top[0]}', '#{top[1]}')").sum("`count`")%></td>
-						<% elsif top.size == 3 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{top[0]}', '#{top[1]}', '#{top[2]}')").sum("`count`")%></td>
-						<% elsif top.size == 4 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{top[0]}', '#{top[1]}', '#{top[2]}', '#{top[3]}')").sum("`count`")%></td>
-						<% elsif top.size == 5 %>
-							<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
+						<% cls = ['OPN', 'ECL', 'UEC', 'EOP', 'USR', 'UEO', 'CLS']&@arr %>
+						<% if !cls.empty? %>
+							<% if cls.size == 1%>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{cls[0]}')").sum("`count`")%></td>
+							<% elsif cls.size == 2 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{cls[0]}', '#{cls[1]}')").sum("`count`")%></td>
+							<% elsif cls.size == 3 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{cls[0]}', '#{cls[1]}', '#{cls[2]}')").sum("`count`")%></td>
+							<% elsif cls.size == 4 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{cls[0]}', '#{cls[1]}', '#{cls[2]}','#{cls[3]}')").sum("`count`")%></td>
+							<% elsif cls.size == 5 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{cls[0]}', '#{cls[1]}', '#{cls[2]}', '#{cls[3]}', '#{cls[4]}')").sum("`count`")%></td>
+							<% elsif cls.size == 6 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{cls[0]}', '#{cls[1]}', '#{cls[2]}','#{cls[3]}', '#{cls[4]}','#{cls[5]}')").sum("`count`")%></td>
+							<% elsif cls.size == 7 %>
+								<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+							<% end %>
+						<% else %>
+							<td width="80px;"></td>
 						<% end %>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
 
-					<% hl = ['UHL', 'EHL', 'UEH', 'HLT']&@arr %>
-					<% if !hl.empty? %>
-						<% if hl.size == 1%>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{hl[0]}')").sum("`count`")%></td>
-						<% elsif hl.size == 2 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{hl[0]}', '#{hl[1]}')").sum("`count`")%></td>
-						<% elsif hl.size == 3 %>
-							<td width="3%"><%= @bbs_admins.where("modaction in ('#{hl[0]}', '#{hl[1]}', '#{hl[2]}')").sum("`count`")%></td>
-						<% elsif hl.size == 4 %>
-							<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
+						<% top = ['UST', 'EST', 'UES', 'BMP', 'STK']&@arr %>
+						<% if !top.empty? %>
+							<% if top.size == 1%>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{top[0]}')").sum("`count`")%></td>
+							<% elsif top.size == 2 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{top[0]}', '#{top[1]}')").sum("`count`")%></td>
+							<% elsif top.size == 3 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{top[0]}', '#{top[1]}', '#{top[2]}')").sum("`count`")%></td>
+							<% elsif top.size == 4 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{top[0]}', '#{top[1]}', '#{top[2]}', '#{top[3]}')").sum("`count`")%></td>
+							<% elsif top.size == 5 %>
+								<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+							<% end %>
+						<% else %>
+							<td width="80px;"></td>
 						<% end %>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
 
-					<% mv = ['MOV']&@arr %>
-					<% if !mv.empty? %>
-						<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
+						<% hl = ['UHL', 'EHL', 'UEH', 'HLT']&@arr %>
+						<% if !hl.empty? %>
+							<% if hl.size == 1%>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{hl[0]}')").sum("`count`")%></td>
+							<% elsif hl.size == 2 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{hl[0]}', '#{hl[1]}')").sum("`count`")%></td>
+							<% elsif hl.size == 3 %>
+								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{hl[0]}', '#{hl[1]}', '#{hl[2]}')").sum("`count`")%></td>
+							<% elsif hl.size == 4 %>
+								<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+							<% end %>
+						<% else %>
+							<td width="80px;"></td>
+						<% end %>
 
-					<% tp = ['TYP']&@arr %>
-					<% if !tp.empty? %>
-						<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
+						<% mv = ['MOV']&@arr %>
+						<% if !mv.empty? %>
+							<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+						<% else %>
+							<td width="80px;"></td>
+						<% end %>
 
-					<% bp = ['BNP']&@arr %>
-					<% if !bp.empty? %>
-						<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
+						<% tp = ['TYP']&@arr %>
+						<% if !tp.empty? %>
+							<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+						<% else %>
+							<td width="80px;"></td>
+						<% end %>
 
-					<% rc = ['REC']&@arr %>
-					<% if !rc.empty? %>
-						<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
+						<% bp = ['BNP']&@arr %>
+						<% if !bp.empty? %>
+							<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+						<% else %>
+							<td width="80px;"></td>
+						<% end %>
 
-					<% ur = ['URE']&@arr %>
-					<% if !ur.empty? %>
-						<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
-					<% else %>
-						<td width="3%"></td>
-					<% end %>
+						<% rc = ['REC']&@arr %>
+						<% if !rc.empty? %>
+							<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+						<% else %>
+							<td width="80px;"></td>
+						<% end %>
 
-					<td width="3%"><%= @bbs_admins.sum("`count`")%></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<% end %>
-</table>
+						<% ur = ['URE']&@arr %>
+						<% if !ur.empty? %>
+							<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+						<% else %>
+							<td width="80px;"></td>
+						<% end %>
+
+						<td width="80px;"><%= @bbs_admins.sum("`count`")%></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<% end %>
+	</table>
 </div>

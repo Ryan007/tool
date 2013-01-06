@@ -7,7 +7,7 @@
 	
     场景:
       Given I am on the home page
-      I should see "注册"
+      And I should see "注册"
       
       #当 我来到 主页
       #When I follow "注册"
