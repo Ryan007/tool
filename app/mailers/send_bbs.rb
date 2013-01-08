@@ -26,7 +26,7 @@ class SendBbs < ActionMailer::Base
 
   def bbs_admin_mailer(recipient)
     # # 先生成excel文件
-    time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    time_range = (Time.now.midnight - 1.day - 1.sec)..Time.now.midnight
     @yd = Time.now - 1.day
     @@arr = []
     traverse_dir("#{Rails.root}/download/bbs/admin/")

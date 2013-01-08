@@ -34,4 +34,20 @@ Xmims::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+    config.host_url = "http://localhost:3000/"
+  config.staticfile_server_url = "http://localhost:3000/"
+   
+   
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.qq.com",
+    :port                 => 25,
+    :domain               => 'www.xiaoma.com',
+    :user_name            => 'noreply@xiaoma.com',
+    :password             => '1q2w3e4r',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
 end
