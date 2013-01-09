@@ -55,7 +55,7 @@
 						<% edt = ['ABL', 'EDT', 'RBL']&@arr %>
 						<% if !edt.empty? %>
 							<% if edt.size == 1 %>
-								<td width="80px;"><%= @bbs_admins.where("modaction = #{edt[0]}").sum("`count`")%></td>
+								<td width="80px;"><%= @bbs_admins.where("modaction = '#{edt[0]}'").sum("`count`")%></td>
 							<%	elsif edt.size ==2%>
 								<td width="80px;"><%= @bbs_admins.where("modaction in ('#{edt[0]}','#{edt[1]}')").sum("`count`")%></td>
 							<%	elsif edt.size == 3%>
