@@ -85,6 +85,15 @@ Given /^有如下用户:$/ do |table|
   end
 end
 
+Given /^one valid user:$/ do |table|
+  table.hashes.each do |attributes|
+    unconfirmed = attributes.delete("unconfirmed") == "true"
+    @user = User.create!(attributes)
+    #@user.update_attribute("admin", attributes["admin"] == "true")
+    @user.confirm! unless unconfirmed
+  end
+end
+
 
 Given /^我以他们的身份登录$/ do
   steps %Q{
@@ -108,3 +117,35 @@ Given /^我以渠道管理员的身份登录$/ do
     Then I should see "您好,channelmanager"
   }
 end
+
+# #encoding: utf-8
+
+# Feature: Sign in
+#     In order to get access to protected sections of the site
+#     A user
+#     Should be able to sign in
+  
+#     Scenario:Confirmed by email
+#         Given one valid user:
+#          | username        |  email                 |  password  | unconfirmed |
+#          | zhanghuaxun |  goodboyryan@126.com  |  password  | true               |
+
+#         When "goodboyryan@126.com" opens the email with subject "请激活您的邮箱"
+#         When they should see the email delivered from "noreply@xiaoma.com"
+#         When they click the first link in the email
+#         Then I should see "退出"
+#         Then I should see "您好,zhanghuaxun"
+
+#     Scenario: Sign in from form
+#         Given one valid user:
+#          | username        |  email                 |  password  | unconfirmed |
+#          | zhanghuaxun |  goodboyryan@126.com  |  password  | true               |
+
+#         When I go to homepage
+#         Then I should see "登录"
+#         When I follow "登录"
+#         Then I should see "电子邮件"
+#         When I fill in "电子邮件" with "goodboyryan@126.com"
+#         When I fill in "密码" with "password"
+#         When I press "马上登陆"
+#         Then I should see "您好,zhanghuaxun"

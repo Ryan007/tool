@@ -27,15 +27,15 @@ When /^(?:|我)在输入框"([^"]*)"填写"([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
-When /^I press "([^\"]*)"$/ do |button|
-  click_button(button)
-end
-
-# When /^(?:|I )press "([^"]*)"$/ do |button|
+# When /^I press "([^\"]*)"$/ do |button|
 #   click_button(button)
 # end
 
 When /^(?:|我)按下按钮"([^"]*)"$/ do |button|
+  click_button(button)
+end
+
+When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
 end
 
