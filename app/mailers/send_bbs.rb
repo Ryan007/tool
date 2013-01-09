@@ -132,7 +132,7 @@ class SendBbs < ActionMailer::Base
         edt = ['ABL', 'EDT', 'RBL']&@arr
         if !edt.empty? 
             if edt.size == 1
-                sheet1[count_row, 3]=@bbs_admins.where("modaction = #{edt[0]}").sum("`count`")
+                sheet1[count_row, 3]=@bbs_admins.where("modaction = '#{edt[0]}'").sum("`count`")
             elsif edt.size ==2
                 sheet1[count_row, 3]=@bbs_admins.where("modaction in ('#{edt[0]}','#{edt[1]}')").sum("`count`")
             elsif edt.size == 3
