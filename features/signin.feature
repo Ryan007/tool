@@ -30,3 +30,7 @@ Feature: Sign in
         When I fill in "密码" with "password"
         When I press "Login"
         Then I should see "您好,zhanghuaxun"
+
+    Scenario:Simple method to login 
+        Given I am logged in
+        Then I should see "您好,zhanghuaxun"
