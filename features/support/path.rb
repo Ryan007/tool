@@ -12,6 +12,7 @@ module NavigationHelpers
         clicks_path
     when /the login page/
         user_session_path
+        
     else
         raise "Can't find mapping from \"#{page_name}\" to a path."
     end

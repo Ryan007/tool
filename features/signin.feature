@@ -1,29 +1,32 @@
-# encoding: utf-8
-# language: zh-CN
-功能: 用户登录
-  为了在网站上可以进行一些操作
-	作为一个用户
-	我要能够登录网站
-	
-    场景: 通过邮件确认
-      假如 有如下用户:
+#encoding: utf-8
+
+Feature: Sign in
+    In order to get access to protected sections of the site
+    A user
+    Should be able to sign in
+  
+    Scenario:Confirmed by email
+        Given one valid user:
          | username        |  email                 |  password  | unconfirmed |
          | zhanghuaxun |  goodboyryan@126.com  |  password  | true               |
 
-      而且 "goodboyryan@126.com" opens the email with subject "请激活您的邮箱"
-      而且 they should see the email delivered from "noreply@xiaoma.com"
-      而且 they click the first link in the email
-      而且 我应该看见"退出"
-      而且 我应该看见"您好,zhanghuaxun"
-      
-      
-    场景: 从表单登录
-      假如 有如下用户:
-         | username  |        email             |  password  |
-         | zhanghuaxun |  goodboyryan@126.com  |  password  |
-      当 我来到主页
-      当 我点击链接"登录"
-  	  而且 我在输入框"电子邮件"填写"goodboyryan@126.com"
-  	  而且 我在输入框"密码"填写"password"
-      当 我按下按钮"登录"
-      而且 我应该看见"您好,zhanghuaxun"
+        When "goodboyryan@126.com" opens the email with subject "请激活您的邮箱"
+        When they should see the email delivered from "noreply@xiaoma.com"
+        When they click the first link in the email
+        Then I should see "退出"
+        Then I should see "您好,zhanghuaxun"
+        Then I should see "您好,zhanghuaxun"
+
+    Scenario:Login from the Form
+        Given one valid user:
+         | username        |  email                 |  password  | unconfirmed |
+         | zhanghuaxun |  goodboyryan@126.com  |  password  | false               |
+
+        When I am on the homepage
+        When I follow "登录"
+        Then I should see "电子邮件"
+        Then I should see "密码"
+        When I fill in "电子邮件" with "goodboyryan@126.com"
+        When I fill in "密码" with "password"
+        When I press "Login"
+        Then I should see "您好,zhanghuaxun"
