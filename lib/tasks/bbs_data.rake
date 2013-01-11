@@ -4,11 +4,13 @@ namespace :bbs do
     SendBbs.core_customer_mailer("zhanghuaxun@xiaoma.com").deliver
     SendBbs.core_customer_mailer("zhangning@xiaoma.com").deliver
     SendBbs.core_customer_mailer("dongpei@xiaoma.com").deliver
+    SendBbs.core_customer_mailer("wangchao@xiaoma.com").deliver
   end
 
   task :admin => :environment do
     SendBbs.bbs_admin_mailer("zhanghuaxun@xiaoma.com").deliver
     SendBbs.bbs_admin_mailer("zhangning@xiaoma.com").deliver
     SendBbs.bbs_admin_mailer("dongpei@xiaoma.com").deliver
+    SendBbs.bbs_admin_mailer("wangchao@xiaoma.com").deliver
   end
 end
