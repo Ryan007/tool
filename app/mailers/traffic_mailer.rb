@@ -5,7 +5,8 @@ class TrafficMailer < ActionMailer::Base
   @@arr = []
   def send_traffic(recipient)
     # # 先生成excel文件
-    time_range = (Time.now - 1.day)..(Time.now.midnight - 0.day)
+    time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    puts time_range
     @yd = Time.now - 1.day
     @@arr = []
     traverse_dir("#{Rails.root}/download/triffs/")
@@ -24,10 +25,10 @@ class TrafficMailer < ActionMailer::Base
         export_xls(@triff1s, OrganicTraffic, @count_uv1, @yd)
     end
     if !@@arr.include?"#{@yd.strftime('%Y-%m-%d')}-Campaign.xls"
-        @all = Click.select("*, sum(clicks) as sum_campaign").group("campaign").where('record_date' => time_range).order("sum_campaign DESC")
-        export_camp_xls(@all, @count_clicks, Campaign, @yd)
+        all = Click.select("*, sum(clicks) as sum_campaign").group("campaign").where('record_date' => time_range).order("sum_campaign DESC")
+        export_camp_xls(all, @count_clicks, Campaign, @yd)
     end
-
+    
     @recipients = recipient
     @from = 'noreply@xiaoma.com'
     @subject = "流量数据统计表"
@@ -36,7 +37,7 @@ class TrafficMailer < ActionMailer::Base
     attachments["自然流量#{@yd.strftime('%Y-%m-%d')}.xls"] = File.read("#{Rails.root}/download/triffs/#{@yd.strftime('%Y-%m-%d')}-OrganicTraffic.xls")
     attachments["产品流量#{@yd.strftime('%Y-%m-%d')}.xls"] = File.read("#{Rails.root}/download/triffs/#{@yd.strftime('%Y-%m-%d')}-Campaign.xls")
 
-    mail(:to => "#{recipient}", :subject => @subject)
+    # mail(:to => "#{recipient}", :subject => @subject)
   end
 
   # 查询目录下面的文件
