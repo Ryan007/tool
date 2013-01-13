@@ -37,7 +37,7 @@ class TrafficMailer < ActionMailer::Base
     attachments["自然流量#{@yd.strftime('%Y-%m-%d')}.xls"] = File.read("#{Rails.root}/download/triffs/#{@yd.strftime('%Y-%m-%d')}-OrganicTraffic.xls")
     attachments["产品流量#{@yd.strftime('%Y-%m-%d')}.xls"] = File.read("#{Rails.root}/download/triffs/#{@yd.strftime('%Y-%m-%d')}-Campaign.xls")
 
-    # mail(:to => "#{recipient}", :subject => @subject)
+    mail(:to => "#{recipient}", :subject => @subject)
   end
 
   # 查询目录下面的文件
