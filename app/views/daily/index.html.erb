@@ -1,0 +1,41 @@
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+			$('#plan_calendar').fullCalendar({
+				//editable: true,
+				theme: true,
+				timeFormat: 'H(:mm){ - H(:mm)}',
+				axisFormat: 'H:mm TT',
+				allDayText: "全天",
+				buttonText:{
+				     prev:     '向前',
+				     next:     '向后',
+				     prevYear: '去年',
+				     nextYear: '明年',
+				     today:    '今天',
+				     month:    '月',
+				     week:     '周',
+				     day:      '日'
+				},
+				monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月',
+				 '八月', '九月', '十月', '十一月', '十二月'],
+				monthNamesShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月',
+				 '八月', '九月', '十月', '十一月', '十二月'],
+				dayNames: ['周日', '周一', '周二', '周三',
+				 '周四', '周五', '周六'],
+				dayNamesShort: ['周日', '周一', '周二', '周三',
+				 '周四', '周五', '周六'],
+				eventSources: [
+					
+				],
+				loading: function(bool) {
+					if (bool) $('#loading').show();
+					else $('#loading').hide();
+				}
+			});
+		});
+</script>
+
+	
+
+<div id='loading' style='display:none'>loading...</div>
+<div id="plan_calendar">

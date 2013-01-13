@@ -2,6 +2,10 @@
 Xmims::Application.routes.draw do
   
 
+  get "daily/index"
+
+  get "daily/me"
+
   get "bbs_admin/index"
 
   get "bbs_admin/admin"
