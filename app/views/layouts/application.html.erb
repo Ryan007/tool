@@ -27,15 +27,18 @@
         <ul>
           <li class="selected"><a href="<%= root_url%>">首页</a></li>
           <li><a href="<%= '/daily/index'%>">日报</a></li>
-          <li><a href="<%= root_url%>">月报</a></li>
+          <li><a href="<%= root_url%>">周报</a></li>
+          <li><a href="<%= user_index_google_analytics_path%>">编辑</a></li>
+          <li><a href="<%= bbs_admin_index_path%>">论坛</a></li>
           <li>
             <% if user_signed_in? %>
-                <%= link_to '流量管理', clicks_path%>
+                <%= link_to '流量', clicks_path%>
             <% end %>
           </li>
           <li>
               <% if user_signed_in? %>
-              您好,<%= current_user.username %>
+                <div style="display:inline;">您好,</div>
+                <div style="display:inline;color:red;"><%= current_user.username %></div>
                 <%= link_to "退出", destroy_user_session_path, :method => :delete %>
               <% else %>
                 <%= link_to "登录", new_user_session_path, :method => :get %> |
@@ -48,7 +51,7 @@
           <%= yield %>
       </div>
       <div class="footer">
-        <p>&#169; Copyright &#169; 2012. xiaoma all rights reserved. collect from</p>
+        <p>&#169; Copyright &#169; 2012. xiaoma all rights reserved.</p>
         <div class="connect">
           <a href="http://www.xiaoma.com" target="_blank" alt="小马过河国际教育官网"><img src="<%= Xmims::Application.config.staticfile_server_url %>images/logo_xiaoma.png"/></a>
           <a href="http://dept.vip.xiaoma.com/" id="vimeo">vimeo</a>
