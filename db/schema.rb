@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130114162743) do
+ActiveRecord::Schema.define(:version => 20130114165659) do
 
   create_table "bbs_admins", :force => true do |t|
     t.integer "uid"
@@ -20,15 +20,6 @@ ActiveRecord::Schema.define(:version => 20130114162743) do
     t.integer "count"
     t.integer "posts"
     t.string  "username"
-    t.integer "friend"
-    t.integer "doing"
-    t.integer "blog"
-    t.integer "thread"
-    t.integer "share"
-    t.integer "online"
-    t.integer "post_back"
-    t.integer "yd_time"
-    t.integer "post"
   end
 
   create_table "bbs_core_customers", :force => true do |t|
@@ -44,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130114162743) do
     t.integer "yd_time"
     t.date    "current_date"
     t.string  "username"
+    t.integer "bbs_type"
   end
 
   create_table "campaigns", :force => true do |t|

@@ -2,6 +2,12 @@ class BbsAdminController < ApplicationController
   before_filter :authenticate_user!
   
   def index
+    time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    @customers = BbsAdmin.where('dateline' => time_range).paginate(:page => params[:page], :per_page => 20)
+    
+    respond_to do |format|
+      format.html
+    end
   end
 
   def admin
