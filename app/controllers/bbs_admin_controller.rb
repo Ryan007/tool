@@ -25,7 +25,6 @@ class BbsAdminController < ApplicationController
   	# time_range = (Time.now.midnight - 1.day)..Time.now.midnight
   	# @admins = BbsAdmin.where('dateline' => time_range).group("uid")
   	# @bbs = BbsAdmin.where('dateline' => time_range)
-
     if !params[:start_date].nil? 
       if !params[:start_date].empty?
         @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")

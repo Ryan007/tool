@@ -4,7 +4,7 @@
 <div>
 	<div style="display:inline;"><%= link_to "论坛核心用户", bbs_core_customer_clicks_path%></div>
 	<div style="display:inline;"><%= link_to "论坛管理员", bbs_admin_admin_path%></div>
-	<div style="display:inline;"><%= link_to "YY推广", bbs_admin_admin_path%></div>
+	<div style="display:inline;"><%= link_to "活动专员", bbs_admin_admin_path%></div>
 </div>
 
 <script type="text/javascript">
@@ -16,7 +16,6 @@
 </script>
 
 <h1>管理员统计信息</h1>
-<div style="margin-bottom:5px;"><%= link_to '返回', bbs_admin_index_path%></div>
 
 <%= form_tag(bbs_core_customer_clicks_path, :method => :get) do %>
   <p>
@@ -27,7 +26,7 @@
 
 <h3>昨日统计：</h3>
 <div style="font-size:16px;margin:3px;">
-	<div style="display:inline;margin-right:2px;">核心用户共：<%= @total.count %></div>
+	<div style="display:inline;margin-right:2px;">管理员共：<%= @total.count %></div>
 	<div style="display:inline;">操作数共：<%= @total.sum('doing') %></div>
 	<div style="display:inline;">帖子数共：<%= @total.sum('post') %></div>
 	<div style="display:inline;">主题数共：<%= @total.sum('thread') %></div>

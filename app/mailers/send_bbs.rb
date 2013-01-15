@@ -12,7 +12,7 @@ class SendBbs < ActionMailer::Base
 
 
     if !@@arr.include?"#{@yd.strftime('%Y-%m-%d')}-BbsCoreCustomer.xls"
-        @bbs = BbsCoreCustomer.where('current_date' => time_range)
+        @bbs = BbsCoreCustomer.where('current_date' => time_range).where('bbs_type IS NULL')
         export_xls(@bbs, BbsCoreCustomer, @yd)
     end
 
