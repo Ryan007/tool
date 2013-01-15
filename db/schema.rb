@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130114165659) do
+ActiveRecord::Schema.define(:version => 20130115090206) do
 
   create_table "bbs_admins", :force => true do |t|
     t.integer "uid"
@@ -55,6 +55,19 @@ ActiveRecord::Schema.define(:version => 20130114165659) do
     t.string  "tag_type"
     t.integer "position"
     t.integer "category"
+  end
+
+  create_table "daily_tasks", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "plan_start_timeline"
+    t.datetime "plan_finish_timeline"
+    t.integer  "accomplishment"
+    t.integer  "status"
+    t.string   "url"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "google_analytics", :force => true do |t|

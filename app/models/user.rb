@@ -19,6 +19,18 @@ class User < ActiveRecord::Base
       :encrypted_password, :last_sign_in_at
   end
 
+
+
+  # 每个组成员对应多个日常任务
+  has_many :daily_tasks
+
+
+
+
+
+
+  
+
   def self.send_bbs_core_mail(email1)
     # 验证email
     before_at = /([a-zA-Z0-9]+(_?[a-zA-Z0-9])+)/  

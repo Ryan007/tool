@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Xmims::Application.load_tasks
+Tools::Application.load_tasks

@@ -1,0 +1,86 @@
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		// alert(typeof(y));
+
+		
+		var calendar = $('#daily_calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			theme: true,
+			timeFormat: 'H(:mm){ - H(:mm)}',
+			axisFormat: 'H:mm TT',
+			allDayText: "全天",
+			AmText: '上午',
+			buttonText:{
+			     prev:     '向前',
+			     next:     '向后',
+			     prevYear: '去年',
+			     nextYear: '明年',
+			     today:    '今天',
+			     month:    '月',
+			     week:     '周',
+			     day:      '日'
+			},
+			monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月',
+			 '八月', '九月', '十月', '十一月', '十二月'],
+			monthNamesShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月',
+			 '八月', '九月', '十月', '十一月', '十二月'],
+			dayNames: ['周日', '周一', '周二', '周三',
+			 '周四', '周五', '周六'],
+			dayNamesShort: ['周日', '周一', '周二', '周三',
+			 '周四', '周五', '周六'],
+			// selectable: true,
+			// selectHelper: true,
+			// select: function(start, end, allDay) {
+			// 	var title = prompt('事件名称:');
+			// 	if (title) {
+			// 		calendar.fullCalendar('renderEvent',
+			// 			{
+			// 				title: title,
+			// 				start: start,
+			// 				end: end,
+			// 				allDay: false
+			// 			},
+			// 			true // make the event "stick"
+			// 		);
+			// 	}
+			// 	calendar.fullCalendar('unselect');
+			// },
+			editable: true,
+			// eventSources: [
+			events: [
+				<% for index in 0..(@tasks.length-1) do %>
+					<% 
+						date1 = @tasks[index].plan_start_timeline.to_a
+						date2 = @tasks[index].plan_finish_timeline.to_a
+					%>
+					
+					{	
+						title: "<%= @tasks[index].title%>",
+						start: new Date(<%= date1[5]%>,<%= date1[4]-1%> ,<%= date1[3]%>,<%= date1[2]%>,<%= date1[1]%>),
+						end: new Date(<%= date2[5]%>,<%= date2[4]-1%> ,<%= date2[3]%>,<%= date2[2]%>,<%= date2[1]%>),
+						url: '<%= daily_task_path(@tasks[index])%>',
+			            color: 'yellow',
+			            textColor: 'black',
+			            allDay: false
+					}
+					<% if index != @tasks.length - 1%>
+						<%= ','%>
+					<% end %>
+
+				<% end %>
+			]
+		});
+		
+	});
+</script>
+
+<div id='loading' style='display:none'>loading...</div>
+<div id="daily_calendar">
