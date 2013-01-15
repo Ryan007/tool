@@ -15,6 +15,10 @@ When /^(?:|我)点击链接"([^"]*)"$/ do |link|
   click_link(link)
 end
 
+When /^I go to (.+)$/ do |page_name|
+  visit path_to(page_name)
+end
+
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
@@ -23,32 +27,24 @@ When /^(?:|我)在输入框"([^"]*)"填写"([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
-When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
-  fill_in(field, :with => value)
+# When /^I press "([^\"]*)"$/ do |button|
+#   click_button(button)
+# end
+
+When /^(?:|我)按下按钮"([^"]*)"$/ do |button|
+  click_button(button)
 end
 
 When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
 end
 
-When /^(?:|我)按下按钮"([^"]*)"$/ do |button|
-  click_button(button)
+Then /^I should see "([^\"]*)"$/ do |text|
+  page.should have_content(text)
 end
 
-Then /^(?:|I )should see "([^"]*)"$/ do |text|
-  if page.respond_to? :should
-    page.should have_content(text)
-  else
-    assert page.has_content?(text)
-  end
-end
-
-Then /^(?:|I )should not see "([^"]*)"$/ do |text|
-  if page.respond_to? :should
-    page.should have_no_content(text)
-  else
-    assert page.has_no_content?(text)
-  end
+Then /^I should not see "([^\"]*)"$/ do |text|
+  response.should_not content(text)
 end
 
 Then /^(?:|我)应该看见"([^"]*)"$/ do |text|

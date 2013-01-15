@@ -1,0 +1,2 @@
+module BbsAdminHelper
+end

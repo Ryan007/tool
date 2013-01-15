@@ -1,5 +1,19 @@
+<script type="text/javascript">
+  $(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker" ).val("<%= @time %>");
+  });
+</script>
 <h1>引荐流量来源</h1>
 <%= link_to '返回', clicks_path %>
+
+<%= form_tag(referral_traffic_clicks_path, :method => :get) do %>
+  <p>
+    日期: <input type="text" id="datepicker" name="start_date">
+    <%= submit_tag("查询") %>
+  </p>
+<% end %>
 
 <h4>昨日共：<%= @count_triffs%>次访问</h4>
 <table border='1'>
@@ -36,7 +50,3 @@
 	</tr>
 	<% end %>
 </table>
-
-<%= form_tag(home_send_mail_path) %>
-	<%= text_field_tag 'email'%>
-	<%= submit_tag("发送")%>

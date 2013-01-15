@@ -308,39 +308,73 @@ class ClicksController < ApplicationController
 
   # refferal访问来源
   def referral_traffic
-    time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    # time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    # @triffs = ReferralTraffic.where('current_date' => time_range).order("clicks DESC")
+    # @count_triffs = ReferralTraffic.where('current_date' => time_range).sum('clicks')
+    # respond_to do |format|
+    #   format.html
+    #   format.json { @triffs }
+    # end
+
+    if !params[:start_date].nil? 
+      if !params[:start_date].empty?
+        @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
+        @time = @t.strftime("%Y-%m-%d")
+        time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
+      else
+        time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+      end
+    else
+      time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    end
+
     @triffs = ReferralTraffic.where('current_date' => time_range).order("clicks DESC")
     @count_triffs = ReferralTraffic.where('current_date' => time_range).sum('clicks')
     respond_to do |format|
-      format.html
-      format.json { @triffs }
+      format.html # index.html.erb
     end
   end
 
   # organic访问来源
   def organic_traffic
-    time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    if !params[:start_date].nil? 
+      if !params[:start_date].empty?
+        @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
+        @time = @t.strftime("%Y-%m-%d")
+        time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
+      else
+        time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+      end
+    else
+      time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    end
+
     @triffs = OrganicTraffic.where('current_date' => time_range).order("clicks DESC").paginate(:page => params[:page], :per_page => 50)
     @count_triffs = OrganicTraffic.where('current_date' => time_range).sum("clicks")
     respond_to do |format|
-      format.html
+      format.html # index.html.erb
     end
+
   end
 
   # bbs核心用户
   def bbs_core_customer
     if !params[:start_date].nil?
-      @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
-      @time = @t.strftime("%Y-%m-%d")
-      time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
+        if !params[:start_date].empty?
+            @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
+            @time = @t.strftime("%Y-%m-%d")
+            time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
+        else
+            time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+        end
     else
       time_range = (Time.now.midnight - 1.day)..Time.now.midnight
     end
 
-    @customers = BbsCoreCustomer.where('current_date' => time_range).paginate(:page => params[:page], :per_page => 20)
-    @total = BbsCoreCustomer.where('current_date' => time_range)
+    @customers = BbsCoreCustomer.where('current_date' => time_range).where('bbs_type IS NULL').paginate(:page => params[:page], :per_page => 20)
+    @total = BbsCoreCustomer.where('current_date' => time_range).where('bbs_type IS NULL')
     respond_to do |format|
-      format.html # index.html.erb
+        format.html # index.html.erb
     end
   end
 

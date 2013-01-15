@@ -1,24 +1,21 @@
-# language: zh-CN
+# encoding: utf-8
 
-功能: 用户注册
-  为了在网站上可以进行一些操作
-	作为一个用户
-	我要能够登录网站先进行注册
-	
-    场景:
-      Given I am on the home page
-      I should see "注册"
-      
-      #当 我来到 主页
-      #When I follow "注册"
-      #I should see "注册"
-      #当 我点击链接"注册"
-      #而且 我在输入框"用户名"填写"zhanghuaxun"
-  	  #而且 我在输入框"电子邮件"填写"zhanghuaxun@xiaoma.com"
-  	  #而且 我在输入框"密码"填写"1q2w3e4r"
-      #而且 我在输入框"密码确认"填写"1q2w3e4r"
-      #而且 show me the page	
-      #而且 我按下按钮"完成"
-      #而且 show me the page	
-      #而且 我应该看见"恭喜!您已经成功注册"
-      #而且 我应该看见"去验证您的邮箱"
+Feature: Sign up
+    In order to get access to protected sections of the site
+    As a user
+    I want to be able to sign up
+  
+    Scenario:sign up
+        When I go to homepage
+        Then I should see "注册"
+        When I follow "注册"
+        Then I should see "用户名"
+        Then I should see "电子邮件"
+        Then I should see "密码"
+        Then I should see "重输入"
+        When I fill in "用户名" with "zhanghuaxun"
+        When I fill in "电子邮件" with "zhanghuaxun@xiaoma.com"
+        When I fill in "密码" with "1q2w3e4r"
+        When I fill in "重输入" with "1q2w3e4r"
+        When I press "完成"
+        Then I should see "去验证您的邮箱"

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121231084207) do
+ActiveRecord::Schema.define(:version => 20130115090206) do
+
+  create_table "bbs_admins", :force => true do |t|
+    t.integer "uid"
+    t.string  "modaction"
+    t.date    "dateline"
+    t.integer "count"
+    t.integer "posts"
+    t.string  "username"
+  end
 
   create_table "bbs_core_customers", :force => true do |t|
     t.integer "uid"
@@ -26,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20121231084207) do
     t.integer "yd_time"
     t.date    "current_date"
     t.string  "username"
+    t.integer "bbs_type"
   end
 
   create_table "campaigns", :force => true do |t|
@@ -45,6 +55,19 @@ ActiveRecord::Schema.define(:version => 20121231084207) do
     t.string  "tag_type"
     t.integer "position"
     t.integer "category"
+  end
+
+  create_table "daily_tasks", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "plan_start_timeline"
+    t.datetime "plan_finish_timeline"
+    t.integer  "accomplishment"
+    t.integer  "status"
+    t.string   "url"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "google_analytics", :force => true do |t|

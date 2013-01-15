@@ -1,0 +1,64 @@
+<script type="text/javascript">
+    $(function() {
+        $( "#datepicker_1" ).datetimepicker();
+        $( "#datepicker_1" ).datetimepicker( "option", "dateFormat", "yy-mm-dd" );
+        $("form").submit(function(e){
+           if($( "#datepicker_1" ).val() == ""){
+              alert("请选择考试开始时间!");
+              $( "#datepicker_1" ).focus();
+              return false;
+           }
+        });
+        $( "#datepicker_2" ).datetimepicker();
+        $( "#datepicker_2" ).datetimepicker( "option", "dateFormat", "yy-mm-dd" );
+        $("form").submit(function(e){
+           if($( "#datepicker_2" ).val() == ""){
+              alert("请选择考试开始时间!");
+              $( "#datepicker_2" ).focus();
+              return false;
+           }
+        });
+    });
+</script>
+
+<%= form_for(@daily_task) do |f| %>
+  <% if @daily_task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@daily_task.errors.count, "error") %> prohibited this daily_task from being saved:</h2>
+
+      <ul>
+      <% @daily_task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
+  <div class="field">
+    <%= f.label :title, '标题：'%><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :plan_start_timeline, '计划开始时间：'%><br />
+    <input type="text" id="datepicker_1" name="daily_task[plan_start_timeline]"> 
+  </div>
+  <div class="field">
+    <%= f.label :plan_finish_timeline, '计划结束时间：' %><br />
+    <input type="text" id="datepicker_2" name="daily_task[plan_finish_timeline]"> 
+  </div>
+  <div class="field">
+    <%= f.label :accomplishment, '完成度' %><br />
+    <%= f.text_field :accomplishment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, '任务内容：' %><br />
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit('Submit') %>
+  </div>
+
+<% end %>
