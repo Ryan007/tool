@@ -99,6 +99,10 @@ Tools::Application.routes.draw do
     get 'referral_traffic', :on => :collection
     # 自然访问流量
     get 'organic_traffic', :on => :collection
+
+    # 自然访问流量
+    get 'paid_traffic', :on => :collection
+
     get 'index_campaign', :on => :collection
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115090206) do
+ActiveRecord::Schema.define(:version => 20130117071627) do
 
   create_table "bbs_admins", :force => true do |t|
     t.integer "uid"
@@ -104,6 +104,16 @@ ActiveRecord::Schema.define(:version => 20130115090206) do
     t.string  "conversion3_rate"
     t.date    "current_date"
     t.integer "clicks"
+  end
+
+  create_table "paid_traffics", :force => true do |t|
+    t.date    "current_date"
+    t.string  "keyword"
+    t.integer "clicks"
+    t.integer "goal1"
+    t.integer "goal3"
+    t.string  "conversion1_rate"
+    t.string  "conversion3_rate"
   end
 
   create_table "positions", :force => true do |t|
