@@ -14,8 +14,8 @@ Feature: Sign in
         When they should see the email delivered from "noreply@xiaoma.com"
         When they click the first link in the email
         Then I should see "退出"
-        Then I should see "您好,zhanghuaxun"
-        Then I should see "您好,zhanghuaxun"
+        Then I should see "您好"
+        Then I should see "zhanghuaxun"
 
     Scenario:Login from the Form
         Given one valid user:
@@ -29,8 +29,10 @@ Feature: Sign in
         When I fill in "电子邮件" with "goodboyryan@126.com"
         When I fill in "密码" with "password"
         When I press "Login"
-        Then I should see "您好,zhanghuaxun"
+        Then I should see "您好"
+        Then I should see "zhanghuaxun"
 
     Scenario:Simple method to login 
         Given I am logged in
-        Then I should see "您好,zhanghuaxun"
+        Then I should see "您好"
+        Then I should see "zhanghuaxun"

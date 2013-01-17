@@ -9286,3 +9286,1062 @@ Processing by HomeController#index as HTML
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 44 LIMIT 1[0m
 Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
   [1m[35m (0.7ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, NULL, NULL, '2013-01-17 14:26:35', '2013-01-17 14:26:36', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$04$p1OTi9.JUV2Wz1oKsMkILe/7HWZcYb88nZjILLqvP.znvgSsCvOxu', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:26:36', 'zhanghuaxun')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:26:36 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 110ms (Views: 109.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:26:36 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:26:36', `current_sign_in_at` = '2013-01-17 14:26:36', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:26:36' WHERE `users`.`id` = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 207ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:26:37 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'PruhKCpynXf4GxsLbf5e' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:26:37', 'PruhKCpynXf4GxsLbf5e', NULL, '2013-01-17 14:26:37', NULL, NULL, 'goodboyryan@126.com', '$2a$04$lXIBXk8o504oOt7muW5lwucn.hmNvUCLfdl0g1Rhw.h7DqM4gWAW.', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:26:37', 'zhanghuaxun')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.4ms)
+
+Sent mail to goodboyryan@126.com (9294ms)
+Date: Thu, 17 Jan 2013 22:26:39 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80a1f42fc_7f233ffdb1c34cd85749@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49UHJ1aEtDcHluWGY0R3hzTGJmNWUiPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/confirmation?confirmation_token=PruhKCpynXf4GxsLbf5e" for 127.0.0.1 at 2013-01-17 22:26:46 +0800
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"PruhKCpynXf4GxsLbf5e"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'PruhKCpynXf4GxsLbf5e' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:26:46', `updated_at` = '2013-01-17 14:26:46' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:26:46', `current_sign_in_at` = '2013-01-17 14:26:46', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:26:46' WHERE `users`.`id` = 2
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 7ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:26:46 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'xqyvJchE3vV9sV4ov1Qu' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:26:46', 'xqyvJchE3vV9sV4ov1Qu', NULL, '2013-01-17 14:26:46', NULL, NULL, 'goodboyryan@126.com', '$2a$04$/EaSt0Ts0FWi8vNZZd3lXOsqvQt99l9R8Lyypx60PgX1TIViQ1ZMu', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:26:46', 'zhanghuaxun')
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.4ms)
+
+Sent mail to goodboyryan@126.com (3265ms)
+Date: Thu, 17 Jan 2013 22:26:46 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80a26dd07e_7f233ffdb1c34cd857584@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49eHF5dkpjaEUzdlY5c1Y0b3YxUXUiPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:26:50', `updated_at` = '2013-01-17 14:26:50' WHERE `users`.`id` = 3[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:26:50 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:26:50 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:26:50 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"goodboyryan@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:26:50', `current_sign_in_at` = '2013-01-17 14:26:50', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:26:50' WHERE `users`.`id` = 3[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:26:50 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, NULL, NULL, '2013-01-17 14:26:35', '2013-01-17 14:26:50', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$04$fcXKb4E.VWS383IlApF2veCjX98uiU/GlmoyE2VJP/HIfkyQFSJ5G', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:26:50', 'zhanghuaxun')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:26:50 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:26:50 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:26:50', `current_sign_in_at` = '2013-01-17 14:26:50', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:26:50' WHERE `users`.`id` = 4[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:26:50 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:26:50 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-01-17 22:26:50 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-01-17 22:26:50 +0800
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"username"=>"zhanghuaxun", "email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'w6MjSFcB3chA241FDLcq' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:26:50', 'w6MjSFcB3chA241FDLcq', NULL, '2013-01-17 14:26:50', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$04$vUTDIbGGLK33ePg.US4sNO1J8UFFKZ9GhVf8KjaaexLmj7qT4c9Yi', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:26:50', 'zhanghuaxun')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.4ms)
+
+Sent mail to zhanghuaxun@xiaoma.com (2007ms)
+Date: Thu, 17 Jan 2013 22:26:50 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: zhanghuaxun@xiaoma.com
+Message-ID: <50f80a2a9c1bc_7f233ffdb1c34cd85769@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49dzZNalNGY0IzY2hBMjQxRkRMY3EiPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/awaiting_confirmation?email=zhanghuaxun@xiaoma.com
+Completed 302 Found in 2028ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/awaiting_confirmation?email=zhanghuaxun%40xiaoma.com" for 127.0.0.1 at 2013-01-17 22:26:52 +0800
+Processing by RegistrationsController#awaiting_confirmation as HTML
+  Parameters: {"email"=>"zhanghuaxun@xiaoma.com"}
+  Rendered devise/registrations/awaiting_confirmation.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'C8CNbqKrXZqWUNydSNSx' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:27:23', 'C8CNbqKrXZqWUNydSNSx', NULL, '2013-01-17 14:27:23', NULL, NULL, 'goodboyryan@126.com', '$2a$04$U3avOiVO6G2TMv9azp/XsO/EjvTrKMjOLoKSTGgE5XTtgBOQiG7ZW', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:27:23', 'zhanghuaxun')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (4.4ms)
+
+Sent mail to goodboyryan@126.com (3839ms)
+Date: Thu, 17 Jan 2013 22:27:23 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80a4be75c8_80dc3fca69034cd82562@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49QzhDTmJxS3JYWnFXVU55ZFNOU3giPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/confirmation?confirmation_token=C8CNbqKrXZqWUNydSNSx" for 127.0.0.1 at 2013-01-17 22:27:27 +0800
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"C8CNbqKrXZqWUNydSNSx"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'C8CNbqKrXZqWUNydSNSx' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:27:27', `updated_at` = '2013-01-17 14:27:27' WHERE `users`.`id` = 6[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:27:27', `current_sign_in_at` = '2013-01-17 14:27:27', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:27:27' WHERE `users`.`id` = 6
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 11ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:27:27 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'JHqWzH1JUi9qwJBSt2Rn' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:27:27', 'JHqWzH1JUi9qwJBSt2Rn', NULL, '2013-01-17 14:27:27', NULL, NULL, 'goodboyryan@126.com', '$2a$04$ybIq51F9CFYErwvUL/kp2OSgfyIT2dw0QSzVazMB4GY3p4y08rPsC', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:27:27', 'zhanghuaxun')
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.4ms)
+
+Sent mail to goodboyryan@126.com (3709ms)
+Date: Thu, 17 Jan 2013 22:27:27 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80a4fef6da_80dc3fca69034cd826f6@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49SkhxV3pIMUpVaTlxd0pCU3QyUm4iPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:27:31', `updated_at` = '2013-01-17 14:27:31' WHERE `users`.`id` = 7[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:27:31 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:27:31 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:27:31 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"goodboyryan@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:27:31', `current_sign_in_at` = '2013-01-17 14:27:31', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:27:31' WHERE `users`.`id` = 7[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:27:31 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, NULL, NULL, '2013-01-17 14:27:23', '2013-01-17 14:27:31', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$04$fxyen50k95Mre4zCw338CurvgmkTixLsYVySPu7.lSCOSFVc9qje.', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:27:31', 'zhanghuaxun')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:27:31 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:27:31 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:27:31', `current_sign_in_at` = '2013-01-17 14:27:31', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:27:31' WHERE `users`.`id` = 8[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:27:31 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:28:09 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-01-17 22:28:10 +0800
+Processing by RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 47ms (Views: 12.1ms | ActiveRecord: 11.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-01-17 22:28:10 +0800
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"username"=>"zhanghuaxun", "email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'sdq8jmppjczTxMhwXben' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:28:10', 'sdq8jmppjczTxMhwXben', NULL, '2013-01-17 14:28:10', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$04$WXtrvPWzlvBVqv7C/Q974OuH6zRbArOEoxCRMEyN1AoBnY3x8h0v.', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:28:10', 'zhanghuaxun')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.8ms)
+
+Sent mail to zhanghuaxun@xiaoma.com (14187ms)
+Date: Thu, 17 Jan 2013 22:28:10 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: zhanghuaxun@xiaoma.com
+Message-ID: <50f80a7a7c1ad_82953fd4d5834cdc7062c@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49c2RxOGptcHBqY3pUeE1od1hiZW4iPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/awaiting_confirmation?email=zhanghuaxun@xiaoma.com
+Completed 302 Found in 14453ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/awaiting_confirmation?email=zhanghuaxun%40xiaoma.com" for 127.0.0.1 at 2013-01-17 22:28:24 +0800
+Processing by RegistrationsController#awaiting_confirmation as HTML
+  Parameters: {"email"=>"zhanghuaxun@xiaoma.com"}
+  Rendered devise/registrations/awaiting_confirmation.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.8ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'Ute6WQkj46mvtj45jaqb' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:29:12', 'Ute6WQkj46mvtj45jaqb', NULL, '2013-01-17 14:29:12', NULL, NULL, 'goodboyryan@126.com', '$2a$04$emHmRJJdUHW9Nny22JNNIewnuQVJikfPGGu4gLFLm1hqF6kHbSLRq', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:29:12', 'zhanghuaxun')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.4ms)
+
+Sent mail to goodboyryan@126.com (15667ms)
+Date: Thu, 17 Jan 2013 22:29:12 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80ab8dc312_84a73fc2be034ce059020@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49VXRlNldRa2o0Nm12dGo0NWphcWIiPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/confirmation?confirmation_token=Ute6WQkj46mvtj45jaqb" for 127.0.0.1 at 2013-01-17 22:29:28 +0800
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"Ute6WQkj46mvtj45jaqb"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'Ute6WQkj46mvtj45jaqb' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:29:28', `updated_at` = '2013-01-17 14:29:28' WHERE `users`.`id` = 10[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:29:28', `current_sign_in_at` = '2013-01-17 14:29:28', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:29:28' WHERE `users`.`id` = 10
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 9ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:29:28 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+  [1m[36m (39.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'VWZMz5VLmPTVHvb9G71i' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:29:28', 'VWZMz5VLmPTVHvb9G71i', NULL, '2013-01-17 14:29:28', NULL, NULL, 'goodboyryan@126.com', '$2a$04$7QFhbXpdnRn2NRr6Jt5bh.hYcLqBQ6MpbQs66nTwJhryAZ3zIj08q', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:29:28', 'zhanghuaxun')
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.4ms)
+
+Sent mail to goodboyryan@126.com (2447ms)
+Date: Thu, 17 Jan 2013 22:29:28 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80ac8c3c7f_84a73fc2be034ce0591c2@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49VldaTXo1VkxtUFRWSHZiOUc3MWkiPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:29:31', `updated_at` = '2013-01-17 14:29:31' WHERE `users`.`id` = 11[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:29:31 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:29:31 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:29:31 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"goodboyryan@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:29:31', `current_sign_in_at` = '2013-01-17 14:29:31', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:29:31' WHERE `users`.`id` = 11[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:29:31 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 11 LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (55.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, NULL, NULL, '2013-01-17 14:29:12', '2013-01-17 14:29:31', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$04$wbToWvfSkDtbj5ksZnTwsODWtBOBW4RjpHlWAKkKlgWMsLzyICNEW', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:29:31', 'zhanghuaxun')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:29:31 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:29:31 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:29:31', `current_sign_in_at` = '2013-01-17 14:29:31', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:29:31' WHERE `users`.`id` = 12[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 10ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:29:31 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (191.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'hJusq9MzKX8eVocfKAgY' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:32:31', 'hJusq9MzKX8eVocfKAgY', NULL, '2013-01-17 14:32:31', NULL, NULL, 'goodboyryan@126.com', '$2a$04$L1h7KBK25fwF566LOHNxsORJ3RYapcllt6pBIJn.2A8LhHMmpFXaG', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:32:31', 'zhanghuaxun')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.1ms)
+
+Sent mail to goodboyryan@126.com (3897ms)
+Date: Thu, 17 Jan 2013 22:32:31 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80b7f99239_8b943fe1b6034cd86739c@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49aEp1c3E5TXpLWDhlVm9jZktBZ1kiPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/confirmation?confirmation_token=hJusq9MzKX8eVocfKAgY" for 127.0.0.1 at 2013-01-17 22:32:35 +0800
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"hJusq9MzKX8eVocfKAgY"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'hJusq9MzKX8eVocfKAgY' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:32:35', `updated_at` = '2013-01-17 14:32:35' WHERE `users`.`id` = 13[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:32:35', `current_sign_in_at` = '2013-01-17 14:32:35', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:32:35' WHERE `users`.`id` = 13
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 10ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:32:35 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'WcnafYKx766AGHeWaGxs' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:32:35', 'WcnafYKx766AGHeWaGxs', NULL, '2013-01-17 14:32:35', NULL, NULL, 'goodboyryan@126.com', '$2a$04$gMrpWBF6nOscSRXM5lj/W.FjuqRME3RRjm.M8ZTgaYg5zi8o.RLeq', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:32:35', 'zhanghuaxun')
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.4ms)
+
+Sent mail to goodboyryan@126.com (1789ms)
+Date: Thu, 17 Jan 2013 22:32:35 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80b83b06d2_8b943fe1b6034cd867448@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49V2NuYWZZS3g3NjZBR0hlV2FHeHMiPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:32:37', `updated_at` = '2013-01-17 14:32:37' WHERE `users`.`id` = 14[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:32:37 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:32:37 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:32:37 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"goodboyryan@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:32:37', `current_sign_in_at` = '2013-01-17 14:32:37', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:32:37' WHERE `users`.`id` = 14[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:32:37 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 14 LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (55.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, NULL, NULL, '2013-01-17 14:32:30', '2013-01-17 14:32:37', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$04$ltuS0YV35u64QnvvlRE1oOpgwyNDjcT2QQjVEuC6F4cJpwzNhEvjS', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:32:37', 'zhanghuaxun')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:32:37 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:32:37 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:32:37', `current_sign_in_at` = '2013-01-17 14:32:37', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:32:37' WHERE `users`.`id` = 15[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:32:37 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'UskUep8Wg7QdqYVJBRKY' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:33:17', 'UskUep8Wg7QdqYVJBRKY', NULL, '2013-01-17 14:33:17', NULL, NULL, 'goodboyryan@126.com', '$2a$04$0mN.PQ0RhzjDUDhmArYjSewePdmUlSWB33zxNXrAJ5SWEIX1JT8Y6', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:33:17', 'zhanghuaxun')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (4.0ms)
+
+Sent mail to goodboyryan@126.com (7292ms)
+Date: Thu, 17 Jan 2013 22:33:17 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80badc1fc9_8cf93fce70434cd8352cd@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49VXNrVWVwOFdnN1FkcVlWSkJSS1kiPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/confirmation?confirmation_token=UskUep8Wg7QdqYVJBRKY" for 127.0.0.1 at 2013-01-17 22:33:25 +0800
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"UskUep8Wg7QdqYVJBRKY"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'UskUep8Wg7QdqYVJBRKY' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:33:25', `updated_at` = '2013-01-17 14:33:25' WHERE `users`.`id` = 16[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:33:25', `current_sign_in_at` = '2013-01-17 14:33:25', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:33:25' WHERE `users`.`id` = 16
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 10ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:33:25 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (36.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'bEmbc8sLxFowKz1zKbyK' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:33:25', 'bEmbc8sLxFowKz1zKbyK', NULL, '2013-01-17 14:33:25', NULL, NULL, 'goodboyryan@126.com', '$2a$04$vc3dsta.csMmN1Elb2Xbo.Rl96nlMqdZRhQlGNN3iQctVPap5Er8S', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:33:25', 'zhanghuaxun')
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.4ms)
+
+Sent mail to goodboyryan@126.com (5641ms)
+Date: Thu, 17 Jan 2013 22:33:25 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80bb54e4a7_8cf93fce70434cd835318@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49YkVtYmM4c0x4Rm93S3oxektieUsiPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:33:30', `updated_at` = '2013-01-17 14:33:30' WHERE `users`.`id` = 17[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:33:30 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:33:31 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:33:31 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"goodboyryan@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:33:31', `current_sign_in_at` = '2013-01-17 14:33:31', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:33:31' WHERE `users`.`id` = 17[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 22ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:33:31 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (748.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, NULL, NULL, '2013-01-17 14:33:17', '2013-01-17 14:33:32', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$04$lHka9lziGBKiEupwhfR9TeNROz7eZ6ba0ZbyO.doo1NvmAAokYJ3.', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:33:32', 'zhanghuaxun')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:33:32 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:33:32 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:33:32', `current_sign_in_at` = '2013-01-17 14:33:32', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:33:32' WHERE `users`.`id` = 18[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:33:32 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 18 LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (243.9ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = '9d9pZ5s5VEnqnaponRLz' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:33:52', '9d9pZ5s5VEnqnaponRLz', NULL, '2013-01-17 14:33:52', NULL, NULL, 'goodboyryan@126.com', '$2a$04$ryn8NKFj7IrUSdIX56q1a.wSTYCaDQm9KCFkY3caC5RLOALkeRcS.', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:33:52', 'zhanghuaxun')[0m
+  Rendered devise/mailer/confirmation_instructions.html.erb (3.2ms)
+
+Sent mail to goodboyryan@126.com (3380ms)
+Date: Thu, 17 Jan 2013 22:33:52 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80bd0941fa_8e5d3fc990c34cd8813b5@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49OWQ5cFo1czVWRW5xbmFwb25STHoiPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/confirmation?confirmation_token=9d9pZ5s5VEnqnaponRLz" for 127.0.0.1 at 2013-01-17 22:33:56 +0800
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"9d9pZ5s5VEnqnaponRLz"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = '9d9pZ5s5VEnqnaponRLz' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:33:56', `updated_at` = '2013-01-17 14:33:56' WHERE `users`.`id` = 19[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:33:56', `current_sign_in_at` = '2013-01-17 14:33:56', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:33:56' WHERE `users`.`id` = 19
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 10ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:33:56 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 19 LIMIT 1
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'goodboyryan@126.com' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`confirmation_token` = 'zrUimssyicucQHMysW7m' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, '2013-01-17 14:33:56', 'zrUimssyicucQHMysW7m', NULL, '2013-01-17 14:33:56', NULL, NULL, 'goodboyryan@126.com', '$2a$04$HPWbb/7CUvoLX5nCXzqLsOnLvWEr0wQSbjxbDeLsDnPOQ40qDTdFm', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:33:56', 'zhanghuaxun')
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.5ms)
+
+Sent mail to goodboyryan@126.com (18287ms)
+Date: Thu, 17 Jan 2013 22:33:56 +0800
+From: noreply@xiaoma.com
+Reply-To: noreply@xiaoma.com
+To: goodboyryan@126.com
+Message-ID: <50f80bd430640_8e5d3fc990c34cd881442@ryan.local.mail>
+Subject: =?UTF-8?Q?=E8=AF=B7=E6=BF=80=E6=B4=BB=E6=82=A8=E7=9A=84=E9=82=AE=E7=AE=B1?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+5qyi6L+O5oKoIHpoYW5naHVheHVuITwvcD4KCjxwPuaCqOWPr+S7pemA
+mui/h+eCueWHu+S4i+mdoueahOmTvuaOpeadpemqjOivgeaCqOeahOmCrueu
+sSzlubblrozmiJDms6jlhow6PC9wPgoKPHA+PGEgaHJlZj0iaHR0cDovL2xv
+Y2FsaG9zdDozMDAwL3VzZXJzL2NvbmZpcm1hdGlvbj9jb25maXJtYXRpb25f
+dG9rZW49enJVaW1zc3lpY3VjUUhNeXNXN20iPueOsOWcqOWwseWujOaIkOWc
+qOe9kee7nOmDqOWGhemDqOezu+e7n+eahOmqjOivgSzor7fngrnlh7vmraTp
+k77mjqU8L2E+PC9wPgo=
+
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mUPDATE `users` SET `confirmation_token` = NULL, `confirmed_at` = '2013-01-17 14:34:14', `updated_at` = '2013-01-17 14:34:14' WHERE `users`.`id` = 20[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:34:14 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:34:14 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:34:14 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"goodboyryan@126.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'goodboyryan@126.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:34:14', `current_sign_in_at` = '2013-01-17 14:34:14', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:34:14' WHERE `users`.`id` = 20[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 14ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:34:14 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (843.5ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'zhanghuaxun@xiaoma.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`authentication_token`, `confirmation_sent_at`, `confirmation_token`, `confirmed_at`, `created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `failed_attempts`, `last_sign_in_at`, `last_sign_in_ip`, `locked_at`, `remember_created_at`, `reset_password_sent_at`, `reset_password_token`, `sign_in_count`, `unconfirmed_email`, `unlock_token`, `updated_at`, `username`) VALUES (NULL, NULL, NULL, '2013-01-17 14:33:51', '2013-01-17 14:34:15', NULL, NULL, 'zhanghuaxun@xiaoma.com', '$2a$04$bi/EWrMH6eJqSsDSlLzHm.Lky0Ak.UddRaazQJccHcJTgzUZn7Kwi', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '2013-01-17 14:34:15', 'zhanghuaxun')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:34:15 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-17 22:34:15 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-17 14:34:15', `current_sign_in_at` = '2013-01-17 14:34:15', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-01-17 14:34:15' WHERE `users`.`id` = 21[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-17 22:34:15 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 21 LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (167.4ms)[0m  ROLLBACK

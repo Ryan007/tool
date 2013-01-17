@@ -2,6 +2,20 @@
 Tools::Application.routes.draw do
   
 
+  # 市场模块
+  namespace :bbs do
+    root :to => "base#index"
+    # bbs首页
+    get "admin/index"
+    # bbs显示管理员信息
+    get "admin/admin"
+    # 论坛核心用户
+    get 'admin/core_customer'
+  end
+
+
+
+
   resources :daily_tasks do 
     collection do
       get 'me'
@@ -13,9 +27,9 @@ Tools::Application.routes.draw do
 
   # get "daily/me"
 
-  get "bbs_admin/index"
+  # get "bbs_admin/index"
 
-  get "bbs_admin/admin"
+  # get "bbs_admin/admin"
 
   # 统计谷歌广告
   resources :google_analytics do
@@ -92,8 +106,8 @@ Tools::Application.routes.draw do
     get 'sum_child_category', :on => :collection
     get 'search_result', :on => :collection
 
-    # 论坛核心用户
-    get 'bbs_core_customer', :on => :collection
+    # # 论坛核心用户
+    # get 'bbs_core_customer', :on => :collection
 
     # 引荐流量
     get 'referral_traffic', :on => :collection

@@ -1,0 +1,66 @@
+<h1>论坛相关内容</h1>
+
+
+<div>
+	<div style="display:inline;"><%= link_to "论坛核心用户", bbs_admin_core_customer_path%></div>
+	<div style="display:inline;"><%= link_to "论坛管理员", bbs_admin_admin_path%></div>
+	<div style="display:inline;"><%= link_to "活动专员", bbs_admin_admin_path%></div>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker" ).val("<%= @time %>");
+  });
+</script>
+
+<h1>管理员统计信息</h1>
+
+<%= form_tag(bbs_bbs_admin_index_path, :method => :get) do %>
+  <p>
+    日期: <input type="text" id="datepicker" name="start_date">
+    <%= submit_tag("查询") %>
+  </p>
+<% end %>
+
+<h3>昨日统计：</h3>
+<div style="font-size:16px;margin:3px;">
+	<div style="display:inline;margin-right:2px;">共有：<%= @total.count %>管理员</div>
+	<div style="display:inline;">操作数共：<%= @total.sum('doing') %></div>
+	<div style="display:inline;">帖子数共：<%= @total.sum('post') %></div>
+	<div style="display:inline;">主题数共：<%= @total.sum('thread') %></div>
+</div>
+<table border='1'>
+	<tr>
+		<td>用户编号</td>
+		<td>用户名称</td>
+		<td>好友</td>
+		<td>操作数</td>
+		<td>日志数</td>
+		<td>帖子数</td>
+		<td>主题数</td>
+		<td>分享数</td>
+		<td>总在线时间</td>
+		<td>昨天在线时间</td>
+		<td>回复数</td>
+		<td>日期</td>
+	</tr>
+	<% @customers.each do |c| %>
+	<tr>
+		<td><%= c.uid%></td>
+		<td><%= c.username %></td>
+		<td><%= c.friend %></td>
+		<td><%= c.doing %></td>
+		<td><%= c.blog %></td>
+		<td><%= c.post %></td>
+		<td><%= c.thread %></td>
+		<td><%= c.share %></td>
+		<td><%= c.online %></td>
+		<td><%= c.yd_time %></td>
+		<td><%= c.post_back %></td>
+		<td><%= c.current_date %></td>
+	</tr>
+	<% end %>
+</table>
+<%=h will_paginate @customers, :previous_label => '上一页',  :next_label => '下一页'%>
