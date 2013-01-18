@@ -13,8 +13,20 @@
 <div style="margin-bottom:15px;">
 	<div style="display:inline;padding-right:10px;">访问次数：<%= @count_traffics.sum("clicks")%></div>
 	<div style="display:inline;padding-right:10px;">访问次数：<%= @count_traffics.sum("clicks")%></div>
-	<div style="display:inline;padding-right:10px;">目标1平均转化率：<%= format("%0.2f", @count_traffics.average("conversion1_rate")) %>%</div>
-	<div style="display:inline;padding-right:10px;">目标3平均转化率：<%= format("%0.2f", @count_traffics.average("conversion3_rate"))%>%</div>
+	<div style="display:inline;padding-right:10px;">目标1平均转化率：
+		<% if @count_traffics.average("conversion1_rate")%>
+		<%= format("%0.2f", @count_traffics.average("conversion1_rate")) %>
+		<% else%>
+		0
+		<% end %>
+	%</div>
+	<div style="display:inline;padding-right:10px;">目标3平均转化率：
+		<% if @count_traffics.average("conversion3_rate")%>
+		<%= format("%0.2f", @count_traffics.average("conversion3_rate"))%>
+		<% else%>
+		0
+		<% end %>
+	%</div>
 </div>
 
 
