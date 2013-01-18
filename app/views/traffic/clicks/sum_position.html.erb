@@ -14,7 +14,7 @@
   <tr>
     <td>
     	<% if p.position%>
-    	<%= link_to Position.find(p.position).name, "/positions/detail?id=#{p.position}"  %>
+    	<%= link_to Position.find(p.position).name, "/editor/positions/detail?id=#{p.position}"  %>
   		<% else %>
   		no data
     	<% end %>

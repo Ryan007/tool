@@ -7,8 +7,8 @@
 
 
 <h1>活动流量详细列表</h1>
-<%= link_to '返回', sum_position_clicks_path %>
-<%= form_tag(detail_positions_path, :method => :get) do %>
+<%= link_to '返回', sum_position_traffic_clicks_path %>
+<%= form_tag(detail_editor_positions_path, :method => :get) do %>
   <p>
     日期: <input type="text" id="datepicker" name="start_date" value="<%= @t%>"> 
     <%= hidden_field_tag :id, "#{@position.id}"%>
@@ -31,7 +31,7 @@
 
 <% @clicks.each do |click| %>
   <tr style="padding:5px">
-    <td><%= link_to click.tagname, click%></td>
+    <td><%= click.tagname%></td>
     <td><%= click.clicks %></td>
     <td>
       <% if click.category.nil? %>

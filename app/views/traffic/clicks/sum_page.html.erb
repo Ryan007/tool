@@ -14,7 +14,7 @@
   <tr>    
   	<td>
   		<% if p.page %>
-  		<%= link_to WebPage.find(p.page).content, "/web_pages/detail?id=#{p.page}"  %>
+  		<%= link_to WebPage.find(p.page).content, "/editor/web_pages/detail?id=#{p.page}"  %>
   		<% else %>
   		no data
   		<% end %>

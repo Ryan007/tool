@@ -14,7 +14,7 @@
   <tr>
     <td>
     	<% if campaign.campaign %>
-    	<%=  link_to Campaign.find(campaign.campaign).name, "/campaigns/detail?id=#{campaign.campaign}" %>
+    	<%=  link_to Campaign.find(campaign.campaign).name, "/editor/campaigns/detail?id=#{campaign.campaign}" %>
     	<% else%>
     	no  data
     	<% end %>
