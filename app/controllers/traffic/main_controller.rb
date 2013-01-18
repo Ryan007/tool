@@ -45,7 +45,7 @@ class Traffic::MainController < Traffic::BaseController
     end
 
     @triffs = ReferralTraffic.where('current_date' => time_range).order("clicks DESC")
-    @count_triffs = ReferralTraffic.where('current_date' => time_range).sum('clicks')
+    @count_traffics = ReferralTraffic.where('current_date' => time_range)
     respond_to do |format|
       format.html # index.html.erb
     end
@@ -66,7 +66,7 @@ class Traffic::MainController < Traffic::BaseController
     end
 
     @triffs = OrganicTraffic.where('current_date' => time_range).order("clicks DESC").paginate(:page => params[:page], :per_page => 50)
-    @count_triffs = OrganicTraffic.where('current_date' => time_range).sum("clicks")
+    @count_traffics = OrganicTraffic.where('current_date' => time_range)
     respond_to do |format|
       format.html # index.html.erb
     end

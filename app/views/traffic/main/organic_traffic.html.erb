@@ -8,7 +8,26 @@
 
 <h1>引荐流量来源</h1>
 <%= link_to '返回', traffic_main_index_path %>
-<h4>昨日共：<%= @count_triffs%>次访问</h4>
+
+<div style="margin-bottom:15px;">
+	<div style="display:inline;padding-right:5px;">访问次数：<%= @count_traffics.sum("clicks")%></div>
+	<div style="display:inline;padding-right:5px;">产品浏览量：<%= @count_traffics.sum("goal1")%></div>
+	<div style="display:inline;padding-right:5px;">乐语点击量：<%= @count_traffics.sum("goal3")%></div>
+	<div style="display:inline;padding-right:5px;">目标1平均转化率：
+		<% if @count_traffics.average("conversion1_rate")%>
+		<%= format("%0.2f", @count_traffics.average("conversion1_rate")) %>
+		<% else%>
+		0
+		<% end %>
+	%</div>
+	<div style="display:inline;padding-right:5px;">目标3平均转化率：
+		<% if @count_traffics.average("conversion3_rate")%>
+		<%= format("%0.2f", @count_traffics.average("conversion3_rate"))%>
+		<% else%>
+		0
+		<% end %>
+	%</div>
+</div>
 
 
 <%= form_tag(traffic_main_organic_traffic_path, :method => :get) do %>
