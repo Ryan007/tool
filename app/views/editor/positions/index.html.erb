@@ -1,0 +1,26 @@
+<h1>位置列表</h1>
+<%= link_to "返回", editor_main_index_path %><br />
+<%= link_to '新建位置', new_editor_position_path %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>名称</th>
+    <th>上级</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @positions.each do |position| %>
+  <tr>
+    <td><%= position.id%></td>
+    <td><%= link_to position.name,[:editor,position] %></td>
+    <td><%= position.upid %></td>
+    <td><%= position.description %></td>
+    <td><%= link_to '编辑', edit_editor_position_path(position) %></td>
+  </tr>
+<% end %>
+</table>
+
+<%=h will_paginate @positions, :previous_label => '上一页',  :next_label => '下一页'%>

@@ -31,11 +31,11 @@
           <li class="selected"><a href="<%= root_url%>">首页</a></li>
           <li><a href="<%= '/calendar/index'%>">日历</a></li>
           <li><a href="<%= root_url%>">周报</a></li>
-          <li><a href="<%= user_index_google_analytics_path%>">编辑</a></li>
+          <li><a href="<%= editor_main_index_path%>">编辑</a></li>
           <li><a href="<%= bbs_admin_index_path%>">论坛</a></li>
           <li>
             <% if user_signed_in? %>
-                <%= link_to '流量', clicks_path%>
+                <%= link_to '流量', traffic_main_index_path%>
             <% end %>
           </li>
           <li><a href="<%= me_daily_tasks_url%>">Me</a></li>

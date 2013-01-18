@@ -9,7 +9,7 @@
 <h1>核心用户</h1>
 <div style="margin-bottom:5px;"><%= link_to '返回', bbs_admin_index_path%></div>
 
-<%= form_tag(bbs_core_customer_clicks_path, :method => :get) do %>
+<%= form_tag(bbs_admin_core_customer_path, :method => :get) do %>
   <p>
     日期: <input type="text" id="datepicker" name="start_date">
     <%= submit_tag("查询") %>

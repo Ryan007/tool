@@ -1,0 +1,26 @@
+<h1>类别列表</h1>
+<%= link_to "返回", editor_main_index_path %><br />
+<%= link_to '新建分类', new_editor_tag_category_path %>
+<table>
+  <tr>
+    <td>ID</td>
+    <th>名称</th>
+    <th>上级ID</th>
+    <th>描述</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tag_categories.each do |tag_category| %>
+  <tr>
+    <td><%= tag_category.id %></td>
+    <td><%= link_to tag_category.name, [:editor, tag_category] %></td>
+    <td><%= tag_category.uid %></td>
+    <td><%= tag_category.description %></td>
+    <td><%= link_to '编辑', edit_editor_tag_category_path(tag_category) %></td>
+  </tr>
+<% end %>
+</table>
+
+<%=h will_paginate @tag_categories, :previous_label => '上一页',  :next_label => '下一页'%>

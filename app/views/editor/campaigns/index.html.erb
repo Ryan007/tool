@@ -1,0 +1,23 @@
+<h1>活动列表</h1>
+<%= link_to "返回", editor_main_index_path%><br />
+<%= link_to '新建活动', new_editor_campaign_path %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>名称</th>
+    <th>描述</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @campaigns.each do |campaign| %>
+  <tr>
+    <td><%= campaign.id%></td>
+    <td><%= link_to campaign.name, [:editor, campaign] %></td>
+    <td><%= campaign.description %></td>
+    <td><%= link_to 'Edit', edit_editor_campaign_path(campaign) %></td>
+  </tr>
+<% end %>
+</table>
+<%=h will_paginate @campaigns, :previous_label => '上一页',  :next_label => '下一页'%>
+

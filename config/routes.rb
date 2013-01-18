@@ -2,7 +2,7 @@
 Tools::Application.routes.draw do
   
 
-  # 市场模块
+  # 论坛模块
   namespace :bbs do
     root :to => "base#index"
     # bbs首页
@@ -13,9 +13,99 @@ Tools::Application.routes.draw do
     get 'admin/core_customer'
   end
 
+  # 流量模块
+  namespace :traffic do
+    get "main/index"
+    # 引荐流量
+    get 'main/referral_traffic'
+    # 自然访问流量
+    get 'main/organic_traffic'
+    # 自然访问流量
+    get 'main/paid_traffic'
+
+    get 'main/campaign_view'
+
+    # 流量相关的数据
+    resources :clicks do
+      get 'add_campaign', :on => :collection
+      post 'save_campaign', :on => :collection
+
+      get 'add_position', :on => :collection
+      post 'save_position', :on => :collection
+
+      get 'add_campaign', :on => :collection
+      post 'save_campaign', :on => :collection
+
+      get 'add_page', :on => :collection
+      post 'save_page', :on => :collection
+
+      get 'add_category', :on => :collection
+      post 'save_category', :on => :collection
+
+      get 'add_up_category', :on => :collection
+      post 'save_up_category', :on => :collection
 
 
+      get 'sum_campaign', :on => :collection
+      get 'sum_position', :on => :collection
+      get 'sum_page', :on => :collection
+      get 'sum_category', :on => :collection
+      get 'sum_child_category', :on => :collection
+      get 'search_result', :on => :collection
 
+      # get 'index_campaign', :on => :collection
+    end
+
+    # 统计谷歌广告
+    resources :google_analytics do
+      get 'show_traffic', :on => :collection
+      get 'user_index', :on => :collection
+    end
+
+  end
+
+  # 编辑模块
+  namespace :editor do
+    get 'main/index'
+    # 显示详细内容
+    get 'main/detail'
+
+    # 关联广告页面
+    resources :web_pages do
+      get 'all', :on => :collection
+      get 'detail', :on => :collection
+    end
+    # 关联类类别
+    resources :tag_categories  do
+      get 'detail', :on => :collection
+      get 'all', :on => :collection
+    end
+
+    # 关联位置
+    resources :positions  do
+      get 'all', :on => :collection
+      get 'detail', :on => :collection
+    end
+
+    # 关联活动
+    resources :campaigns do 
+      get 'detail', :on => :collection
+      get 'all', :on => :collection
+    end
+  end
+
+
+  # 任务模块
+  namespace :task do
+    resources :daily do
+      collection do
+        get 'me'
+        get 'all'
+      end
+    end
+
+
+  end
   resources :daily_tasks do 
     collection do
       get 'me'
@@ -31,34 +121,30 @@ Tools::Application.routes.draw do
 
   # get "bbs_admin/admin"
 
-  # 统计谷歌广告
-  resources :google_analytics do
-    get 'show_traffic', :on => :collection
-    get 'user_index', :on => :collection
-  end
 
-  # 关联广告页面
-  resources :web_pages do
-    get 'all', :on => :collection
-    get 'detail', :on => :collection
-  end
-  # 关联类类别
-  resources :tag_categories  do
-    get 'detail', :on => :collection
-    get 'all', :on => :collection
-  end
 
-  # 关联位置
-  resources :positions  do
-    get 'all', :on => :collection
-    get 'detail', :on => :collection
-  end
+  # # 关联广告页面
+  # resources :web_pages do
+  #   get 'all', :on => :collection
+  #   get 'detail', :on => :collection
+  # end
+  # # 关联类类别
+  # resources :tag_categories  do
+  #   get 'detail', :on => :collection
+  #   get 'all', :on => :collection
+  # end
 
-  # 关联活动
-  resources :campaigns do 
-    get 'detail', :on => :collection
-    get 'all', :on => :collection
-  end
+  # # 关联位置
+  # resources :positions  do
+  #   get 'all', :on => :collection
+  #   get 'detail', :on => :collection
+  # end
+
+  # # 关联活动
+  # resources :campaigns do 
+  #   get 'detail', :on => :collection
+  #   get 'all', :on => :collection
+  # end
 
   # 用户系统devise 重写了注册组件
   devise_for :users, :controllers => {:registrations => "registrations"} 
@@ -73,52 +159,52 @@ Tools::Application.routes.draw do
   get "home/index"
   get "home/introduction"
   # 发送邮件到指定email里面
-  post "home/send_mail"
+  # post "home/send_mail"
   # 发送核心会员方法
-  post "home/send_bbs_core_mail"
+  # post "home/send_bbs_core_mail"
 
 
-  # 流量相关的数据
-  resources :clicks do
-    get 'add_campaign', :on => :collection
-    post 'save_campaign', :on => :collection
+  # # 流量相关的数据
+  # resources :clicks do
+  #   get 'add_campaign', :on => :collection
+  #   post 'save_campaign', :on => :collection
 
-    get 'add_position', :on => :collection
-    post 'save_position', :on => :collection
+  #   get 'add_position', :on => :collection
+  #   post 'save_position', :on => :collection
 
-    get 'add_campaign', :on => :collection
-    post 'save_campaign', :on => :collection
+  #   get 'add_campaign', :on => :collection
+  #   post 'save_campaign', :on => :collection
 
-    get 'add_page', :on => :collection
-    post 'save_page', :on => :collection
+  #   get 'add_page', :on => :collection
+  #   post 'save_page', :on => :collection
 
-    get 'add_category', :on => :collection
-    post 'save_category', :on => :collection
+  #   get 'add_category', :on => :collection
+  #   post 'save_category', :on => :collection
 
-    get 'add_up_category', :on => :collection
-    post 'save_up_category', :on => :collection
+  #   get 'add_up_category', :on => :collection
+  #   post 'save_up_category', :on => :collection
 
 
-    get 'sum_campaign', :on => :collection
-    get 'sum_position', :on => :collection
-    get 'sum_page', :on => :collection
-    get 'sum_category', :on => :collection
-    get 'sum_child_category', :on => :collection
-    get 'search_result', :on => :collection
+  #   get 'sum_campaign', :on => :collection
+  #   get 'sum_position', :on => :collection
+  #   get 'sum_page', :on => :collection
+  #   get 'sum_category', :on => :collection
+  #   get 'sum_child_category', :on => :collection
+  #   get 'search_result', :on => :collection
 
-    # # 论坛核心用户
-    # get 'bbs_core_customer', :on => :collection
+  #   # # 论坛核心用户
+  #   # get 'bbs_core_customer', :on => :collection
 
-    # 引荐流量
-    get 'referral_traffic', :on => :collection
-    # 自然访问流量
-    get 'organic_traffic', :on => :collection
+  #   # 引荐流量
+  #   get 'referral_traffic', :on => :collection
+  #   # 自然访问流量
+  #   get 'organic_traffic', :on => :collection
 
-    # 自然访问流量
-    get 'paid_traffic', :on => :collection
+  #   # 自然访问流量
+  #   get 'paid_traffic', :on => :collection
 
-    get 'index_campaign', :on => :collection
-  end
+  #   get 'index_campaign', :on => :collection
+  # end
 
   root :to => 'home#index'
 

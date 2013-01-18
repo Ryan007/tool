@@ -1,0 +1,25 @@
+<h1>页面</h1>
+<%= link_to "返回", editor_main_index_path %><br />
+<%= link_to '新建页面', new_editor_web_page_path %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>网页</th>
+    <th>域名</th>
+    <th>分类</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @web_pages.each do |web_page| %>
+  <tr>
+    <td><%= web_page.id%></td>
+    <td><%= link_to web_page.content, [:editor, web_page] %></td>
+    <td><%= web_page.domain %></td>
+    <td><%= web_page.categroy %></td>
+    <td><%= link_to '编辑', edit_editor_web_page_path(web_page) %></td>
+  </tr>
+<% end %>
+</table>
+<%=h will_paginate @web_pages, :previous_label => '上一页',  :next_label => '下一页'%>

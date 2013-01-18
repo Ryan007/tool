@@ -1,0 +1,63 @@
+<script type="text/javascript">
+  $(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker" ).val("<%= @time %>");
+  });
+</script>
+
+<h1>付费搜索流量来源</h1>
+<%= link_to '返回', traffic_main_index_path %>
+
+<h5>昨日统计</h5>
+<div style="margin-bottom:15px;">
+	<div style="display:inline;padding-right:10px;">访问次数：<%= @count_traffics.sum("clicks")%></div>
+	<div style="display:inline;padding-right:10px;">访问次数：<%= @count_traffics.sum("clicks")%></div>
+	<div style="display:inline;padding-right:10px;">目标1平均转化率：<%= format("%0.2f", @count_traffics.average("conversion1_rate")) %>%</div>
+	<div style="display:inline;padding-right:10px;">目标3平均转化率：<%= format("%0.2f", @count_traffics.average("conversion3_rate"))%>%</div>
+</div>
+
+
+
+<%= form_tag(traffic_main_paid_traffic_path, :method => :get) do %>
+  <p>
+    日期: <input type="text"traffic_main_ id="datepicker" name="start_date">
+    <%= submit_tag("查询") %>
+  </p>
+<% end %>
+
+<table border='1'>
+	<tr>
+		<td>日期</td>
+		<td>关键字</td>
+		<td>点击次数</td>
+		<td>产品浏览</td>
+		<td>转化率1</td>
+		<td>乐语点击</td>
+		<td>转化率2</td>
+	</tr>
+	<% @paids.each do |t|%>
+	<tr>
+		<td><%= t.current_date%></td>
+		<td><%= t.keyword %></td>
+		<td><%= t.clicks%></td>
+		<td><%= t.goal1 %></td>
+		<td>
+			<% if t.goal1 == 0 || t.conversion1_rate == '0.0'%>
+			0
+			<% else %>
+			<%= t.conversion1_rate %>
+			<% end %>
+		</td>
+		<td><%= t.goal3 %></td>
+		<td>
+			<% if t.goal3 == 0 || t.conversion3_rate == '0.0'%>
+			0
+			<% else %>
+			<%= t.conversion3_rate%>
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+<%=h will_paginate @paids, :previous_label => '上一页',  :next_label => '下一页'%>

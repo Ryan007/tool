@@ -54,8 +54,9 @@ class Bbs::AdminController < Bbs::BaseController
         time_range = (Time.now.midnight - 1.day)..Time.now.midnight
       end
 
-      @customers = BbsCoreCustomer.where('current_date' => time_range).where('bbs_type IS NULL').paginate(:page => params[:page], :per_page => 20)
       @total = BbsCoreCustomer.where('current_date' => time_range).where('bbs_type IS NULL')
+      @customers = BbsCoreCustomer.where('current_date' => time_range).where('bbs_type IS NULL').paginate(:page => params[:page], :per_page => 20)
+    
       respond_to do |format|
           format.html 
       end
