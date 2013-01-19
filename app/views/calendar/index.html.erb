@@ -66,7 +66,7 @@
 						title: "<%= @tasks[index].title%>",
 						start: new Date(<%= date1[5]%>,<%= date1[4]-1%> ,<%= date1[3]%>,<%= date1[2]%>,<%= date1[1]%>),
 						end: new Date(<%= date2[5]%>,<%= date2[4]-1%> ,<%= date2[3]%>,<%= date2[2]%>,<%= date2[1]%>),
-						url: '<%= daily_task_path(@tasks[index])%>',
+						url: '<%= task_daily_task_path(@tasks[index])%>',
 			            color: 'yellow',
 			            textColor: 'black',
 			            allDay: false

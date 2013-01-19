@@ -83,7 +83,7 @@ class Task::DailyTasksController < Task::BaseController
 
         respond_to do |format|
           if @daily_task.save
-            format.html { redirect_to @daily_task, notice: 'Daily task was successfully created.' }
+            format.html { redirect_to [:task, @daily_task], notice: 'Daily task was successfully created.' }
             format.json { render json: @daily_task, status: :created, location: @daily_task }
           else
             format.html { render action: "new" }
@@ -111,12 +111,17 @@ class Task::DailyTasksController < Task::BaseController
     # DELETE /daily_tasks/1
     # DELETE /daily_tasks/1.json
     def destroy
-    @daily_task = DailyTask.find(params[:id])
-    @daily_task.destroy
+        @daily_task = DailyTask.find(params[:id])
+        
 
-    respond_to do |format|
-      format.html { redirect_to daily_tasks_url }
-      format.json { head :no_content }
-    end
+        respond_to do |format|
+            if current_user.id == @daily_task.user_id
+                @daily_task.destroy
+                format.html { redirect_to task_daily_tasks_url }
+                format.json { head :no_content }
+            else
+                format.html { redirect_to task_daily_tasks_url, :notice => 'Sorry,你不能删除其他人的任务！' }
+            end
+        end
     end
 end

@@ -83,3 +83,5 @@ gem "spreadsheet", "~> 0.7.3"
 gem "whenever"
 
 gem "whatever", "~> 0.0.3"
+
+gem "rvm-capistrano", "~> 1.2.7"
