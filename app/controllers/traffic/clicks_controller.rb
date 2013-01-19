@@ -15,16 +15,6 @@ class Traffic::ClicksController < Traffic::BaseController
     end
   end
 
-  # # 以广告系列为中心
-  # def index_campaign
-  #   time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #   @clicks = Click.where('record_date' => time_range).group("campaign")
-  #   @click_count = Click.where('record_date' => time_range).sum(:clicks)
-  #   @cams = Click.where('record_date' => time_range)
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #   end
-  # end
 
   # 查询出所有的活动点击量
   def sum_campaign
@@ -152,19 +142,6 @@ class Traffic::ClicksController < Traffic::BaseController
       @pages = Click.where(conditions)
       @click_count = Click.where(conditions).sum(:clicks)
     end
-
-    # if !params[:start_date].empty?
-    #   @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
-    #   @time = @t.strftime("%Y-%m-%d")
-    #   time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
-    #   @clicks = Click.where('record_date' => time_range).where(conditions).paginate(:page => params[:page], :per_page => 20).group("`campaign`")#.order("clicks DESC")
-    #   @cams = Click.where('record_date' => time_range).where(conditions)
-    #   @click_count = Click.where('record_date' => time_range).where(conditions).sum(:clicks)
-    # else
-    #   @clicks = Click.where(conditions).paginate(:page => params[:page], :per_page => 20).group("`campaign`") #.order("clicks DESC")
-    #   @cams = Click.where(conditions)
-    #   @click_count = Click.where(conditions).sum(:clicks)
-    # end
 
   end
 
@@ -295,109 +272,5 @@ class Traffic::ClicksController < Traffic::BaseController
       format.html { redirect_to clicks_url }
     end
   end
-
-  # # bbs 核心用户
-  # def core_customer
-  #   time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #   @customers = CoreBbsCustomer.where('current_date' => time_range).paginate(:page => params[:page], :per_page => 20)
-    
-  #   respond_to do |format|
-  #     format.html
-  #   end
-  # end
-
-  # # refferal访问来源
-  # def referral_traffic
-  #   # time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #   # @triffs = ReferralTraffic.where('current_date' => time_range).order("clicks DESC")
-  #   # @count_triffs = ReferralTraffic.where('current_date' => time_range).sum('clicks')
-  #   # respond_to do |format|
-  #   #   format.html
-  #   #   format.json { @triffs }
-  #   # end
-
-  #   if !params[:start_date].nil? 
-  #     if !params[:start_date].empty?
-  #       @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
-  #       @time = @t.strftime("%Y-%m-%d")
-  #       time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
-  #     else
-  #       time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #     end
-  #   else
-  #     time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #   end
-
-  #   @triffs = ReferralTraffic.where('current_date' => time_range).order("clicks DESC")
-  #   @count_triffs = ReferralTraffic.where('current_date' => time_range).sum('clicks')
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #   end
-  # end
-
-  # # organic访问来源
-  # def organic_traffic
-  #   if !params[:start_date].nil? 
-  #     if !params[:start_date].empty?
-  #       @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
-  #       @time = @t.strftime("%Y-%m-%d")
-  #       time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
-  #     else
-  #       time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #     end
-  #   else
-  #     time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #   end
-
-  #   @triffs = OrganicTraffic.where('current_date' => time_range).order("clicks DESC").paginate(:page => params[:page], :per_page => 50)
-  #   @count_triffs = OrganicTraffic.where('current_date' => time_range).sum("clicks")
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #   end
-
-  # end
-
-  # # paid访问来源
-  # def paid_traffic
-  #   if !params[:start_date].nil? 
-  #     if !params[:start_date].empty?
-  #       @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
-  #       @time = @t.strftime("%Y-%m-%d")
-  #       time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
-  #     else
-  #       time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #     end
-  #   else
-  #     time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #   end
-
-  #   @paids = PaidTraffic.where('current_date' => time_range).order("clicks DESC").paginate(:page => params[:page], :per_page => 50)
-  #   @count_traffics = PaidTraffic.where('current_date' => time_range)
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #   end
-
-  # end
-
-  # # bbs核心用户
-  # def bbs_core_customer
-  #   if !params[:start_date].nil?
-  #       if !params[:start_date].empty?
-  #           @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
-  #           @time = @t.strftime("%Y-%m-%d")
-  #           time_range = ((@t.midnight + 1.second) - 1.day)..@t.midnight
-  #       else
-  #           time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #       end
-  #   else
-  #     time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-  #   end
-
-  #   @customers = BbsCoreCustomer.where('current_date' => time_range).where('bbs_type IS NULL').paginate(:page => params[:page], :per_page => 20)
-  #   @total = BbsCoreCustomer.where('current_date' => time_range).where('bbs_type IS NULL')
-  #   respond_to do |format|
-  #       format.html # index.html.erb
-  #   end
-  # end
 
 end

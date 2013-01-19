@@ -97,21 +97,21 @@ Tools::Application.routes.draw do
 
   # 任务模块
   namespace :task do
-    resources :daily do
+    get 'main/index'
+    get 'main/me'
+    get 'main/all'
+    resources :daily_tasks do
       collection do
-        get 'me'
-        get 'all'
+        get 'get_stuff_task'
       end
     end
-
-
   end
-  resources :daily_tasks do 
-    collection do
-      get 'me'
-      get 'get_stuff_task'
-    end
-  end
+  # resources :daily_tasks do 
+  #   collection do
+  #     get 'me'
+  #     get 'get_stuff_task'
+  #   end
+  # end
  
   get "calendar/index"
 

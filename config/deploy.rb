@@ -5,7 +5,7 @@ require 'bundler/capistrano'
 
 set :rails_env, 'production'
 set :rvm_type, :system
-set :rvm_ruby_string, '1.9.3-p125@rails328_listen'
+set :rvm_ruby_string, '1.9.3-p125@rails3211'
 set :rvm_path, '/usr/local/rvm/'
 set :rvm_bin_path, "#{rvm_path}/bin"
 set :rvm_lib_path, "#{rvm_path}/lib"
@@ -13,7 +13,7 @@ set :deploy_via, :remote_cache
 
 set :bundle_cmd, "/usr/local/rvm/gems/ruby-1.9.3-p125@global/bin/bundle"
 set :passenger_cmd,  "#{bundle_cmd} exec passenger"
-set :rake, "/usr/local/rvm/gems/ruby-1.9.3-p125@rails328_listen/bin/rake"
+set :rake, "/usr/local/rvm/gems/ruby-1.9.3-p125@rails3211/bin/rake"
 set :normalize_asset_timestamps, false
 
 set :application, "inc.tools.xiaoma.com"

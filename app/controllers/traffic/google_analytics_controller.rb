@@ -1,5 +1,4 @@
 class Traffic::GoogleAnalyticsController < Traffic::BaseController
-  before_filter :authenticate_user!
   # before_filter :authorize_super_admin!
   
   # GET /google_analytics

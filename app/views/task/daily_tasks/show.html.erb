@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_daily_task_path(@daily_task) %> |
+<%= link_to 'Back', "#{@refer}" %>
+<p>
+  <b>用户名称:</b>
+  <%= @daily_task.user.username %>
+</p>
+
+<p>
+  <b>任务名称:</b>
+  <%= @daily_task.title %>
+</p>
+
+<p>
+  <b>任务开始时间:</b>
+  <%= @daily_task.plan_start_timeline %>
+</p>
+
+<p>
+  <b>任务结束时间:</b>
+  <%= @daily_task.plan_finish_timeline %>
+</p>
+
+<p>
+  <b>完成度:</b>
+  <%= @daily_task.accomplishment %>％
+</p>
+<p>
+  <b>任务内容:</b>
+  <%= @daily_task.content %>
+</p>
+

@@ -1,0 +1,27 @@
+<h1>日常任务列表</h1>
+
+<%= link_to '新建任务', new_task_daily_task_path %>
+<table>
+  <tr>
+    <th>任务名称：</th>
+    <th>内容：</th>
+    <th>开始时间</th>
+    <th>结束时间</th>
+    <th>完成</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @daily_tasks.each do |daily_task| %>
+  <tr>
+    <td><%= link_to daily_task.title, [:task, daily_task]%></td>
+    <td><%= daily_task.content %></td>
+    <td><%= daily_task.plan_start_timeline%></td>
+    <td><%= daily_task.plan_finish_timeline %></td>
+    <td><%= daily_task.accomplishment %>%</td>
+    <td><%= link_to 'Edit', edit_task_daily_task_path(daily_task) %></td>
+    <td><%= link_to 'Destroy', [:task,daily_task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
