@@ -23,7 +23,10 @@ Tools::Application.routes.draw do
     # 自然访问流量
     get 'main/paid_traffic'
 
+    # campaign 视图
     get 'main/campaign_view'
+    # 搜索
+    get 'main/search'
 
     # 流量相关的数据
     resources :clicks do

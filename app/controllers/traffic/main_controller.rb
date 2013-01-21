@@ -22,15 +22,28 @@ class Traffic::MainController < Traffic::BaseController
 	      format.html # index.html.erb
 	    end
 	end
+
+  # 以广告系列为中心
+  def search
+    if params[:start_date] && params[:end_date]
+      if params[:start_date].strip.empty? && params[:end_date].strip.empty?
+        time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+      else
+        @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
+        @t1 = DateTime.strptime(params[:end_date] + " CCT", "%Y-%m-%d")
+        @time = @t.strftime("%Y-%m-%d")
+        @time1 = @t1.strftime("%Y-%m-%d")
+        time_range = @time..@time1
+      end
+    else
+      time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    end
+    @clicks = Click.where('record_date' => time_range).order("clicks DESC")
+    @click_count = Click.where('record_date' => time_range).sum('clicks')
+  end
+
 	# refferal访问来源
   def referral_traffic
-    # time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-    # @triffs = ReferralTraffic.where('current_date' => time_range).order("clicks DESC")
-    # @count_triffs = ReferralTraffic.where('current_date' => time_range).sum('clicks')
-    # respond_to do |format|
-    #   format.html
-    #   format.json { @triffs }
-    # end
 
     if !params[:start_date].nil? 
       if !params[:start_date].empty?

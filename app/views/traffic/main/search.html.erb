@@ -1,0 +1,95 @@
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker1" ).datepicker();
+    $( "#datepicker1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker" ).val("<%= @time%>");
+    $( "#datepicker1" ).val("<%= @time1%>");
+    $("form").submit(function(e){
+      if($( "#datepicker" ).val() == ""){
+          alert("开始时间!");
+          $( "#datepicker" ).focus();
+          return false;
+      }
+      if($( "#datepicker1" ).val() == ""){
+          alert("结束时间!");
+          $( "#datepicker1" ).focus();
+          return false;
+       }
+      if($( "#datepicker" ).val() > $( "#datepicker1" ).val()){
+          alert("结束时间不能比开始时间早，请重新选择!");
+          $( "#datepicker1" ).focus();
+          return false;
+       }
+    });
+
+  });
+</script>
+
+<h1>点击量分类列表</h1>
+<h4>根据条件查询</h4>
+<%= form_tag(traffic_main_search_path, :method => :get) do %>
+  <p>
+    开始日期: <input type="text" id="datepicker" name="start_date"> 
+    结束日期: <input type="text" id="datepicker1" name="end_date"> 
+  </p>
+    <%= submit_tag("查询") %>
+  </p>
+<% end %>
+
+
+<h4>点击量共:<%= @click_count %>次</h4>
+<table border="1" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="20%"><%="页面"%></td>
+    <td width="20%"><%="位置" %></td>
+    <td width="15%"><%="分类"%></td>
+    <td width="15%"><%="父分类"%></td>
+    <td width="20%"><%="活动"%></td>
+    <td width="10%">点击</td>
+  </tr>
+  <% @clicks.each do |click| %>
+  <tr>
+    <td>
+      <% if click.clicks.nil? %>
+        <%= "页面" %>
+      <%else%>
+        <%= WebPage.find(click.page).content %>
+      <% end %>     
+    </td>
+    <td width='120'>
+      <% if click.position.nil? %>
+        <%= "位置" %>
+      <%else%>
+        <%= Position.find(click.position).name %>
+      <% end %>
+    </td>
+
+    <td width="120">
+      <% if click.up_category.nil? %>
+        <%= "父类别" %>
+      <%else%>
+        <%= TagCategory.find(click.up_category).name %>
+      <% end %>
+    </td>
+    <td width="120">
+      <% if click.category.nil? %>
+        <%= "类别" %>
+      <%else%>
+        <%= TagCategory.find(click.category).name %>
+      <% end %>
+    </td>
+    <td width="160">
+      <% if click.campaign.nil? %>
+        <%= "活动"%>
+      <%else%>
+        <%= Campaign.find(click.campaign).name %>
+      <% end %>  
+    </td>
+    <td width="80"><%= click.clicks %></td>
+  </tr>
+ 
+  <% end %>
+</table>
+
