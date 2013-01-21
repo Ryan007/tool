@@ -1,0 +1,55 @@
+			<div class="grid_12">
+            	<div class="bottom-spacing">
+                
+                    
+                    <div class="float-left">
+                        <a href="<%= admin_permissions_path %>" class="button">
+                          <span>返回</span>
+                        </a>
+                    </div>
+
+                    <div class="float-left">
+                        <a href="<%= edit_admin_permission_path(@permission) %>" class="button">
+                          <span>编辑</span>
+                        </a>
+                    </div>
+
+                    <div class="float-left">
+                        <%= link_to admin_permission_path(@permission), :method => :delete,
+:confirm => "你确定要删除此权限?" , :class => 'button' do %>
+						<span>删除权限</span>
+						<% end %>
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+
+			<div class="grid_5">
+
+                <div class="module">
+                     <h2><span>查看权限 <%= @permission.name %></span></h2>
+                        
+                     <div class="module-body">
+                        <p>
+							<div>权限名称:<%= @permission.name %></div>
+						</p>
+						<p>
+							<div>描述:<%= @permission.description %></div>
+						</p>
+						<p>
+							<div>资源:<%= @permission.subject_class %></div>
+						</p>
+						<p>
+							<div>资源操作点:<%= @permission.action %></div>
+						</p>
+						<p>
+							<div>资源id:<%= @permission.subject_id %></div>
+						</p>
+                        
+                     </div> <!-- End .module-body -->
+                </div> <!-- End .module -->
+                <div style="clear:both;"></div>
+            </div> <!-- End .grid_6 -->
+            <div style="clear:both;"></div>

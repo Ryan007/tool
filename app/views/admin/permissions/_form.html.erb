@@ -1,0 +1,50 @@
+      
+
+            <div class="grid_5">
+                <div class="module">
+                     <h2><span>权限管理</span></h2>
+                        
+                     <div class="module-body">
+                        <%= form_for([:admin, @admin_permission]) do |f| %>
+                          <% if @admin_permission.errors.any? %>
+                            <div id="error_explanation">
+                              <h2><%= pluralize(@admin_permission.errors.count, "error") %> prohibited this admin_permission from being saved:</h2>
+
+                              <ul>
+                              <% @admin_permission.errors.full_messages.each do |msg| %>
+                                <li><%= msg %></li>
+                              <% end %>
+                              </ul>
+                            </div>
+                          <% end %>
+                        
+                            <p>
+                                <label>权限名</label>
+                                <%= f.text_field :name , :class => "input-medium validate[required,minSize[6],maxSize[30],custom[onlyLetterNumber]]" %>
+                            </p>
+                            <p>
+                                <label>资源类</label>
+                                <%= f.text_field :subject_class , :class => "input-medium validate[required,maxSize[30],custom[onlyLetterNumber]]" %>
+                            </p>
+                            <p>
+                                <label>操作点</label>
+                                <%= f.text_field :action , :class => "input-mediumm validate[required,maxSize[30],custom[onlyLetterNumber]]" %>
+                            </p>
+                            <p>
+                                <label>操作描述</label>
+                                <%= f.text_field :description , :class => "input-medium validate[required,maxSize[30],custom[onlyLetterNumber]]" %>
+                            </p>
+                            
+                            <fieldset>
+                                <input class="submit-green" type="submit" value="Submit" /> 
+                                <input class="submit-gray" type="submit" value="Cancel" />
+                            </fieldset>
+                        <% end %>
+                        
+                     </div> <!-- End .module-body -->
+                </div> <!-- End .module -->
+                <div style="clear:both;"></div>
+            </div> <!-- End .grid_6 -->
+            <div style="clear:both;"></div>
+
+

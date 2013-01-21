@@ -1,0 +1,43 @@
+			<div class="grid_12">
+            	<div class="bottom-spacing">
+                
+                    
+                    <div class="float-left">
+                        <a href="<%= admin_users_path %>" class="button">
+                          <span>返回</span>
+                        </a>
+                    </div>
+
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+
+			<div class="grid_5">
+
+                <div class="module">
+                     <h2><span>给用户 <%= @user.username %> 分配角色</span></h2>
+                        
+                     <div class="module-body">
+                        <%= form_tag(assign_roles_admin_user_path, :method => "post") do %>
+							<p>角色:</p>
+							<% @roles_all.each do |role| %>	
+							<span>
+						  	<%= check_box_tag('role_ids[]', role.id, @roles.include?(role), :style => "float:left;vertical-align: middle;margin-right: 6px;") %>
+							<%= label :role_id, role.rolename %>
+							</span>
+							<% end %>
+							<br>
+							<%= submit_tag '保存'%>
+						<% end %>
+                        
+                     </div> <!-- End .module-body -->
+                </div> <!-- End .module -->
+                <div style="clear:both;"></div>
+            </div> <!-- End .grid_6 -->
+            <div style="clear:both;"></div>
+
+
+

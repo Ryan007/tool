@@ -1,0 +1,63 @@
+<div class="grid_12">
+    
+    <div class="bottom-spacing">
+    
+        <!-- Button -->
+        <div class="float-left">
+            <a href="<%= new_admin_role_path %>" class="button">
+              <span>新建角色</span>
+            </a>
+        </div>
+        
+        
+        
+    </div>
+    
+    
+    <!-- Example table -->
+    <div class="module">
+      <h2><span>角色管理</span></h2>
+        
+        <div class="module-table-body">
+
+            <table id="myTable" class="tablesorter">
+              <thead>
+                    <tr>
+                        <th style="width:5%">ID</th>
+                        <th style="width:20%">角色名</th>
+                        <th style="width:21%">角色描述</th>
+                        <th style="width:13%">创建日期</th>
+                        <th style="width:13%">最后更新</th>
+                        <th style="width:15%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @roles.each do |role| %>
+                    <tr>
+                        <td class="align-center"><%= role.id %></td>
+                        <td><a href=""><%= link_to role.name, [:admin, role] %></a></td>
+                        <td><%= link_to role.desc, [:admin, role] %></td>
+                        <td><%= role.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td><%= role.updated_at.strftime('%Y-%m-%d %H:%M') %></td>
+                        <td>
+                          <%= link_to "编辑", edit_admin_role_path(role) %> |
+                          <%= link_to "权限分配", permissions_admin_role_path(role) %> |
+                          <%= link_to "删除", admin_role_path(role), :method => :delete, :confirm => "你确定要删除此角色?" %>
+                        </td>
+                    </tr> 
+                    <% end %>                             
+                </tbody>
+            </table>
+            
+            <div style="clear: both"></div>
+         </div> <!-- End .module-table-body -->
+    </div> <!-- End .module -->
+    
+    <div style="clear: both"></div>
+
+    <div class="apple_pagination">
+        <%=h will_paginate @roles, :previous_label => '上一页',  :next_label => '下一页'%>
+    </div>
+    
+</div> <!-- End .grid_12 -->
+<div style="clear: both"></div>

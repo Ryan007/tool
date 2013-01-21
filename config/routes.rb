@@ -1,6 +1,30 @@
 # encoding: utf-8
 Tools::Application.routes.draw do
-  
+
+
+  # 论坛模块
+  namespace :admin do
+    root :to => "base#index"
+    resources :users do
+      # 角色分配
+      get 'roles', :on => :member
+      # 角色分配 写操作
+      post 'assign_roles', :on => :member
+      # 锁定用户
+      post 'lock', :on => :member
+      # 解锁用户
+      post 'unlock', :on => :member
+    end
+
+    resources :roles do
+      # 权限分配
+      get 'permissions', :on => :member
+      # 权限分配 写操作
+      post 'assign_permissions', :on => :member
+    end
+
+    resources :permissions
+  end
 
   # 论坛模块
   namespace :bbs do

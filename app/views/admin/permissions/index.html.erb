@@ -1,0 +1,88 @@
+        <!-- Initiate tablesorter script -->
+        <script type="text/javascript">
+            $(document).ready(function() { 
+                $("#myTable") 
+                .tablesorter({
+                    // zebra coloring
+                    widgets: ['zebra'],
+                    // pass the headers argument and assing a object 
+                    headers: { 
+                        // assign the sixth column (we start counting zero) 
+                        6: { 
+                            // disable it by setting the property sorter to false 
+                            sorter: false 
+                        } 
+                    }
+                });
+            //.tablesorterPager({container: $("#pager")}); 
+        }); 
+        </script>
+
+            <div class="grid_12">
+                
+                <div class="bottom-spacing">
+                
+                    <!-- Button -->
+                    <div class="float-left">
+                        <a href="<%= new_admin_permission_path %>" class="button">
+                          <span>新建权限<img src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/images/plus-small.gif" width="12" height="9" alt="New article" /></span>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                </div>
+                
+                
+                <!-- Example table -->
+                <div class="module">
+                  <h2><span>权限管理</span></h2>
+                    
+                    <div class="module-table-body">
+
+                        <table id="myTable" class="tablesorter">
+                          <thead>
+                                <tr>
+                                    <th style="width:5%">ID</th>
+                                    <th style="width:20%">权限名称</th>
+                                    <th style="width:21%">资源</th>
+                                    <th style="width:13%">操作点</th>
+                                    <th style="width:13%">操作描述</th>
+                                    <th style="width:13%">资源id</th>
+                                    <th style="width:15%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @admin_permissions.each do |permission| %>
+                                <tr>
+                                    <td class="align-center"><%= permission.id %></td>
+                                    <td><%= link_to permission.name, [:admin, permission] %></td>
+                                    <td><%= permission.subject_class %></td>
+                                    <td><%= permission.action %></td>
+                                    <td><%= permission.description %></td>
+                                    <td><%= permission.subject_id %></td>
+                                    <td>
+                                      <%= link_to '查看', admin_permission_path(permission) %> |
+                                      <%= link_to "编辑", edit_admin_permission_path(permission) %> |
+                                      <%= link_to "删除", admin_permission_path(permission), :method => :delete, :confirm => "你确定要删除此权限?" %>
+                                    </td>
+                                </tr> 
+                                <% end %>                             
+                            </tbody>
+                        </table>
+                        
+                        <div style="clear: both"></div>
+                     </div> <!-- End .module-table-body -->
+                </div> <!-- End .module -->
+                
+                <div style="clear: both"></div>
+
+                <div class="apple_pagination">
+                    <%=h will_paginate @admin_permissions, :previous_label => '上一页',  :next_label => '下一页'%>
+                </div>
+                
+                
+
+                
+            </div> <!-- End .grid_12 -->
+            <div style="clear: both"></div>

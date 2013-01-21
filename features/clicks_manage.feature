@@ -6,8 +6,6 @@ Feature: 广告位管理
 
  	Scenario: Clicks List
  		Given I am logged in
- 		And I should see "退出"
-	    #Given I have the list of clicks dated "2013-1-11" and clicks are  "1","22","333"
-	    #When I go to the list of clicks
-	    #Then I should see "2013-1-11"
- 
+ 		And I should see "流量"
+ 		When I follow "流量"
+ 		And I should see "点击量分类列表"

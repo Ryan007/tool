@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117071627) do
+ActiveRecord::Schema.define(:version => 20130121173256) do
 
   create_table "bbs_admins", :force => true do |t|
     t.integer "uid"
@@ -116,6 +116,16 @@ ActiveRecord::Schema.define(:version => 20130117071627) do
     t.string  "conversion3_rate"
   end
 
+  create_table "permissions", :force => true do |t|
+    t.string   "name"
+    t.string   "desc"
+    t.string   "action"
+    t.string   "subject_class"
+    t.string   "subject_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "positions", :force => true do |t|
     t.string   "name"
     t.integer  "upid"
@@ -132,6 +142,13 @@ ActiveRecord::Schema.define(:version => 20130117071627) do
     t.integer "goal3"
     t.string  "conversion3_rate"
     t.date    "current_date"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.text     "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tag_categories", :force => true do |t|

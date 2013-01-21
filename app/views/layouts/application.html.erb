@@ -28,7 +28,7 @@
       <div class="header">
         <a href="<%= root_url%>" id="logo"><img src="<%= Tools::Application.config.staticfile_server_url %>images/logo.png" alt="小马过河网络部系统"/></a>
         <ul>
-          <li class="selected"><a href="<%= root_url%>">首页</a></li>
+          <li class="selected"><a href="<%= root_url%>">项目</a></li>
           <li><a href="<%= '/calendar/index'%>">日历</a></li>
           <li><a href="<%= root_url%>">周报</a></li>
           <li><a href="<%= editor_main_index_path%>">编辑</a></li>
@@ -39,6 +39,7 @@
             <% end %>
           </li>
           <li><a href="<%= task_main_me_path%>">Me</a></li>
+          <li><%= link_to "管理", admin_users_url %></li>
           <li>
               <% if user_signed_in? %>
                 <div style="display:inline;">您好,</div>

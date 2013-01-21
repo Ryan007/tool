@@ -1,0 +1,54 @@
+			<div class="grid_12">
+            	<div class="bottom-spacing">
+                
+                    
+                    <div class="float-left">
+                        <a href="<%= admin_roles_path %>" class="button">
+                          <span>返回</span>
+                        </a>
+                    </div>
+
+                    <div class="float-left">
+                        <a href="<%= edit_admin_role_path(@role) %>" class="button">
+                          <span>编辑</span>
+                        </a>
+                    </div>
+
+                    <div class="float-left">
+                        <%= link_to admin_role_path(@role), :method => :delete,
+:confirm => "你确定要删除此角色?" , :class => 'button' do %>
+						<span>删除角色</span>
+						<% end %>
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+
+			<div class="grid_5">
+
+                <div class="module">
+                     <h2><span>查看角色 <%= @role.rolename %></span></h2>
+                        
+                     <div class="module-body">
+                        <p>
+							<div>角色:<%= @role.rolename %></div>
+						</p>
+						<p>
+							<div>描述:<%= @role.roledesc %></div>
+						</p>
+						<p>
+							<div>权限:
+								<% @role.permissions.each do |permisson| %>
+								<%= permisson.name %>
+								<% end %>
+
+							</div>
+						</p>
+                        
+                     </div> <!-- End .module-body -->
+                </div> <!-- End .module -->
+                <div style="clear:both;"></div>
+            </div> <!-- End .grid_6 -->
+            <div style="clear:both;"></div>

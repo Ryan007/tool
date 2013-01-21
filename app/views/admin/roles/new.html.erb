@@ -1,0 +1,23 @@
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function(){
+    // binds form submission and fields to the validation engine
+    jQuery("#new_role").validationEngine();
+  });
+
+</script> 
+
+			<div class="grid_12">
+            	<div class="bottom-spacing">
+                
+                    
+                    <div class="float-left">
+                        <a href="<%= admin_roles_path %>" class="button">
+                          <span>返回</span>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+<%= render 'form' %>

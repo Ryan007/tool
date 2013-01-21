@@ -1,0 +1,66 @@
+			<div class="grid_12">
+            	<div class="bottom-spacing">
+                
+                    
+                    <div class="float-left">
+                        <a href="<%= admin_roles_path %>" class="button">
+                          <span>返回</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+			<div class="grid_12">
+
+                <div class="module">
+                     <h2><span>角色 <%= @role.rolename %>的权限分配情况</span></h2>
+                        
+                     <div class="module-body">
+                        
+						<%= form_tag(assign_permissions_admin_role_path, :method => "post") do %>
+						<table id="myTable" class="tablesorter">
+                          <thead>
+                                <tr>
+                                    <th style="width:5%">ID</th>
+                                    <th style="width:20%">权限名</th>
+                                    <th style="width:21%">资源</th>
+                                    <th style="width:13%">操作</th>
+                                    <th style="width:13%">描述</th>
+                                    <th style="width:13%">资源id</th>
+                                    <th style="width:15%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @permissions_all.each do |permission| %>
+                                <tr>
+                                    <td class="align-center"><%= permission.id %></td>
+                                    <td><%= permission.name %></td>
+                                    <td><%= permission.subject_class %></td>
+                                    <td><%= permission.action %></td>
+                                    <td><%= permission.description %></td>
+                                    <td><%= permission.subject_id %></td>
+                                    <td>
+                                      <%= check_box_tag('permission_ids[]', permission.id, @permissions_role.include?(permission)) %>
+                                    </td>
+                                </tr> 
+                                <% end %>                             
+                            </tbody>
+                        </table>
+                        	<fieldset>
+                                <input class="submit-green" type="submit" value="Submit" /> 
+                                <input class="submit-gray" type="submit" value="Cancel" />
+                            </fieldset>
+                        <% end %>
+                        
+                     </div> <!-- End .module-body -->
+                </div> <!-- End .module -->
+                <div style="clear:both;"></div>
+            </div> <!-- End .grid_6 -->
+            <div style="clear:both;"></div>
+
+
+
+
+
+
+
