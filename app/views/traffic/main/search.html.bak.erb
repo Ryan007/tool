@@ -31,8 +31,8 @@
 <h4>根据条件查询</h4>
 <%= form_tag(traffic_main_search_path, :method => :get) do %>
   <p>
-    开始日期: <input type="text" id="datepicker" name="start_date"> 
-    结束日期: <input type="text" id="datepicker1" name="end_date"> 
+    开始日期: <input type="text" id="datepicker" name="start_date">
+    结束日期: <input type="text" id="datepicker1" name="end_date">
   </p>
     <%= submit_tag("查询") %>
   </p>
@@ -56,7 +56,7 @@
         <%= "页面" %>
       <%else%>
         <%= WebPage.find(click.page).content %>
-      <% end %>     
+      <% end %>
     </td>
     <td width='120'>
       <% if click.position.nil? %>
@@ -85,11 +85,10 @@
         <%= "活动"%>
       <%else%>
         <%= Campaign.find(click.campaign).name %>
-      <% end %>  
+      <% end %>
     </td>
     <td width="80"><%= click.clicks %></td>
   </tr>
  
   <% end %>
 </table>
-

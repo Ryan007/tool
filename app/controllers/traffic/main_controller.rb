@@ -38,13 +38,16 @@ class Traffic::MainController < Traffic::BaseController
     else
       time_range = (Time.now.midnight - 1.day)..Time.now.midnight
     end
-    # @clicks = Click.where('record_date' => time_range).order("clicks DESC")
+
+    # @clicks = Click.where('record_date' => time_range).select(" *, sum(clicks) as total_clicks").group('page').order("total_clicks DESC")
     # @click_count = Click.where('record_date' => time_range).sum('clicks')
-      # time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-      
-    @clicks = Click.where('record_date' => time_range).group("page")
+    
+    # SELECT `clicks`.page, SUM(`CLICKS`) AS total_clicks FROM `clicks` 
+    # WHERE (`clicks`.`record_date` BETWEEN '2013-01-02 16:00:00' AND '2013-01-22 16:00:00') 
+    # GROUP BY `POSITION` ORDER BY total_clicks DESC;
+    @clicks = Click.where('record_date' => time_range).group('position').select('*, sum(clicks) as total_clicks').order("total_clicks DESC")
     @click_count = Click.where('record_date' => time_range).sum(:clicks)
-    @pages = Click.where('record_date' => time_range)
+    # @pages = Click.where('record_date' => time_range)
     respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @clicks }

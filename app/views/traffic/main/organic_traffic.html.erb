@@ -6,7 +6,7 @@
   });
 </script>
 
-<h1>引荐流量来源</h1>
+<h1>自然流量来源</h1>
 <%= link_to '返回', traffic_main_index_path %>
 
 <div style="margin-bottom:15px;">
@@ -14,7 +14,7 @@
 	<div style="display:inline;padding-right:5px;">产品浏览量：<%= @count_traffics.sum("goal1")%></div>
 	<div style="display:inline;padding-right:5px;">乐语点击量：<%= @count_traffics.sum("goal3")%></div>
 	<div style="display:inline;padding-right:5px;">目标1平均转化率：
-		<% if @count_traffics.average("conversion1_rate")%>
+		<% if @count_traffics.average("conversion1_rate")%>	
 		<%= format("%0.2f", @count_traffics.average("conversion1_rate")) %>
 		<% else%>
 		0
