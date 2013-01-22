@@ -57,7 +57,7 @@ class Editor::PositionsController < Editor::BaseController
 
     respond_to do |format|
       if @position.save
-        format.html { redirect_to [:editor, @position], notice: 'Position was successfully created.' }
+        format.html { redirect_to editor_positions_url, notice: 'Position was successfully created.' }
         format.json { render json: @position, status: :created, location: @position }
       else
         format.html { render action: "new" }
@@ -73,7 +73,7 @@ class Editor::PositionsController < Editor::BaseController
 
     respond_to do |format|
       if @position.update_attributes(params[:position])
-        format.html { redirect_to [:editor, @position], notice: 'Position was successfully updated.' }
+        format.html { redirect_to editor_positions_url, notice: 'Position was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

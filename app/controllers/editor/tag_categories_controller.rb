@@ -63,7 +63,7 @@ class Editor::TagCategoriesController < Editor::BaseController
 
     respond_to do |format|
       if @tag_category.save
-        format.html { redirect_to [:editor, @tag_category], notice: 'Tag category was successfully created.' }
+        format.html { redirect_to editor_tag_categories_url, notice: 'Tag category was successfully created.' }
         format.json { render json: @tag_category, status: :created, location: @tag_category }
       else
         format.html { render action: "new" }
@@ -79,7 +79,7 @@ class Editor::TagCategoriesController < Editor::BaseController
 
     respond_to do |format|
       if @tag_category.update_attributes(params[:tag_category])
-        format.html { redirect_to [:editor, @tag_category], notice: 'Tag category was successfully updated.' }
+        format.html { redirect_to editor_tag_categories_url, notice: 'Tag category was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

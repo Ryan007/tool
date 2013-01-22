@@ -47,7 +47,7 @@ class Editor::CampaignsController < Editor::BaseController
 
     respond_to do |format|
       if @campaign.save
-        format.html { redirect_to [:editor, @campaign], notice: '活动创建成功！' }
+        format.html { redirect_to editor_campaigns_url, notice: '活动创建成功！' }
       else
         format.html { render action: "new" }
       end
@@ -59,7 +59,7 @@ class Editor::CampaignsController < Editor::BaseController
 
     respond_to do |format|
       if @campaign.update_attributes(params[:campaign])
-        format.html { redirect_to @campaign, notice: '活动更新成功.' }
+        format.html { redirect_to editor_campaigns_url, notice: '活动更新成功.' }
       end
     end
   end

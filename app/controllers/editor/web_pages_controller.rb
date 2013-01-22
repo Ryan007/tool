@@ -57,7 +57,7 @@ class Editor::WebPagesController < Editor::BaseController
 
     respond_to do |format|
       if @web_page.save
-        format.html { redirect_to [:editor, @web_page], notice: 'Web page was successfully created.' }
+        format.html { redirect_to editor_web_pages_url, notice: 'Web page was successfully created.' }
         format.json { render json: @web_page, status: :created, location: @web_page }
       else
         format.html { render action: "new" }
@@ -73,7 +73,7 @@ class Editor::WebPagesController < Editor::BaseController
 
     respond_to do |format|
       if @web_page.update_attributes(params[:web_page])
-        format.html { redirect_to [:editor, @web_page], notice: 'Web page was successfully updated.' }
+        format.html { redirect_to editor_web_pages_url, notice: 'Web page was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
