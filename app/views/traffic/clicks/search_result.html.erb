@@ -11,8 +11,8 @@
 </script>
 <style type="text/css">
 
-  td{ border:#4C4C4C solid 0.5px; text-align:center; line-height:24px;}
-  th{ border:#4C4C4C solid 0.5px; text-align:center; line-height:24px;}
+  td{  text-align:center; line-height:24px; bordercoler:blue;}
+  th{  text-align:center; line-height:24px; bordercoler:blue;}
 </style>
 <h1>点击量分类列表</h1>
 <h4>根据条件查询</h4>
@@ -39,7 +39,7 @@
 
 
 <h4>昨日点击量共:<%= @click_count %>次</h4>
-<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+<table border="1" cellpadding="0" cellspacing="0" style="width:100%;">
   <tr>
     <td width="12%"><%= link_to "页面", sum_page_traffic_clicks_path%></td>
     <td width="25%"><%= link_to "位置", sum_position_traffic_clicks_path %></td>
@@ -58,7 +58,7 @@
       <% end %>     
     </td>
     <th colspan="7" width="88%">
-        <table border="0" cellpadding="0" cellspacing="0" width="100%;">
+        <table border="1" cellpadding="0" cellspacing="0" width="100%;">
           <% @pages.where("page = #{click.page}").each do |page|%>
           <tr>
               <td width='28.00%'>
