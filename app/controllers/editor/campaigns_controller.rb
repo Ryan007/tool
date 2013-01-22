@@ -36,11 +36,9 @@ class Editor::CampaignsController < Editor::BaseController
 
     respond_to do |format|
       if @campaign.save
-        format.html { redirect_to @campaign, notice: '活动创建成功！' }
-        format.json { render json: @campaign, status: :created, location: @campaign }
+        format.html { redirect_to [:editor, @campaign], notice: '活动创建成功！' }
       else
         format.html { render action: "new" }
-        format.json { render json: @campaign.errors, status: :unprocessable_entity }
       end
     end
   end
