@@ -1,9 +1,12 @@
 <h1>谷歌数据列表（编辑版）</h1>
+<style>
+    tr td{text-align:center;}
+</style>
 <ul>
   <li><h4><%= link_to "类别", editor_tag_categories_path %>：<%= link_to "父类别", editor_tag_categories_path%>：<%= link_to "页面", editor_web_pages_path%>：<%= link_to "位置", editor_positions_path %>：<%= link_to "活动", editor_campaigns_path %></h4></li>
 </ul>
 
-<table border="1">
+<table border="1" width="100%">
   <tr>
     <th width="20%">日期</th>
     <th width="12%">UV</th>

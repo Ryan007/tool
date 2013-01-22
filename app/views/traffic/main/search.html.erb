@@ -27,9 +27,7 @@
   });
 </script>
 <style type="text/css">
-
-  td{ border:#4C4C4C solid 0.5px; text-align:center; line-height:24px;}
-  th{ border:#4C4C4C solid 0.5px; text-align:center; line-height:24px;}
+  td{ text-align:center; line-height:24px; bordercolor:"blue"}
 </style>
 <h1>点击量分类列表</h1>
 <h4>根据条件查询</h4>
@@ -45,8 +43,8 @@
 
 
 
-<h4>击量共:<%= @click_count %>次</h4>
-<table border="0" cellpadding="0" cellspacing="0" width="100%;" border=1>
+<h4>共:<%= @click_count %>次</h4>
+<table cellpadding="0" cellspacing="0" width="100%" border=1>
   <tr>
     <td width="30%"><%= "页面"%></td>
     <td width="50%"><%= "位置"%></td>
@@ -61,8 +59,8 @@
         <%= WebPage.find(click.page).content %>
       <% end %>     
     </td>
-    <th colspan="2" width="60%">
-        <table border="0" cellpadding="0" cellspacing="0" width="100%" border=1>
+    <td colspan="2" width="60%">
+        <table cellpadding="0" cellspacing="0" width="100%" border="1">
             <% @pages.where("page = #{click.page}").select(" *, sum(clicks) as total_clicks").group('position').order("total_clicks DESC").each do |page|%>
             <tr>
                 <td width='71%'>
@@ -76,6 +74,6 @@
             </tr>
             <% end %>
         </table>
-    </th>
+    </td>
   <% end %>
 </table>
