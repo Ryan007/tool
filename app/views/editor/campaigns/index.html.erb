@@ -1,6 +1,14 @@
 <h1>活动列表</h1>
 <%= link_to "返回", editor_main_index_path%><br />
-<%= link_to '新建活动', new_editor_campaign_path %>
+<%= link_to '新建活动', new_editor_campaign_path %><br />
+<div style="margin-top:15px;">
+<%= form_tag(editor_campaigns_path, :method => :get) do %>
+  <p>
+    名称: <input type="text" name="camp_name" value="<%= @camp_name%>">
+    <%= submit_tag("查询") %>
+  </p>
+<% end %>
+</div>
 <table>
   <tr>
     <th>ID</th>

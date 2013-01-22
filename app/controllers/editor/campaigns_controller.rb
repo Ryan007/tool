@@ -3,7 +3,18 @@ class Editor::CampaignsController < Editor::BaseController
   before_filter :authenticate_user!
   
   def index
-    @campaigns = Campaign.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+    @camp_name = params[:camp_name]
+    if !@camp_name.nil?
+      if !@camp_name.empty?
+        @campaigns = Campaign.where("name  LIKE ?", "%#{@camp_name}%").order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+      else
+        @campaigns = Campaign.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+      end
+    else
+      @campaigns = Campaign.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+    end
+
+    
   end
 
   def show
