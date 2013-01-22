@@ -42,13 +42,13 @@ class Traffic::MainController < Traffic::BaseController
     # @click_count = Click.where('record_date' => time_range).sum('clicks')
       # time_range = (Time.now.midnight - 1.day)..Time.now.midnight
       
-      @clicks = Click.where('record_date' => time_range).paginate(:page => params[:page], :per_page => 20).group("page")
-      @click_count = Click.where('record_date' => time_range).sum(:clicks)
-      @pages = Click.where('record_date' => time_range)
-      respond_to do |format|
+    @clicks = Click.where('record_date' => time_range).group("page")
+    @click_count = Click.where('record_date' => time_range).sum(:clicks)
+    @pages = Click.where('record_date' => time_range)
+    respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @clicks }
-      end
+    end
   end
 
 	# refferal访问来源

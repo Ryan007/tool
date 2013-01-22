@@ -7,4 +7,15 @@
   <b>描述:</b>
   <%= @campaign.description %>
 </p>
+
+<p>
+  <b>创建日期:</b>
+  <%= @campaign.created_at %>
+</p>
+
+<p>
+  <b>修改日期:</b>
+  <%= @campaign.updated_at %>
+</p>
+
 <%= link_to '返回', editor_campaigns_path %>

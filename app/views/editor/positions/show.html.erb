@@ -12,4 +12,15 @@
   <b>描述:</b>
   <%= @position.description %>
 </p>
+
+<p>
+  <b>创建日期:</b>
+  <%= @position.created_at %>
+</p>
+
+<p>
+  <b>修改日期:</b>
+  <%= @position.updated_at %>
+</p>
+
 <%= link_to '返回', editor_positions_path %>
