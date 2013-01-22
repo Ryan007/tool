@@ -5,8 +5,7 @@ class Admin::UsersController < Admin::BaseController
   # load_and_authorize_resource
   before_filter :find_user, :only => [:show, :edit, :update, :destroy, :activity]
 
-  # GET /admin/users
-  # GET /admin/users.json
+
   def index
     @users = User.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
   end
