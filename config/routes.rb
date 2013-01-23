@@ -51,6 +51,8 @@ Tools::Application.routes.draw do
     get 'main/campaign_view'
     # 搜索
     get 'main/search'
+    # 搜索
+    get 'main/search1'
 
     # 流量相关的数据
     resources :clicks do

@@ -1,0 +1,108 @@
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker1" ).datepicker();
+    $( "#datepicker1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+    $( "#datepicker" ).val("<%= @time%>");
+    $( "#datepicker1" ).val("<%= @time1%>");
+    $("form").submit(function(e){
+      if($( "#datepicker" ).val() == ""){
+          alert("开始时间!");
+          $( "#datepicker" ).focus();
+          return false;
+      }
+      if($( "#datepicker1" ).val() == ""){
+          alert("结束时间!");
+          $( "#datepicker1" ).focus();
+          return false;
+       }
+      if($( "#datepicker" ).val() > $( "#datepicker1" ).val()){
+          alert("结束时间不能比开始时间早，请重新选择!");
+          $( "#datepicker1" ).focus();
+          return false;
+       }
+    });
+
+  });
+</script>
+<style type="text/css">
+  td{ text-align:center; line-height:24px; bordercolor:"blue"}
+</style>
+<h1>根据时间段查询广告位点击次数</h1>
+<h4>根据条件查询</h4>
+<%= form_tag(traffic_main_search_path, :method => :get) do %>
+  <p>
+    开始日期: <input type="text" id="datepicker" name="start_date">
+    结束日期: <input type="text" id="datepicker1" name="end_date">
+  </p>
+    <%= submit_tag("查询") %>
+  </p>
+<% end %>
+
+
+
+<h4>昨日点击量共:<%= @click_count %>次</h4>
+<table border="1" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="20%"><%= link_to "活动", sum_campaign_traffic_clicks_path %></td>
+    <td width="20%"><%= link_to "位置", sum_position_traffic_clicks_path %></td>
+    <td width="15%"><%= link_to "分类", sum_child_category_traffic_clicks_path%></td>
+    <td width="9%"><%= link_to "父分类", sum_category_traffic_clicks_path %></td>
+    <td width="20%"><%= link_to "页面", sum_page_traffic_clicks_path%></td>
+    <td width="8%">点击</td>
+    <td width="8%">总计</td>
+  </tr>
+  <% @clicks.each do |click| %>
+  <tr>
+    <td>
+      <% if click.campaign.nil? %>
+        <%= link_to "活动", "clicks/add_campaign?id=#{page.id}" %>
+      <%else%>
+        <%= Campaign.find(click.campaign).name %>
+      <% end %>  
+    </td>
+    <td colspan="5" width="72%">
+        
+            <table border="1" cellpadding="0" cellspacing="0" width="100%;">
+              <% @cams.where("campaign = #{click.campaign}").group('position').select("*, sum(clicks) as total_position_clicks").each do |page|%>
+              <tr>
+                  <td width='25%'>
+                    <% if page.position.nil? %>
+                      <%= link_to "位置", "clicks/add_position?id=#{page.id}" %>
+                    <%else%>
+                      <%= Position.find(page.position).name %>
+                    <% end %>
+                  </td>
+                  <td width="18.75%">
+                    <% if page.up_category.nil? %>
+                      <%= link_to "父类别", "clicks/add_up_category?id=#{page.id}" %>
+                    <%else%>
+                      <%= TagCategory.find(page.up_category).name %>
+                    <% end %>
+                  </td>
+                  <td width="11.25%">
+                    <% if page.category.nil? %>
+                      <%= link_to "类别", "clicks/add_category?id=#{page.id}" %>
+                    <%else%>
+                      <%= TagCategory.find(page.category).name %>
+                    <% end %>
+                  </td>
+                  
+                  <td width="25%">
+                    <% if click.page.nil? %>
+                      <%= link_to "页面", "clicks/add_page?id=#{click.id}" %>
+                    <%else%>
+                      <%= WebPage.find(click.page).content %>
+                    <% end %>     
+                  </td>
+                  <td width="10%"><%= page.total_position_clicks %></td>
+                </tr>
+                <% end %>
+            </table>
+
+        </td>
+        <td width="10%"><%= click.total_clicks %></td>
+    </tr>
+    <% end %>
+</table>
