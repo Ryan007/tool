@@ -26,7 +26,7 @@
 							<% @roles_all.each do |role| %>	
 							<span>
 						  	<%= check_box_tag('role_ids[]', role.id, @roles.include?(role), :style => "float:left;vertical-align: middle;margin-right: 6px;") %>
-							<%= label :role_id, role.rolename %>
+							<%= label :role_id, role.name %>
 							</span>
 							<% end %>
 							<br>

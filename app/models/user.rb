@@ -27,11 +27,15 @@ class User < ActiveRecord::Base
 
 
 
-
-
+  # 已经不需要了 重写了ablity.rb的方法
+  def role?(role)
+    return !!self.roles.find_by_rolename(role.to_s.camelize)
+  end
+  # def role?(role)
+  #   return !!self.roles.where({"name" => /#{role.to_s}/}).first
+  # end
 
   
-
   def self.send_bbs_core_mail(email1)
     # 验证email
     before_at = /([a-zA-Z0-9]+(_?[a-zA-Z0-9])+)/  

@@ -1,22 +1,4 @@
-        <!-- Initiate tablesorter script -->
-        <script type="text/javascript">
-            $(document).ready(function() { 
-                $("#myTable") 
-                .tablesorter({
-                    // zebra coloring
-                    widgets: ['zebra'],
-                    // pass the headers argument and assing a object 
-                    headers: { 
-                        // assign the sixth column (we start counting zero) 
-                        6: { 
-                            // disable it by setting the property sorter to false 
-                            sorter: false 
-                        } 
-                    }
-                });
-            //.tablesorterPager({container: $("#pager")}); 
-        }); 
-        </script>
+
 
             <div class="grid_12">
                 
@@ -25,7 +7,7 @@
                     <!-- Button -->
                     <div class="float-left">
                         <a href="<%= new_admin_permission_path %>" class="button">
-                          <span>新建权限<img src="<%= Xmcrm::Application.config.staticfile_server_url %>admin_style/images/plus-small.gif" width="12" height="9" alt="New article" /></span>
+                          <span>新建权限</span>
                         </a>
                     </div>
                     
@@ -59,7 +41,7 @@
                                     <td><%= link_to permission.name, [:admin, permission] %></td>
                                     <td><%= permission.subject_class %></td>
                                     <td><%= permission.action %></td>
-                                    <td><%= permission.description %></td>
+                                    <td><%= permission.desc %></td>
                                     <td><%= permission.subject_id %></td>
                                     <td>
                                       <%= link_to '查看', admin_permission_path(permission) %> |

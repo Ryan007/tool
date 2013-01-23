@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121173256) do
+ActiveRecord::Schema.define(:version => 20130121173259) do
 
   create_table "bbs_admins", :force => true do |t|
     t.integer "uid"
@@ -151,6 +151,11 @@ ActiveRecord::Schema.define(:version => 20130121173256) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "roles_permissions", :force => true do |t|
+    t.integer "role_id"
+    t.integer "permission_id"
+  end
+
   create_table "tag_categories", :force => true do |t|
     t.string   "name"
     t.integer  "uid"
@@ -188,6 +193,11 @@ ActiveRecord::Schema.define(:version => 20130121173256) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "users_roles", :force => true do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
 
   create_table "web_pages", :force => true do |t|
     t.string   "domain"
