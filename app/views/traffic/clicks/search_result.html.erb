@@ -11,8 +11,8 @@
 </script>
 <style type="text/css">
 
-  td{  text-align:center; line-height:24px; bordercoler:blue;}
-  th{  text-align:center; line-height:24px; bordercoler:blue;}
+  td{text-align:center; line-height:24px;bordercolor:"blue"}
+
 </style>
 <h1>点击量分类列表</h1>
 <h4>根据条件查询</h4>
@@ -29,8 +29,9 @@
 <% end %>
 
 <div>
-  <div style="display:inline;text-align:center;"><%= link_to "谷歌数据", traffic_google_analytics_path %></div>
   <div style="display:inline;"><%= link_to "Campaign视图", traffic_main_campaign_view_path %></div>
+  <div style="display:inline;"><%= link_to "搜索视图", traffic_main_search_path %></div>
+  <div style="display:inline;text-align:center;"><%= link_to "谷歌数据", traffic_google_analytics_path %></div>
   <div style="display:inline;"><%= link_to "引荐流量", traffic_main_referral_traffic_path %></div>
   <div style="display:inline;"><%= link_to "自然搜索流量", traffic_main_organic_traffic_path %></div>
   <div style="display:inline;"><%= link_to "付费搜索流量", traffic_main_paid_traffic_path %></div>
@@ -39,10 +40,10 @@
 
 
 <h4>昨日点击量共:<%= @click_count %>次</h4>
-<table border="1" cellpadding="0" cellspacing="0" style="width:100%;">
+<table border="1" cellpadding="0" cellspacing="0" width="100%">
   <tr>
-    <td width="12%"><%= link_to "页面", sum_page_traffic_clicks_path%></td>
-    <td width="25%"><%= link_to "位置", sum_position_traffic_clicks_path %></td>
+    <td width="13%"><%= link_to "页面", sum_page_traffic_clicks_path%></td>
+    <td width="24%"><%= link_to "位置", sum_position_traffic_clicks_path %></td>
     <td width="15%"><%= link_to "分类", sum_child_category_traffic_clicks_path%></td>
     <td width="15%"><%= link_to "父分类", sum_category_traffic_clicks_path %></td>
     <td width="28%"><%= link_to "活动", sum_campaign_traffic_clicks_path %></td>
@@ -50,18 +51,18 @@
   </tr>
   <% @clicks.each do |click| %>
   <tr>
-    <td width="12%">
+    <td width="13%">
       <% if click.page.nil? %>
         <%= link_to "页面", "clicks/add_page?id=#{click.id}" %>
       <%else%>
         <%= WebPage.find(click.page).content %>
       <% end %>     
     </td>
-    <th colspan="7" width="88%">
+    <td colspan="7" width="87%">
         <table border="1" cellpadding="0" cellspacing="0" width="100%;">
           <% @pages.where("page = #{click.page}").each do |page|%>
           <tr>
-              <td width='28.00%'>
+              <td width='27%'>
                 <% if page.position.nil? %>
                   <%= link_to "位置", "clicks/add_position?id=#{page.id}" %>
                 <%else%>
@@ -94,7 +95,7 @@
             </tr>
             <% end %>
           </table>
-  </th>
+  </td>
  
   <% end %>
 </table>
