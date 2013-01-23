@@ -58,7 +58,7 @@
     <td colspan="7" width="80%">
         
   <table border="1" cellpadding="0" cellspacing="0" width="100%;">
-    <% @cams.where("page = #{click.page}").each do |page|%>
+    <% @cams.where("campaign = #{click.campaign}").each do |page|%>
     <tr>
         <td width='25%'>
           <% if page.position.nil? %>
@@ -68,19 +68,21 @@
           <% end %>
         </td>
         <td width="18.75%">
-          <% if page.category.nil? %>
-            <%= link_to "类别", "clicks/add_category?id=#{page.id}" %>
-          <%else%>
-            <%= TagCategory.find(page.category).name %>
-          <% end %>
-        </td>
-        <td width="18.75%">
           <% if page.up_category.nil? %>
             <%= link_to "父类别", "clicks/add_up_category?id=#{page.id}" %>
           <%else%>
             <%= TagCategory.find(page.up_category).name %>
           <% end %>
         </td>
+        
+        <td width="18.75%">
+          <% if page.category.nil? %>
+            <%= link_to "类别", "clicks/add_category?id=#{page.id}" %>
+          <%else%>
+            <%= TagCategory.find(page.category).name %>
+          <% end %>
+        </td>
+
         <td width="25%">
           <% if click.page.nil? %>
             <%= link_to "页面", "clicks/add_page?id=#{click.id}" %>

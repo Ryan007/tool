@@ -27,11 +27,9 @@
   });
 </script>
 <style type="text/css">
-
-  td{ text-align:center; line-height:24px;}
-  th{ text-align:center; line-height:24px;}
+  td{ text-align:center; line-height:24px; bordercolor:"blue"}
 </style>
-<h1>点击量分类列表</h1>
+<h1>根据时间段查询广告位点击次数</h1>
 <h4>根据条件查询</h4>
 <%= form_tag(traffic_main_search_path, :method => :get) do %>
   <p>
@@ -43,34 +41,24 @@
 <% end %>
 
 
-
-
-<h4>击量共:<%= @click_count %>次</h4>
-<table border="1" cellpadding="0" cellspacing="0" width="100%;">
+<h4>共:<%= @click_count %>次</h4>
+<table cellpadding="0" cellspacing="0" width="100%" border=1>
   <tr>
-    <td width="30%"><%= link_to "页面", sum_page_traffic_clicks_path%></td>
-    <td width="50%"><%= link_to "位置", sum_position_traffic_clicks_path %></td>
+    <td width="50%"><%= "位置"%></td>
     <td width="20%">点击</td>
   </tr>
   <% @clicks.each do |click| %>
   <tr>
-      <td width="30%">
-        <% if click.page.nil? %>
-          <%= "页面"%>
-        <%else%>
-          <%= WebPage.find(click.page).content %>
-        <% end %>
-      </td>
-
-      <td width='50%'>
+    <td>
         <% if click.position.nil? %>
-          <%=  "位置" %>
+            <%= "位置"%>
         <%else%>
-          <%= Position.find(click.position).name %>
+            <%= Position.find(click.position).name %>
         <% end %>
-      </td>
+    </td>
 
-      <td width="20%"><%= click.clicks %></td>
-  </tr>
+    <td><%= format("%2f", click.total_clicks) %></td>
+
+    </tr>
   <% end %>
 </table>

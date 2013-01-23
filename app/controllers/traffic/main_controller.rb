@@ -27,16 +27,16 @@ class Traffic::MainController < Traffic::BaseController
   def search
     if params[:start_date] && params[:end_date]
       if params[:start_date].strip.empty? && params[:end_date].strip.empty?
-        time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+        @time_range = (Time.now.midnight - 1.day)..Time.now.midnight
       else
         @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
         @t1 = DateTime.strptime(params[:end_date] + " CCT", "%Y-%m-%d")
         @time = @t.strftime("%Y-%m-%d")
         @time1 = @t1.strftime("%Y-%m-%d")
-        time_range = @time..@time1
+        @time_range = @time..@time1
       end
     else
-      time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+      @time_range = (Time.now.midnight - 1.day)..Time.now.midnight
     end
 
     # @clicks = Click.where('record_date' => time_range).select(" *, sum(clicks) as total_clicks").group('page').order("total_clicks DESC")
@@ -45,13 +45,20 @@ class Traffic::MainController < Traffic::BaseController
     # SELECT `clicks`.page, SUM(`CLICKS`) AS total_clicks FROM `clicks` 
     # WHERE (`clicks`.`record_date` BETWEEN '2013-01-02 16:00:00' AND '2013-01-22 16:00:00') 
     # GROUP BY `POSITION` ORDER BY total_clicks DESC;
-    @clicks = Click.where('record_date' => time_range).group('position').select('*, sum(clicks) as total_clicks').order("total_clicks DESC")
-    @click_count = Click.where('record_date' => time_range).sum(:clicks)
+    # @clicks = Click.where('record_date' => time_range).group('position').select('*, sum(clicks) as total_clicks').order("total_clicks DESC")
+    # @click_count = Click.where('record_date' => time_range).sum(:clicks)
     # @pages = Click.where('record_date' => time_range)
+    # respond_to do |format|
+    #     format.html # index.html.erb
+    #     format.json { render json: @clicks }
+    # end
+    @clicks = Click.where('record_date' => @time_range).group("campaign").select("*, sum(clicks) as total_clicks").order("total_clicks DESC");
+    @click_count = Click.where('record_date' => @time_range).sum(:clicks)
+    @cams = Click.where('record_date' => @time_range)
     respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @clicks }
+      format.html # index.html.erb
     end
+
   end
 
 	# refferal访问来源
