@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Editor::CampaignsController < Editor::BaseController
-  before_filter :authenticate_user!
+  
   
   def index
     @name = params[:name]
