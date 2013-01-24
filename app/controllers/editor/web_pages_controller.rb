@@ -2,7 +2,16 @@ class Editor::WebPagesController < Editor::BaseController
   before_filter :authenticate_user!
   
   def index
-    @web_pages = WebPage.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+    @name = params[:name]
+    if !@name.nil?
+      if !@name.empty?
+        @web_pages = WebPage.where("content  LIKE ?", "%#{@name}%").order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+      else
+        @web_pages = WebPage.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+      end
+    else
+      @web_pages = WebPage.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+    end
 
     respond_to do |format|
       format.html # index.html.erb

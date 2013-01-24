@@ -4,7 +4,7 @@
 <div style="margin-top:15px;">
 <%= form_tag(editor_campaigns_path, :method => :get) do %>
   <p>
-    名称: <input type="text" name="camp_name" value="<%= @camp_name%>">
+    名称: <input type="text" name="name" value="<%= @name%>">
     <%= submit_tag("查询") %>
   </p>
 <% end %>

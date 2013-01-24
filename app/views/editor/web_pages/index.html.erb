@@ -1,6 +1,14 @@
 <h1>页面</h1>
 <%= link_to "返回", editor_main_index_path %><br />
 <%= link_to '新建页面', new_editor_web_page_path %>
+<div style="margin-top:15px;">
+<%= form_tag(editor_web_pages_path, :method => :get) do %>
+  <p>
+    名称: <input type="text" name="name" value="<%= @name%>">
+    <%= submit_tag("查询") %>
+  </p>
+<% end %>
+</div>
 <table>
   <tr>
     <th>ID</th>

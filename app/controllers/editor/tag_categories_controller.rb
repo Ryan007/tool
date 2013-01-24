@@ -1,8 +1,17 @@
 class Editor::TagCategoriesController < Editor::BaseController
   before_filter :authenticate_user!
   def index
-    @tag_categories = TagCategory.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
-
+    @name = params[:name]
+    if !@name.nil?
+      if !@name.empty?
+        @tag_categories = TagCategory.where("name  LIKE ?", "%#{@name}%").order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+      else
+        @tag_categories = TagCategory.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+      end
+    else
+      @tag_categories = TagCategory.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tag_categories }

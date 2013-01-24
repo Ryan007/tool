@@ -1,6 +1,14 @@
 <h1>类别列表</h1>
 <%= link_to "返回", editor_main_index_path %><br />
 <%= link_to '新建分类', new_editor_tag_category_path %>
+<div style="margin-top:15px;">
+<%= form_tag(editor_tag_categories_path, :method => :get) do %>
+  <p>
+    名称: <input type="text" name="name" value="<%= @name%>">
+    <%= submit_tag("查询") %>
+  </p>
+<% end %>
+</div>
 <table>
   <tr>
     <td>ID</td>

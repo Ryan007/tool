@@ -3,7 +3,17 @@ class Editor::PositionsController < Editor::BaseController
   # GET /positions
   # GET /positions.json
   def index
-    @positions = Position.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+    @name = params[:name]
+    if !@name.nil?
+      if !@name.empty?
+        @positions = Position.where("name  LIKE ?", "%#{@name}%").order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+      else
+        @positions = Position.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+      end
+    else
+      @positions = Position.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+    end
+    
   end
 
   def all
