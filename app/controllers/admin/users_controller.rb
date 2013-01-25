@@ -1,6 +1,7 @@
 # encoding: utf-8
 class Admin::UsersController < Admin::BaseController
-  # before_filter :authenticate_user!
+  before_filter :authorize_super_admin!
+
   # 两种验证方式 前面会加载model 后面的不会加载model
   # load_and_authorize_resource
   before_filter :find_user, :only => [:show, :edit, :update, :destroy, :activity]
