@@ -17,6 +17,13 @@
   </tr>
 
 <% @google_analytics.each do |google_analytic| %>
+    <%
+        if google_analytic.visits
+            other = google_analytic.visits-google_analytic.organic-google_analytic.paid-google_analytic.direct - google_analytic.referral
+        else
+            other = 0
+        end
+    %>
   <tr>
     <td><%= google_analytic.current_date %></td>
     <td><%= google_analytic.visits %></td>
@@ -24,7 +31,7 @@
     <td><%= google_analytic.paid %></td>
     <td><%= google_analytic.direct %></td>
     <td><%= google_analytic.referral %></td>
-    <td><%= google_analytic.visits %></td>
+    <td><%= other %></td>
     <td><%= google_analytic.visit_product %></td>
     <td><%= google_analytic.click %></td>
   </tr>
