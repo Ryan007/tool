@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121173259) do
+ActiveRecord::Schema.define(:version => 20130126052449) do
 
   create_table "bbs_admins", :force => true do |t|
     t.integer "uid"
@@ -87,6 +87,11 @@ ActiveRecord::Schema.define(:version => 20130121173259) do
     t.integer "ielts"
     t.integer "liuxue"
     t.integer "page_view"
+    t.integer "visits"
+    t.integer "direct"
+    t.integer "referral"
+    t.integer "organic"
+    t.integer "paid"
   end
 
   create_table "google_traffic_rankings", :force => true do |t|

@@ -6,29 +6,27 @@
 <table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;" width="100%">
   <tr>
     <th>日期</th>
-    <th>唯一访问者</th>
-    <th>浏览产品人数</th>
-    <th>产品浏览页面数</th>
-    <th>平均访问页面数</th>
-    <th>目标1转化率</th>
-    <th>产品停留时长(秒)</th>
-    <th>产品页跳出率</th>
-    <th>乐语点击量含qq</th>
-    <th>目标2转化率</th>
+    <th>访问量</th>
+    <th>自然搜索</th>
+    <th>付费搜索</th>
+    <th>直接搜索</th>
+    <th>引荐访问</th>
+    <th>其它</th>
+    <th>产品访问</th>
+    <th>乐语(qq)</th>
   </tr>
 
 <% @google_analytics.each do |google_analytic| %>
   <tr>
     <td><%= google_analytic.current_date %></td>
-    <td><%= google_analytic.unique_visitor %></td>
+    <td><%= google_analytic.visits %></td>
+    <td><%= google_analytic.organic %></td>
+    <td><%= google_analytic.paid %></td>
+    <td><%= google_analytic.direct %></td>
+    <td><%= google_analytic.referral %></td>
+    <td><%= google_analytic.visits %></td>
     <td><%= google_analytic.visit_product %></td>
-    <td><%= google_analytic.product_page %></td>
-    <td><%= google_analytic.average_page %></td>
-    <td><%= google_analytic.conversion1 %></td>
-    <td><%= google_analytic.stay_time %></td>
-    <td><%= google_analytic.bounce_rate %></td>
     <td><%= google_analytic.click %></td>
-    <td><%= google_analytic.conversion2 %></td>
   </tr>
 <% end %>
 </table>
