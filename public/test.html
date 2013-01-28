@@ -1,0 +1,226 @@
+<div id="calendar_item_editor_singleton" class="calendar_item_editor all_day" style="display: block; top: 283px; left: 633.733px;" data-autoview=""><div class="balloon balloon_expanded calendarevent right_side">
+  <span class="arrow"></span>
+  <span class="arrow"></span>
+  
+    
+      
+
+<form data-skip_busy="" class="calendar_event_editor_form ">
+  <header>
+    <fieldset class="event_name">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tbody><tr>
+      <td class="summary">
+        <h3>
+          <div style="position: absolute; left: -9999px; top: 0px; word-wrap: break-word; font-size: 20px; font-family: &quot;ProximaNova&quot;,&quot;Helvetica Neue&quot;,helvetica,arial,sans-serif; font-weight: 700; letter-spacing: normal; line-height: 26px; text-decoration: none; text-rendering: optimizelegibility; width: 180px;" class="formatted_content hidden">New event</div><textarea rows="1" data-behavior="autoresize placeholder submit_on_enter dirty_tracking" name="summary" data-type="textarea" data-placeholder="Event title" data-autoresize="true" style="resize: none; overflow: hidden; min-height: 27px;">New event</textarea>
+        </h3>
+      </td>
+      <td class="divider">&nbsp;</td>
+      
+        <td data-behavior="time_entry" class="time">
+          <h3>
+            <input type="hidden" value="" name="starts_at_time">
+            <input type="text" value="" data-behavior="placeholder dirty_tracking" data-type="text" data-placeholder="any time" class="placeholding">
+          </h3>
+        </td>
+      
+    </tr>
+    <tr>
+      <td colspan="3" class="description">
+        <em><div style="position: absolute; left: -9999px; top: 0px; word-wrap: break-word; font-size: 13px; font-family: &quot;ProximaNova&quot;,&quot;Helvetica Neue&quot;,helvetica,arial,sans-serif; font-weight: 400; letter-spacing: normal; line-height: 16px; text-decoration: none; text-rendering: optimizelegibility; width: 260px;" class="formatted_content hidden">Add an optional note...</div><textarea rows="1" data-behavior="autoresize placeholder dirty_tracking" name="description" data-type="textarea" data-placeholder="Add an optional note..." class="placeholding" data-autoresize="true" style="resize: none; overflow: hidden; min-height: 17px;"></textarea></em>
+      </td>
+    </tr>
+  </tbody></table>
+</fieldset>
+
+  </header>
+
+  <section>
+    <div data-behavior="slider" class="slider">
+      <ul class="slides" style="width: 200%;">
+        <li data-slide-index="0" class="slide active" style="width: 260px;">
+          <fieldset data-role="bucket_fields" class="event_calendar">
+  
+    
+
+    
+      
+
+      <select data-behavior="bucket_selector" name="bucket">
+        <optgroup label="Calendars">
+          
+            <option selected="selected" value="Calendar:345720">General</option>
+          
+        </optgroup>
+
+        
+        
+          <optgroup label="Projects">
+            
+              <option value="Project:1759830">Explore Basecamp!</option>
+            
+              <option value="Project:1882578">The good Thing</option>
+            
+          </optgroup>
+        
+      </select>
+    
+  
+</fieldset>
+
+          <fieldset class="event_date">
+  <div class="unspanned_fields">
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+        <td data-behavior="date_entry" class="date">
+          <input type="hidden" value="2013-02-12" name="starts_at_date">
+          <input type="text" readonly="" class="date hasDatepicker" id="dp1359334634521">
+        </td>
+      </tr>
+    </tbody></table>
+    <p>
+      <a data-behavior="spanned_toggle" class="decorated" href="#">Lasts multiple days</a>
+    </p>
+  </div>
+
+  <div class="spanned_fields">
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+        <td data-behavior="date_entry" class="date">
+          <input type="hidden" value="2013-02-12" name="spanned_starts_at_date">
+          <input type="text" readonly="" class="date hasDatepicker" id="dp1359334634522">
+        </td>
+        <td class="divider">to</td>
+        <td data-behavior="date_entry" class="date">
+          <input type="hidden" value="2013-02-13" name="spanned_ends_at_date">
+          <input type="text" readonly="" class="date hasDatepicker" id="dp1359334634523">
+        </td>
+      </tr>
+    </tbody></table>
+    <p>
+      <a data-behavior="spanned_toggle" class="decorated" href="#">Lasts one day</a>
+    </p>
+  </div>
+</fieldset>
+
+          <fieldset data-role="subscriber_fields" class="event_subscribers">
+  <div data-behavior="expandable ignore_collapse_hotkey" class="subscribable">
+    <div data-behavior="toggle_subscribers" class="content">
+      <span class="wrapper">
+        <label><input type="checkbox" name="wants_notification">
+          
+            Send other people an email now and a reminder
+            <span class="event_type_conditioned timed">30 minutes before</span>
+            <span class="event_type_conditioned all_day">at 7am the day of</span>
+            the event
+          
+        </label>
+      </span>
+    </div>
+
+    <div data-role="subscriber_options" class="expanded_content">
+  
+  
+  
+
+  <ul class="empty">
+    
+    <li><span class="wrapper"><label>
+      <input type="radio" checked="checked" value="everyone" name="subscriber[group]"> Everyone on this calendar (1 people)
+    </label></span></li>
+
+    
+    <li><span class="wrapper"><label>
+      
+        <input type="radio" data-direction="forward" data-behavior="slide" value="selected" name="subscriber[group]">
+        <span data-direction="forward" data-behavior="slide">Select people...</span>
+      
+    </label></span></li>
+  </ul>
+
+  <p class="subscribers_modified">
+    <strong>Note:</strong>
+    
+      You're the only one who can see this calendar, so we'll just send you a reminder.
+    
+  </p>
+
+</div>
+  </div>
+</fieldset>
+
+
+          
+        </li>
+
+        <li data-slide-index="1" class="slide" style="width: 260px;">
+          <div class="invitees">
+            <h4>Tell people about this event</h4>
+            <p>
+              We'll send an email reminder now and
+              <span class="event_type_conditioned timed">30 minutes before</span>
+              <span class="event_type_conditioned all_day">at 7am the day of</span>
+              this event.
+            </p>
+
+            <div data-role="bucket_subscribers" class="subscribers">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="select_all_or_none">
+    <a data-behavior="subscriber_select_all" class="decorated select_everyone" href="#">Select all</a> |
+    <a data-behavior="subscriber_select_none" class="decorated select_everyone" href="#">Select none</a>
+  </div>
+
+
+
+  <div class="column">
+    
+      
+      <label title="Me (Ryan007)" data-subscriber-id="3278426">
+        <input type="checkbox" checked="&quot;checked&quot;" value="3278426" name="message[subscribers][]">
+        Me (Ryan007)
+      </label>
+    
+  </div>
+
+  <div class="column">
+    
+  </div>
+
+
+
+</div>
+          </div>
+          <p style="margin:20px 0 0 0;font-size:12px;"><a class="decorated done_editing" data-direction="backward" data-behavior="slide" href="#">← I'm done editing this list</a></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div data-failed-text="Error saving event! Please try again." data-succeeded-text="Emails sent!" data-behavior="calendar_alert"></div>
+    <p class="submit">
+      
+        <input type="submit" value="Add this event">
+        or <a data-behavior="cancel" data-role="cancel" class="cancel" href="#">Cancel</a>
+      
+    </p>
+  </footer>
+</form>
+
+    
+  
+</div>
+</div>

@@ -24,7 +24,7 @@ class Traffic::MainController < Traffic::BaseController
 	end
 
   # 以广告系列为中心
-  def search1
+  def search0
     if params[:start_date] && params[:end_date]
       if params[:start_date].strip.empty? && params[:end_date].strip.empty?
         @time_range = (Time.now.midnight - 1.day)..Time.now.midnight
@@ -78,6 +78,38 @@ class Traffic::MainController < Traffic::BaseController
     end
 
     @clicks = Click.where('record_date' => @time_range).group("position").select("*, sum(clicks) as total_clicks").order("total_clicks DESC");
+    @click_count = Click.where('record_date' => @time_range).sum(:clicks)
+    @pos = Click.where('record_date' => @time_range)
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+
+  end
+  # 以位置为中心
+  def search1
+    if params[:start_date] && params[:end_date]
+      if params[:start_date].strip.empty? && params[:end_date].strip.empty?
+        @time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+      else
+        @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
+        @t1 = DateTime.strptime(params[:end_date] + " CCT", "%Y-%m-%d")
+        @time = @t.strftime("%Y-%m-%d")
+        @time1 = @t1.strftime("%Y-%m-%d")
+        @time_range = @time..@time1
+      end
+    else
+      @time_range = (Time.now.midnight - 1.day)..Time.now.midnight
+    end
+
+    # @clicks = Click.where('record_date' => @time_range).group("page")
+    # @click_count = Click.where('record_date' => @time_range).sum(:clicks)
+    # @pages = Click.where('record_date' => @time_range)
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render json: @clicks }
+    # end
+
+    @clicks = Click.where('record_date' => @time_range).group("page").select("*, sum(clicks) as total_clicks").order("total_clicks DESC");
     @click_count = Click.where('record_date' => @time_range).sum(:clicks)
     @pos = Click.where('record_date' => @time_range)
     respond_to do |format|
