@@ -6,7 +6,6 @@ class ClickMailer < ActionMailer::Base
   def send_traffic(recipient)
     # # 先生成excel文件
     time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-    puts time_range
     @yd = Time.now - 1.day
     @@arr = []
     traverse_dir("#{Rails.root}/download/triffs/")

@@ -26,7 +26,6 @@ class User < ActiveRecord::Base
   has_many :daily_tasks
 
 
-
   # 已经不需要了 重写了ablity.rb的方法
   def role?(role)
     return !!self.roles.find_by_rolename(role.to_s.camelize)

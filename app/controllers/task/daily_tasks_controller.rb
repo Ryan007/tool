@@ -1,23 +1,7 @@
 # encoding: utf-8
 class Task::DailyTasksController < Task::BaseController
 
-    # @dairy_plans = DairyPlan.where("student_id = ? and ( plantype is null or plantype = ? ) ", @student.id, 1  )
-    # @json_array = []
-    # @dairy_plans.each do |plan|
-    # obj_hash = plan.attributes
-    #   obj_hash[:title] = "上课 查看详细"
-    #   obj_hash[:start] = plan.plan_date.strftime('%Y-%m-%d')
-    #   obj_hash[:url] = student_dairy_plan_url(@student, plan)
-    #   @json_array.push obj_hash
-    # end
-    #@hash_org = @dairy_plans.to_hash
-    # render:json => @json_array
-
-            # 'id' => 222,
-            # 'title' => "Event2",
-            # 'start' => "$year-$month-20",
-            # 'end' => "$year-$month-22",
-            # 'url' => "http://yahoo.com/"
+\
     def get_stuff_task
         @tasks = User.find(current_user.id).daily_tasks
         @json_arr = []
@@ -99,7 +83,7 @@ class Task::DailyTasksController < Task::BaseController
 
     respond_to do |format|
       if @daily_task.update_attributes(params[:daily_task])
-        format.html { redirect_to @daily_task, notice: 'Daily task was successfully updated.' }
+        format.html { redirect_to [:task, @daily_task], notice: '更新成功.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

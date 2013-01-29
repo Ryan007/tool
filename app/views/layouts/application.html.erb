@@ -55,16 +55,16 @@
 
       <div class="body">
           <% if flash[:notice] %>
-          <span class="notice"><%= notice %></span>
+          <span style="color:red;"><%= notice %></span>
           <% end %>
           <% if flash[:alert] %>
-          <span class="alert"><%= alert %></span>
+          <span style="color:red;"><%= alert %></span>
           <% end %>
           <% if flash[:error] %>
-          <span class="error"><%= flash[:error] %></span>
+          <span style="color:red;"><%= flash[:error] %></span>
           <% end %>
           <% if flash[:success] %>
-          <span class="success"><%= flash[:success] %></span>
+          <span><%= flash[:success] %></span>
           <% end %>
           <%= yield %>
       </div>
@@ -72,7 +72,6 @@
         <p>&#169; Copyright &#169; 2012. xiaoma all rights reserved.</p>
         <div class="connect">
           <a href="http://www.xiaoma.com" target="_blank" alt="小马过河国际教育官网"><img src="<%= Tools::Application.config.staticfile_server_url %>images/logo_xiaoma.png"/></a>
-          <a href="http://dept.vip.xiaoma.com/" id="vimeo">vimeo</a>
         </div>
       </div>
     </div>
