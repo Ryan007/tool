@@ -30,7 +30,8 @@
   td{ text-align:center; line-height:24px; bordercolor:"blue"}
 </style>
 <h1>根据时间段查询广告位点击次数</h1>
-<h4>根据条件查询</h4>
+<h5><%= link_to '位置视图查询', traffic_main_search_path%></h5>
+
 <%= form_tag(traffic_main_search_path, :method => :get) do %>
   <p>
     开始日期: <input type="text" id="datepicker" name="start_date">
