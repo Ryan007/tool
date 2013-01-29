@@ -47,6 +47,7 @@ class ClickMailer < ActionMailer::Base
 		    @click_pages = Click.where('record_date' => time_range).group("page")
 		    @pages = Click.where('record_date' => time_range)
 		    @click_cams = Click.where('record_date' => time_range).group("campaign")
+		    @click_pos = Click.where('record_date' => time_range).group("position")
 
 		    
 		    count_row = 0
@@ -55,11 +56,13 @@ class ClickMailer < ActionMailer::Base
 		    book = Spreadsheet::Workbook.new
 
 		    sheet1 = book.create_worksheet :name => "根据页面显示" 
-		    sheet2 = book.create_worksheet :name => "根据活动显示"
+		    sheet2 = book.create_worksheet :name => "根据产品（活动）显示"
+		    sheet3 = book.create_worksheet :name => "根据位置显示"
 		        
 		    blue = Spreadsheet::Format.new :color => :blue, :weight => :bold
 		    sheet1.row(0).default_format = blue
-		    sheet2.row(0).default_format = blue  
+		    sheet2.row(0).default_format = blue
+		    sheet3.row(0).default_format = blue  
 		      
 		    sheet1[0, 0] = '页面'
 		    sheet1[0, 1] = '位置'
@@ -104,6 +107,29 @@ class ClickMailer < ActionMailer::Base
 				    count_row = count_row + 1
 				end
 			end
+
+			sheet3[0, 0] = '位置'
+			sheet3[0, 1] = '活动'
+			sheet3[0, 2] = '页面'
+		    sheet3[0, 3] = '分类'
+		    sheet3[0, 4] = '父分类'
+		    sheet3[0, 5] = '点击量'
+
+		    sheet3[1, 5] = count_all
+		    count_row = 2
+
+			@click_pos.each do |obj|
+				@pages.where("position = #{obj.position}").order("clicks DESC").each do |page|
+					sheet3[count_row, 0] = Position.find(page.position).name
+					sheet3[count_row, 1] = Campaign.find(page.campaign).name
+					sheet3[count_row, 2] = WebPage.find(page.page).content
+				    sheet3[count_row, 3] = TagCategory.find(page.up_category).name
+				    sheet3[count_row, 4] = TagCategory.find(page.category).name
+				    sheet3[count_row, 5] = page.clicks
+				    count_row = count_row + 1
+				end
+			end
+
 
 			filepath=Rails.root+"download/triffs/#{(yd).strftime('%Y-%m-%d')}-#{model}.xls" 
 			book.write filepath
