@@ -13,14 +13,6 @@ class ClickMailer < ActionMailer::Base
     # 计算总的点击次数 uv
     @count_clicks = Click.where('record_date' => time_range).sum("clicks")
 
-    # if !@@arr.include?"#{@yd.strftime('%Y-%m-%d')}-ReferralTraffic.xls"
-    #     @triffs = ReferralTraffic.where('current_date' => time_range).order("clicks DESC")
-    #     export_xls(@triffs, ReferralTraffic, @count_uv, @yd)
-    # end
-    # if !@@arr.include?"#{@yd.strftime('%Y-%m-%d')}-OrganicTraffic.xls"
-    #     @triff1s = OrganicTraffic.where('current_date' => time_range).order("clicks DESC")
-    #     export_xls(@triff1s, OrganicTraffic, @count_uv1, @yd)
-    # end
     if !@@arr.include?"#{@yd.strftime('%Y-%m-%d')}-Campaign.xls"
         export_click_xls(@count_clicks, Click, @yd)
     end
@@ -29,8 +21,6 @@ class ClickMailer < ActionMailer::Base
     @from = 'noreply@xiaoma.com'
     @subject = "流量数据统计表"
     
-    # attachments["引荐流量#{@yd.strftime('%Y-%m-%d')}.xls"] = File.read("#{Rails.root}/download/triffs/#{@yd.strftime('%Y-%m-%d')}-ReferralTraffic.xls")
-    # attachments["自然流量#{@yd.strftime('%Y-%m-%d')}.xls"] = File.read("#{Rails.root}/download/triffs/#{@yd.strftime('%Y-%m-%d')}-OrganicTraffic.xls")
     attachments["广告位统计#{@yd.strftime('%Y-%m-%d')}.xls"] = File.read("#{Rails.root}/download/triffs/#{@yd.strftime('%Y-%m-%d')}-Click.xls")
 
     mail(:to => "#{recipient}", :subject => @subject)
@@ -91,9 +81,7 @@ class ClickMailer < ActionMailer::Base
 				    sheet1[count_row, 5] = page.clicks
 				    count_row = count_row + 1
 				end
-			end  
-
-
+			end
 			
 			sheet2[0, 0] = '活动'
 			sheet2[0, 1] = '页面'
