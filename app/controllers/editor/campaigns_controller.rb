@@ -28,7 +28,7 @@ class Editor::CampaignsController < Editor::BaseController
       @t = DateTime.strptime(params[:start_date] + " CCT", "%Y-%m-%d")
       time_range = (@t.midnight - 1.day + 1.second)..@t.midnight
     end
-    @clicks = Click.where('record_date' => time_range).where("campaign = #{params[:id]}").paginate(:page => params[:page], :per_page => 10)
+    @clicks = Click.where('record_date' => time_range).where("campaign = #{params[:id]}").paginate(:page => params[:page], :per_page => 100)
     @total = Click.where('record_date' => time_range).where("campaign = #{params[:id]}").sum("clicks")
   end
 

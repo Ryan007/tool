@@ -6,7 +6,9 @@ class Traffic::ClicksController < Traffic::BaseController
   # 以页面为中心
   def index
     time_range = (Time.now.midnight - 1.day)..Time.now.midnight
-    @clicks = Click.where('record_date' => time_range).paginate(:page => params[:page], :per_page => 20).group("page")
+    # @clicks = Click.where('record_date' => time_range).paginate(:page => params[:page], :per_page => 20).group("page")
+    @clicks = Click.where('record_date' => time_range)
+    
     @click_count = Click.where('record_date' => time_range).sum(:clicks)
     @pages = Click.where('record_date' => time_range)
     respond_to do |format|
