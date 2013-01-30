@@ -18,7 +18,7 @@ class ClickMailer < ActionMailer::Base
     
     @recipients = recipient
     @from = 'noreply@xiaoma.com'
-    @subject = "流量数据统计表"
+    @subject = "广告位点击统计表"
     
     attachments["广告位统计#{@yd.strftime('%Y-%m-%d')}.xls"] = File.read("#{Rails.root}/download/triffs/#{@yd.strftime('%Y-%m-%d')}-Click.xls")
 
