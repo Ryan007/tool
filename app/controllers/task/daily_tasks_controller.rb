@@ -1,7 +1,6 @@
 # encoding: utf-8
 class Task::DailyTasksController < Task::BaseController
-
-\
+    before_filter :authorize_activity!
     def get_stuff_task
         @tasks = User.find(current_user.id).daily_tasks
         @json_arr = []

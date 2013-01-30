@@ -1,5 +1,5 @@
 class Editor::MainController < Editor::BaseController
-
+	# befor_filter 
 	def index
 		@google_analytics = GoogleAnalytic.order("id desc").paginate(:page => params[:page], :per_page => 20)
 

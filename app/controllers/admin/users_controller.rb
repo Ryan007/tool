@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::BaseController
 
   # 两种验证方式 前面会加载model 后面的不会加载model
   # load_and_authorize_resource
-  before_filter :find_user, :only => [:show, :edit, :update, :destroy, :activity]
+  before_filter :find_user, :only => [:show, :edit, :update, :destroy, :activity, :lock, :unlock]
 
 
   def index
@@ -71,6 +71,7 @@ class Admin::UsersController < Admin::BaseController
     if @user == current_user
       flash[:alert] = "你不能锁定你自己!"
     else
+      # @user = User.find(5)
       @user.lock_access!
       flash[:notice] = "用户已经成功锁定."
     end    
@@ -79,6 +80,7 @@ class Admin::UsersController < Admin::BaseController
 
   # 解锁用户
   def unlock  
+    # @user = User.find(5)
     @user.unlock_access!
     flash[:notice] = "用户已经成功解锁." 
     redirect_to :back
@@ -111,9 +113,8 @@ class Admin::UsersController < Admin::BaseController
   end
 
   private
-
-  def find_user
-    @user = User.find(params[:id])
-  end
+    def find_user
+      @user = User.find(params[:id])
+    end
 
 end

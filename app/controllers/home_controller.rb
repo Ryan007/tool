@@ -1,6 +1,6 @@
 # encoding: utf-8
 class HomeController < ApplicationController
-	before_filter :authenticate_user!, :except => [:index]
+	before_filter :authenticate_user!, :except => [:index, :introduction]
 	# hhh
 	def index
 		# CommentMailer.comment_notify_email("goodboyryan@126.com", "helloworld", 'helllloooooo').deliver
