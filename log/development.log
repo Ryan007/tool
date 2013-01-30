@@ -3840,3 +3840,52 @@ Migrating to RemoveIsActivityFromUser (20130130135505)
   [1m[35m (585.2ms)[0m  ALTER TABLE `users` DROP `is_activity`
   [1m[36m (0.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130130135505')[0m
   [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2013-01-31 00:06:11 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 401 Unauthorized in 238ms
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2013-01-31 00:06:12 +0800
+Processing by Admin::UsersController#index as HTML
+Completed 401 Unauthorized in 0ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-31 00:06:12 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 76ms (Views: 74.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-31 00:06:20 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"doT0IMNBZ47UwpIy9tow6FcvqBq9tOOHX3nzy9GDvC0=", "user"=>{"email"=>"ryan1@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'ryan1@xiaoma.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2013-01-30 12:52:56', `current_sign_in_at` = '2013-01-30 16:06:20', `sign_in_count` = 3, `updated_at` = '2013-01-30 16:06:20' WHERE `users`.`id` = 5
+  [1m[36m (35.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/users
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2013-01-31 00:06:20 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mRole Load (0.5ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 5[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize_super_admin! rendered or redirected
+Completed 302 Found in 30ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 00:06:20 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.5ms)

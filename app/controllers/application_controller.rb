@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
     def authorize_super_admin!
       authenticate_user!
-      unless [3,1].include?(current_user.id)
+      unless [1,8].include?(current_user.id)
         flash[:alert] = "您的登录身份必须为超级管理员才能完成次操作"
         redirect_to root_path
       end
