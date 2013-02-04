@@ -126,7 +126,7 @@ class Traffic::MainController < Traffic::BaseController
     if params[:category]
       if !params[:category].empty?
         @category = params[:category]
-        conditions << " and up_category = #{@category}"
+        conditions << " and category = #{@category}"
       end
     end
 
