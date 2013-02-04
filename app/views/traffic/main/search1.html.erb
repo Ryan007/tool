@@ -6,6 +6,7 @@
     $( "#datepicker1" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
     $( "#datepicker" ).val("<%= @time%>");
     $( "#datepicker1" ).val("<%= @time1%>");
+    $( "#category" ).val("<%= @category%>");
     $("form").submit(function(e){
       if($( "#datepicker" ).val() == ""){
           alert("开始时间!");
