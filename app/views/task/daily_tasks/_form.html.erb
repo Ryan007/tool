@@ -18,6 +18,8 @@
               return false;
            }
         });
+        $( "#datepicker_1" ).val('<%= @daily_task.plan_start_timeline%>');
+        $( "#datepicker_2" ).val('<%= @daily_task.plan_finish_timeline%>');
     });
 </script>
 
@@ -49,7 +51,7 @@
   </div>
   <div class="field">
     <%= f.label :accomplishment, '完成度' %><br />
-    <%= f.text_field :accomplishment %>
+    <%= f.select(:accomplishment, [['10%', 10],['10%', 10],['20%', 20],['30%', 30],['40%', 40],['50%', 50],['60%', 60],['70%', 70],['80%', 80],['90%', 90],['100%', 100]])%>
   </div>
 
   <div class="field">

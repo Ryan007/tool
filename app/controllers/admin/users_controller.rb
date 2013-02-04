@@ -8,7 +8,7 @@ class Admin::UsersController < Admin::BaseController
 
 
   def index
-    @users = User.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+    @users = User.order("id desc").paginate(:page => params[:page], :per_page => 20)
   end
   
   # 新建用户

@@ -3889,3 +3889,576 @@ Processing by HomeController#index as HTML
   Rendered home/index.html.erb within layouts/application (0.4ms)
   [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
 Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2013-01-31 00:10:17 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mRole Load (0.5ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 5
+Redirected to http://localhost:3000/
+Filter chain halted as :authorize_super_admin! rendered or redirected
+Completed 302 Found in 46ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 00:10:17 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 10:23:59 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 401 Unauthorized in 170ms
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 10:24:00 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-31 10:24:02 +0800
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"bWzCrYmY7dUsvTQmUBxvBkUts4wRpfzQ2jWrxqABIV4="}
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-01-31 10:24:07 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bWzCrYmY7dUsvTQmUBxvBkUts4wRpfzQ2jWrxqABIV4=", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-30 13:30:09', `current_sign_in_at` = '2013-01-31 02:24:07', `sign_in_count` = 29, `updated_at` = '2013-01-31 02:24:07' WHERE `users`.`id` = 1[0m
+  [1m[35m (9.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 117ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 10:24:07 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/task/main/me" for 127.0.0.1 at 2013-01-31 10:24:12 +0800
+Processing by Task::MainController#me as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.5ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mDailyTask Load (0.5ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`user_id` = 1 AND ((plan_start_timeline >='2013-01-31 00:00:00' AND plan_start_timeline < '2013-02-01 00:00:00') 
+			OR 
+			(plan_finish_timeline >='2013-01-31 00:00:00' AND plan_finish_timeline <'2013-02-01 00:00:00'))[0m
+  Rendered task/main/me.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 71ms (Views: 33.7ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/task/daily_tasks/new" for 127.0.0.1 at 2013-01-31 10:24:14 +0800
+Processing by Task::DailyTasksController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  Rendered task/daily_tasks/_form.html.erb (4.7ms)
+  Rendered task/daily_tasks/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 33ms (Views: 21.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/task/daily_tasks/new" for 127.0.0.1 at 2013-01-31 10:25:34 +0800
+Processing by Task::DailyTasksController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  Rendered task/daily_tasks/_form.html.erb (2.6ms)
+  Rendered task/daily_tasks/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/task/daily_tasks" for 127.0.0.1 at 2013-01-31 10:35:30 +0800
+Processing by Task::DailyTasksController#index as HTML
+  [1m[35mUser Load (74.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.4ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mDailyTask Load (0.3ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` 
+  Rendered task/daily_tasks/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 104ms (Views: 24.4ms | ActiveRecord: 74.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 10:35:44 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/editor/main/index" for 127.0.0.1 at 2013-01-31 10:35:46 +0800
+Processing by Editor::MainController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mGoogleAnalytic Load (0.2ms)[0m  SELECT `google_analytics`.* FROM `google_analytics` ORDER BY id desc LIMIT 20 OFFSET 0
+  Rendered editor/main/index.html.erb within layouts/application (61.9ms)
+Completed 200 OK in 101ms (Views: 40.1ms | ActiveRecord: 39.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 10:35:46 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/bbs/admin/index" for 127.0.0.1 at 2013-01-31 10:38:14 +0800
+Processing by Bbs::AdminController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `bbs_core_customers` WHERE (bbs_type=1) AND (`bbs_core_customers`.`current_date` BETWEEN '2013-01-29 16:00:00' AND '2013-01-30 16:00:00')
+  [1m[36m (0.4ms)[0m  [1mSELECT SUM(`bbs_core_customers`.`doing`) AS sum_id FROM `bbs_core_customers` WHERE (bbs_type=1) AND (`bbs_core_customers`.`current_date` BETWEEN '2013-01-29 16:00:00' AND '2013-01-30 16:00:00')[0m
+  [1m[35m (0.3ms)[0m  SELECT SUM(`bbs_core_customers`.`post`) AS sum_id FROM `bbs_core_customers` WHERE (bbs_type=1) AND (`bbs_core_customers`.`current_date` BETWEEN '2013-01-29 16:00:00' AND '2013-01-30 16:00:00')
+  [1m[36m (0.3ms)[0m  [1mSELECT SUM(`bbs_core_customers`.`thread`) AS sum_id FROM `bbs_core_customers` WHERE (bbs_type=1) AND (`bbs_core_customers`.`current_date` BETWEEN '2013-01-29 16:00:00' AND '2013-01-30 16:00:00')[0m
+  [1m[35mBbsCoreCustomer Load (0.6ms)[0m  SELECT `bbs_core_customers`.* FROM `bbs_core_customers` WHERE (`bbs_core_customers`.`current_date` BETWEEN '2013-01-29 16:00:00' AND '2013-01-30 16:00:00') AND (bbs_type=1) LIMIT 20 OFFSET 0
+  Rendered bbs/admin/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 36ms (Views: 13.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/traffic/main/index" for 127.0.0.1 at 2013-01-31 10:38:17 +0800
+Processing by Traffic::MainController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT SUM(`clicks`.`clicks`) AS sum_id FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-01-29 16:00:00' AND '2013-01-30 16:00:00')[0m
+  [1m[35mTagCategory Load (0.3ms)[0m  SELECT `tag_categories`.* FROM `tag_categories` WHERE (id NOT IN (1,2))
+  [1m[36mWebPage Load (0.2ms)[0m  [1mSELECT `web_pages`.* FROM `web_pages` [0m
+  [1m[35mPosition Load (1.0ms)[0m  SELECT `positions`.* FROM `positions` 
+  [1m[36mCampaign Load (0.8ms)[0m  [1mSELECT `campaigns`.* FROM `campaigns` [0m
+  [1m[35mClick Load (0.7ms)[0m  SELECT `clicks`.* FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-01-29 16:00:00' AND '2013-01-30 16:00:00') GROUP BY page LIMIT 20 OFFSET 0
+  Rendered traffic/main/index.html.erb within layouts/application (110.2ms)
+Completed 200 OK in 183ms (Views: 154.8ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/task/main/me" for 127.0.0.1 at 2013-01-31 10:38:19 +0800
+Processing by Task::MainController#me as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.6ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mDailyTask Load (0.4ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`user_id` = 1 AND ((plan_start_timeline >='2013-01-31 00:00:00' AND plan_start_timeline < '2013-02-01 00:00:00') 
+			OR 
+			(plan_finish_timeline >='2013-01-31 00:00:00' AND plan_finish_timeline <'2013-02-01 00:00:00'))
+  Rendered task/main/me.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 12.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2013-01-31 10:38:20 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` ORDER BY id desc LIMIT 20 OFFSET 0[0m
+  Rendered admin/users/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/calendar/index" for 127.0.0.1 at 2013-01-31 10:39:05 +0800
+Processing by CalendarController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mDailyTask Load (0.4ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`user_id` = 1[0m
+  Rendered calendar/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 22ms (Views: 18.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/task/daily_tasks/8" for 127.0.0.1 at 2013-01-31 10:39:12 +0800
+Processing by Task::DailyTasksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mDailyTask Load (0.2ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered task/daily_tasks/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 680ms (Views: 675.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/calendar/index" for 127.0.0.1 at 2013-01-31 10:39:15 +0800
+Processing by CalendarController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mDailyTask Load (0.3ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`user_id` = 1[0m
+  Rendered calendar/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/task/daily_tasks/8" for 127.0.0.1 at 2013-01-31 10:39:48 +0800
+Processing by Task::DailyTasksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mDailyTask Load (0.2ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered task/daily_tasks/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/task/daily_tasks/8/edit" for 127.0.0.1 at 2013-01-31 10:39:51 +0800
+Processing by Task::DailyTasksController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mDailyTask Load (0.2ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1
+  Rendered task/daily_tasks/_form.html.erb (2.0ms)
+  Rendered task/daily_tasks/edit.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 47ms (Views: 43.1ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/task/daily_tasks/8" for 127.0.0.1 at 2013-01-31 10:40:14 +0800
+Processing by Task::DailyTasksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bWzCrYmY7dUsvTQmUBxvBkUts4wRpfzQ2jWrxqABIV4=", "daily_task"=>{"user_id"=>"1", "title"=>"完成解锁上锁", "plan_start_timeline"=>"2013-01-31 06:00", "plan_finish_timeline"=>"2013-01-31 12:40", "accomplishment"=>"30", "content"=>"123"}, "commit"=>"Submit", "id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.4ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mDailyTask Load (0.2ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `daily_tasks` SET `plan_start_timeline` = '2013-01-30 22:00:00', `plan_finish_timeline` = '2013-01-31 04:40:00', `accomplishment` = 30, `content` = '123', `updated_at` = '2013-01-31 02:40:14' WHERE `daily_tasks`.`id` = 8[0m
+  [1m[35m (5.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/task/daily_tasks/8
+Completed 302 Found in 40ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/task/daily_tasks/8" for 127.0.0.1 at 2013-01-31 10:40:14 +0800
+Processing by Task::DailyTasksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mDailyTask Load (0.2ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered task/daily_tasks/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/task/daily_tasks/8/edit" for 127.0.0.1 at 2013-01-31 10:40:16 +0800
+Processing by Task::DailyTasksController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mDailyTask Load (0.2ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1[0m
+  Rendered task/daily_tasks/_form.html.erb (1.7ms)
+  Rendered task/daily_tasks/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 9ms (Views: 5.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/task/daily_tasks" for 127.0.0.1 at 2013-01-31 10:40:18 +0800
+Processing by Task::DailyTasksController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mDailyTask Load (0.1ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` 
+  Rendered task/daily_tasks/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/calendar/index" for 127.0.0.1 at 2013-01-31 10:40:22 +0800
+Processing by CalendarController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mDailyTask Load (0.3ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`user_id` = 1
+  Rendered calendar/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/task/daily_tasks/8" for 127.0.0.1 at 2013-01-31 10:40:29 +0800
+Processing by Task::DailyTasksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mDailyTask Load (0.2ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered task/daily_tasks/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/calendar/index" for 127.0.0.1 at 2013-01-31 10:40:32 +0800
+Processing by CalendarController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mDailyTask Load (0.3ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`user_id` = 1
+  Rendered calendar/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/task/daily_tasks/1" for 127.0.0.1 at 2013-01-31 10:40:38 +0800
+Processing by Task::DailyTasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mDailyTask Load (0.2ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered task/daily_tasks/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/task/daily_tasks/1/edit" for 127.0.0.1 at 2013-01-31 10:40:39 +0800
+Processing by Task::DailyTasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mDailyTask Load (0.2ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 1 LIMIT 1[0m
+  Rendered task/daily_tasks/_form.html.erb (1.6ms)
+  Rendered task/daily_tasks/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/calendar/index" for 127.0.0.1 at 2013-01-31 10:42:22 +0800
+Processing by CalendarController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mDailyTask Load (0.3ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`user_id` = 1[0m
+  Rendered calendar/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 8ms (Views: 5.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/calendar/index" for 127.0.0.1 at 2013-01-31 10:42:26 +0800
+Processing by CalendarController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.4ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mDailyTask Load (0.4ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`user_id` = 1[0m
+  Rendered calendar/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/task/daily_tasks/8" for 127.0.0.1 at 2013-01-31 10:42:30 +0800
+Processing by Task::DailyTasksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mDailyTask Load (0.2ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered task/daily_tasks/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/task/daily_tasks/8/edit" for 127.0.0.1 at 2013-01-31 10:42:32 +0800
+Processing by Task::DailyTasksController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mDailyTask Load (0.2ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1
+  Rendered task/daily_tasks/_form.html.erb (1.7ms)
+  Rendered task/daily_tasks/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/task/daily_tasks/8/edit" for 127.0.0.1 at 2013-01-31 10:43:19 +0800
+Processing by Task::DailyTasksController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mDailyTask Load (0.2ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1[0m
+  Rendered task/daily_tasks/_form.html.erb (3.2ms)
+  Rendered task/daily_tasks/edit.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/task/daily_tasks/8/edit" for 127.0.0.1 at 2013-01-31 10:43:29 +0800
+Processing by Task::DailyTasksController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mDailyTask Load (0.2ms)[0m  SELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1
+  Rendered task/daily_tasks/_form.html.erb (3.2ms)
+  Rendered task/daily_tasks/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/task/daily_tasks/8/edit" for 127.0.0.1 at 2013-01-31 10:45:04 +0800
+Processing by Task::DailyTasksController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36mDailyTask Load (0.3ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`id` = 8 LIMIT 1[0m
+  Rendered task/daily_tasks/_form.html.erb (3.2ms)
+  Rendered task/daily_tasks/edit.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/calendar/index" for 127.0.0.1 at 2013-01-31 10:45:48 +0800
+Processing by CalendarController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mDailyTask Load (0.3ms)[0m  [1mSELECT `daily_tasks`.* FROM `daily_tasks` WHERE `daily_tasks`.`user_id` = 1[0m
+  Rendered calendar/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 46ms (Views: 42.5ms | ActiveRecord: 0.9ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-02-04 10:00:29 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 187ms (Views: 186.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-02-04 10:00:36 +0800
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"EQOZSX3x/Uat2eQaqVShu345ujXCo8aITuS723CjxTg="}
+  Rendered devise/shared/_links.erb (3.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (63.6ms)
+Completed 200 OK in 723ms (Views: 207.0ms | ActiveRecord: 465.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-02-04 10:00:53 +0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EQOZSX3x/Uat2eQaqVShu345ujXCo8aITuS723CjxTg=", "user"=>{"email"=>"zhanghuaxun@xiaoma.com", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  [1m[36mUser Load (44.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'zhanghuaxun@xiaoma.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (21.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-01-31 02:24:07', `current_sign_in_at` = '2013-02-04 02:00:53', `sign_in_count` = 30, `updated_at` = '2013-02-04 02:00:53' WHERE `users`.`id` = 1[0m
+  [1m[35m (42.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 540ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-02-04 10:00:53 +0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2013-02-04 10:00:55 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.6ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` ORDER BY id desc LIMIT 20 OFFSET 0
+  Rendered admin/users/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 303ms (Views: 72.3ms | ActiveRecord: 68.4ms)
+
+
+Started GET "/traffic/main/index" for 127.0.0.1 at 2013-02-04 10:00:59 +0800
+Processing by Traffic::MainController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36m (21.9ms)[0m  [1mSELECT SUM(`clicks`.`clicks`) AS sum_id FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00')[0m
+  [1m[35mTagCategory Load (0.3ms)[0m  SELECT `tag_categories`.* FROM `tag_categories` WHERE (id NOT IN (1,2))
+  [1m[36mWebPage Load (0.3ms)[0m  [1mSELECT `web_pages`.* FROM `web_pages` [0m
+  [1m[35mPosition Load (0.5ms)[0m  SELECT `positions`.* FROM `positions` 
+  [1m[36mCampaign Load (0.4ms)[0m  [1mSELECT `campaigns`.* FROM `campaigns` [0m
+  [1m[35mClick Load (12.1ms)[0m  SELECT `clicks`.* FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00') GROUP BY page LIMIT 20 OFFSET 0
+  Rendered traffic/main/index.html.erb within layouts/application (216.2ms)
+Completed 200 OK in 325ms (Views: 184.8ms | ActiveRecord: 123.7ms)
+
+
+Started GET "/traffic/main/search" for 127.0.0.1 at 2013-02-04 10:01:01 +0800
+Processing by Traffic::MainController#search as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (13.8ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT SUM(`clicks`.`clicks`) AS sum_id FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00')[0m
+  [1m[35mClick Load (17.6ms)[0m  SELECT *, sum(clicks) as total_clicks FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00') GROUP BY position ORDER BY total_clicks DESC
+  Rendered traffic/main/search.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 61ms (Views: 24.9ms | ActiveRecord: 32.2ms)
+
+
+Started GET "/traffic/main/search" for 127.0.0.1 at 2013-02-04 10:01:03 +0800
+Processing by Traffic::MainController#search as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.4ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36m (0.6ms)[0m  [1mSELECT SUM(`clicks`.`clicks`) AS sum_id FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00')[0m
+  [1m[35mClick Load (30.8ms)[0m  SELECT *, sum(clicks) as total_clicks FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00') GROUP BY position ORDER BY total_clicks DESC
+  Rendered traffic/main/search.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 43ms (Views: 6.4ms | ActiveRecord: 32.1ms)
+
+
+Started GET "/traffic/main/search1" for 127.0.0.1 at 2013-02-04 10:01:05 +0800
+Processing by Traffic::MainController#search1 as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36m (0.8ms)[0m  [1mSELECT SUM(`clicks`.`clicks`) AS sum_id FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00')[0m
+  [1m[35mClick Load (0.6ms)[0m  SELECT *, sum(clicks) as total_clicks FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00') GROUP BY page ORDER BY total_clicks DESC
+  Rendered traffic/main/search1.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 18ms (Views: 11.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/traffic/main/search1" for 127.0.0.1 at 2013-02-04 10:03:34 +0800
+Processing by Traffic::MainController#search1 as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.5ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+Completed 500 Internal Server Error in 93ms
+
+NoMethodError (undefined method `empty?' for nil:NilClass):
+  app/controllers/traffic/main_controller.rb:105:in `search1'
+
+
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails_lastest/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails_lastest/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails_lastest/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.5ms)
+
+
+Started GET "/traffic/main/search1" for 127.0.0.1 at 2013-02-04 10:04:25 +0800
+Processing by Traffic::MainController#search1 as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.5ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+Completed 500 Internal Server Error in 135ms
+
+NoMethodError (undefined method `empty?' for nil:NilClass):
+  app/controllers/traffic/main_controller.rb:105:in `search1'
+
+
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails_lastest/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails_lastest/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails_lastest/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.3ms)
+
+
+Started GET "/traffic/main/search1" for 127.0.0.1 at 2013-02-04 10:04:26 +0800
+Processing by Traffic::MainController#search1 as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `empty?' for nil:NilClass):
+  app/controllers/traffic/main_controller.rb:105:in `search1'
+
+
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails_lastest/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails_lastest/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/ryan007/.rvm/gems/ruby-1.9.3-p125@rails_lastest/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.6ms)
+
+
+Started GET "/traffic/main/search1" for 127.0.0.1 at 2013-02-04 10:06:36 +0800
+Processing by Traffic::MainController#search1 as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.5ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT SUM(`clicks`.`clicks`) AS sum_id FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00') AND ( 1=1)[0m
+  [1m[35mTagCategory Load (0.2ms)[0m  SELECT `tag_categories`.* FROM `tag_categories` WHERE (id NOT IN (1,2))
+  [1m[36mWebPage Load (0.2ms)[0m  [1mSELECT `web_pages`.* FROM `web_pages` [0m
+  [1m[35mPosition Load (0.5ms)[0m  SELECT `positions`.* FROM `positions` 
+  [1m[36mCampaign Load (0.5ms)[0m  [1mSELECT `campaigns`.* FROM `campaigns` [0m
+  [1m[35mClick Load (0.8ms)[0m  SELECT *, sum(clicks) as total_clicks FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00') AND ( 1=1) GROUP BY page ORDER BY total_clicks DESC
+  Rendered traffic/main/search1.html.erb within layouts/application (69.7ms)
+Completed 200 OK in 230ms (Views: 96.6ms | ActiveRecord: 75.4ms)
+
+
+Started GET "/traffic/main/search1" for 127.0.0.1 at 2013-02-04 10:07:25 +0800
+Processing by Traffic::MainController#search1 as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.4ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  [1m[36m (0.4ms)[0m  [1mSELECT SUM(`clicks`.`clicks`) AS sum_id FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00') AND ( 1=1)[0m
+  [1m[35mTagCategory Load (0.2ms)[0m  SELECT `tag_categories`.* FROM `tag_categories` WHERE (id IN (1,2))
+  [1m[36mClick Load (0.7ms)[0m  [1mSELECT *, sum(clicks) as total_clicks FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00') AND ( 1=1) GROUP BY page ORDER BY total_clicks DESC[0m
+  Rendered traffic/main/search1.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 245ms (Views: 51.0ms | ActiveRecord: 137.7ms)
+
+
+Started GET "/traffic/main/search1" for 127.0.0.1 at 2013-02-04 10:07:27 +0800
+Processing by Traffic::MainController#search1 as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1[0m
+  [1m[35m (0.6ms)[0m  SELECT SUM(`clicks`.`clicks`) AS sum_id FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00') AND ( 1=1)
+  [1m[36mTagCategory Load (0.4ms)[0m  [1mSELECT `tag_categories`.* FROM `tag_categories` WHERE (id IN (1,2))[0m
+  [1m[35mClick Load (0.8ms)[0m  SELECT *, sum(clicks) as total_clicks FROM `clicks` WHERE (`clicks`.`record_date` BETWEEN '2013-02-02 16:00:00' AND '2013-02-03 16:00:00') AND ( 1=1) GROUP BY page ORDER BY total_clicks DESC
+  Rendered traffic/main/search1.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 12ms (Views: 5.9ms | ActiveRecord: 2.5ms)

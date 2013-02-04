@@ -101,6 +101,35 @@ class Traffic::MainController < Traffic::BaseController
       @time_range = (Time.now.midnight - 1.day)..Time.now.midnight
     end
 
+    conditions = " 1=1"
+    # if params[:web_page]
+    #   if !params[:web_page].empty?
+    #     @web_page = params[:web_page]
+    #     conditions << " and `page` = #{@web_page}"
+    #   end
+    # end
+
+    # if params[:position]
+    #   if !params[:position].empty?
+    #     @position = params[:position]
+    #     conditions << " and position = #{@position}"
+    #   end
+    # end
+
+    # if params[:campaign]
+    #   if !params[:campaign].empty?
+    #     @campaign = params[:campaign]
+    #     conditions << " and campaign = #{@campaign}"
+    #   end
+    # end
+
+    if params[:category]
+      if !params[:category].empty?
+        @category = params[:category]
+        conditions << " and up_category = #{@category}"
+      end
+    end
+
     # @clicks = Click.where('record_date' => @time_range).group("page")
     # @click_count = Click.where('record_date' => @time_range).sum(:clicks)
     # @pages = Click.where('record_date' => @time_range)
@@ -109,9 +138,9 @@ class Traffic::MainController < Traffic::BaseController
     #   format.json { render json: @clicks }
     # end
 
-    @clicks = Click.where('record_date' => @time_range).group("page").select("*, sum(clicks) as total_clicks").order("total_clicks DESC");
-    @click_count = Click.where('record_date' => @time_range).sum(:clicks)
-    @pos = Click.where('record_date' => @time_range)
+    @clicks = Click.where('record_date' => @time_range).where(conditions).group("page").select("*, sum(clicks) as total_clicks").order("total_clicks DESC");
+    @click_count = Click.where('record_date' => @time_range).where(conditions).sum(:clicks)
+    @pos = Click.where('record_date' => @time_range).where(conditions)
     respond_to do |format|
       format.html # index.html.erb
     end

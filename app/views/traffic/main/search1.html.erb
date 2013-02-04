@@ -35,6 +35,7 @@
   <p>
     开始日期: <input type="text" id="datepicker" name="start_date">
     结束日期: <input type="text" id="datepicker1" name="end_date">
+    分类: <%= select_tag(:category, options_for_select(TagCategory.where("id IN (1,2)").all.collect { |p| [p.name, p.id]}), { :include_blank => true })%>
   </p>
     <%= submit_tag("查询") %>
   </p>

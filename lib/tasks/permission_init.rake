@@ -30,8 +30,8 @@ namespace :tools do
     write_permission("Permission", "update", "Permission update", "update Permission")
     write_permission("Permission", "delete", "Permission delete", "delete Permission")
     write_permission("Permission", "create", "Permission create", "create Permission")
-    # 编辑权限
-    # write_permission("Main", "read", "Main index", "谷歌数据和广告位管理")
+    # 广告位
+    write_permission("Click", "read", "Main index", "谷歌数据和广告位管理")
 
 
     
