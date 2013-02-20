@@ -1,31 +1,117 @@
 <h1>今日全组任务列表</h1>
 <h3><%= link_to '全组所有任务', "/task/daily_tasks/all"%></h3>
+<script type]="text/javascript">
+  $(function(){
+    $("#task").click(function(){
+      $('#today').css('display', 'block');
+      $('#yesterday').css('display', 'none');
+      $('#tomorrow').css('display', 'none');
+    });
+    $("#task1").click(function(){
+      $('#today').css('display', 'none');
+      $('#yesterday').css('display', 'block');
+      $('#tomorrow').css('display', 'none');
+    });
+    $("#task2").click(function(){
+      $('#today').css('display', 'none');
+      $('#yesterday').css('display', 'none');
+      $('#tomorrow').css('display', 'block');
+    });
+  })
+</script>
 <p style="color:red;"><%= notice %></p>
 <style>
   #line {height:50px;}
 </style>
-<table border='1' cellspacing='0' width='100%' style="text-align:center;">
-  <tr>
-    <th width='8%'>姓名</th>
-    <th width='15%'>开始时间</th>
-    <th width='15%'>结束时间</th>
-    <th width='22%'>任务名称：</th>
-    <th width='25%'>内容：</th>
-    <th width='5%'>进度</th>
-    <th colspan＝2 width='12%'>操作</th>
-  </tr>
 
-<% @daily_tasks.group('user_id').each do |task| %>
-  <% @tasks.where("user_id=#{task.user_id}").order('plan_start_timeline').each do |daily_task| %>
-  <tr>
-    <td><%= daily_task.user.username%></td>
-    <td><%= daily_task.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
-    <td><%= daily_task.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
-    <td><%= link_to daily_task.title, [:task, daily_task]%></td>
-    <td style="text-align:left;" id='line'><%= daily_task.content %></td>
-    <td><%= daily_task.accomplishment %>%</td>
-    <td><%= link_to '编辑', edit_task_daily_task_path(daily_task) %>|<%= link_to '删除', [:task,daily_task], method: :delete, data: { confirm: '确定删除?' } %></td>
-  </tr>
+<h3> <a href="#" id='task1' >昨日任务</a> | <a href="#" id='task'>今天任务</a> | <a href="#" id="task2">明日计划</a></h3>
+
+
+<div id="yesterday" style="display:none;">
+  <p style='margin-top:10px;'>昨日任务</p>
+  <table border='1' cellspacing='0' width='100%' style="text-align:center;">
+    <tr>
+      <th width='8%'>姓名</th>
+      <th width='15%'>开始时间</th>
+      <th width='15%'>结束时间</th>
+      <th width='22%'>任务名称：</th>
+      <th width='25%'>内容：</th>
+      <th width='5%'>进度</th>
+      <th colspan＝2 width='12%'>操作</th>
+    </tr>
+
+  <% @daily_task0s.group('user_id').each do |task| %>
+    <% @task0s.where("user_id=#{task.user_id}").order('plan_start_timeline').each do |daily_task| %>
+    <tr>
+      <td><%= daily_task.user.username%></td>
+      <td><%= daily_task.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
+      <td><%= daily_task.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
+      <td><%= link_to daily_task.title, [:task, daily_task]%></td>
+      <td style="text-align:left;" id='line'><%= daily_task.content %></td>
+      <td><%= daily_task.accomplishment %>%</td>
+      <td><%= link_to '编辑', edit_task_daily_task_path(daily_task) %>|<%= link_to '删除', [:task,daily_task], method: :delete, data: { confirm: '确定删除?' } %></td>
+    </tr>
+    <% end %>
   <% end %>
-<% end %>
-</table>
+  </table>
+</div>
+
+
+<div id="today">
+  <p style='margin-top:10px;'>今日任务</p>
+  <table border='1' cellspacing='0' width='100%' style="text-align:center;">
+    <tr>
+      <th width='8%'>姓名</th>
+      <th width='15%'>开始时间</th>
+      <th width='15%'>结束时间</th>
+      <th width='22%'>任务名称：</th>
+      <th width='25%'>内容：</th>
+      <th width='5%'>进度</th>
+      <th colspan＝2 width='12%'>操作</th>
+    </tr>
+
+  <% @daily_tasks.group('user_id').each do |task| %>
+    <% @tasks.where("user_id=#{task.user_id}").order('plan_start_timeline').each do |daily_task| %>
+    <tr>
+      <td><%= daily_task.user.username%></td>
+      <td><%= daily_task.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
+      <td><%= daily_task.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
+      <td><%= link_to daily_task.title, [:task, daily_task]%></td>
+      <td style="text-align:left;" id='line'><%= daily_task.content %></td>
+      <td><%= daily_task.accomplishment %>%</td>
+      <td><%= link_to '编辑', edit_task_daily_task_path(daily_task) %>|<%= link_to '删除', [:task,daily_task], method: :delete, data: { confirm: '确定删除?' } %></td>
+    </tr>
+    <% end %>
+  <% end %>
+  </table>
+</div>
+
+
+<div id="tomorrow" style="display:none;">
+  <p style='margin-top:10px;'>明日计划</p>
+  <table border='1' cellspacing='0' width='100%' style="text-align:center;">
+    <tr>
+      <th width='8%'>姓名</th>
+      <th width='15%'>开始时间</th>
+      <th width='15%'>结束时间</th>
+      <th width='22%'>任务名称：</th>
+      <th width='25%'>内容：</th>
+      <th width='5%'>进度</th>
+      <th colspan＝2 width='12%'>操作</th>
+    </tr>
+
+  <% @daily_task1s.group('user_id').each do |task| %>
+    <% @task1s.where("user_id=#{task.user_id}").order('plan_start_timeline').each do |daily_task| %>
+    <tr>
+      <td><%= daily_task.user.username%></td>
+      <td><%= daily_task.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
+      <td><%= daily_task.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
+      <td><%= link_to daily_task.title, [:task, daily_task]%></td>
+      <td style="text-align:left;" id='line'><%= daily_task.content %></td>
+      <td><%= daily_task.accomplishment %>%</td>
+      <td><%= link_to '编辑', edit_task_daily_task_path(daily_task) %>|<%= link_to '删除', [:task,daily_task], method: :delete, data: { confirm: '确定删除?' } %></td>
+    </tr>
+    <% end %>
+  <% end %>
+  </table>
+</div>

@@ -22,7 +22,9 @@ class Task::DailyTasksController < Task::BaseController
     def index
         @today = Time.now.midnight + 8.hours#(Time.now.beginning_of_day)
         @tomorrow = Time.now.midnight + 1.day + 8.hours #(Time.now.end_of_day)
-        # @daily_tasks = DailyTask.all
+        @today0 = Time.now.midnight + 8.hours - 1.day #(Time.now.beginning_of_day)
+        @tomorrow1 = Time.now.midnight + 2.day + 8.hours #(Time.now.end_of_day)
+
         @daily_tasks = DailyTask.where(
             "(plan_start_timeline >=? AND plan_start_timeline < ?) 
             OR 
@@ -37,6 +39,36 @@ class Task::DailyTasksController < Task::BaseController
             OR 
             (plan_start_timeline <? AND plan_finish_timeline >=?)",
             @today, @tomorrow, @today, @tomorrow, @today, @tomorrow)
+
+        @daily_task0s = DailyTask.where(
+            "(plan_start_timeline >=? AND plan_start_timeline < ?) 
+            OR 
+            (plan_finish_timeline >=? AND plan_finish_timeline <?)
+            OR 
+            (plan_start_timeline <? AND plan_finish_timeline >=?)",
+            @today0, @today, @today0, @today, @today0, @today).group('user_id')
+        @task0s = DailyTask.where(
+            "(plan_start_timeline >=? AND plan_start_timeline < ?) 
+            OR 
+            (plan_finish_timeline >=? AND plan_finish_timeline <?)
+            OR 
+            (plan_start_timeline <? AND plan_finish_timeline >=?)",
+            @today0, @today, @today0, @today, @today0, @today)
+
+        @daily_task1s = DailyTask.where(
+            "(plan_start_timeline >=? AND plan_start_timeline < ?) 
+            OR 
+            (plan_finish_timeline >=? AND plan_finish_timeline <?)
+            OR 
+            (plan_start_timeline <? AND plan_finish_timeline >=?)",
+            @tomorrow, @tomorrow1, @tomorrow, @tomorrow1, @tomorrow, @tomorrow1).group('user_id')
+        @task1s = DailyTask.where(
+            "(plan_start_timeline >=? AND plan_start_timeline < ?) 
+            OR 
+            (plan_finish_timeline >=? AND plan_finish_timeline <?)
+            OR 
+            (plan_start_timeline <? AND plan_finish_timeline >=?)",
+            @tomorrow, @tomorrow1, @tomorrow, @tomorrow1, @tomorrow, @tomorrow1)
 
         respond_to do |format|
             format.html # index.html.erb

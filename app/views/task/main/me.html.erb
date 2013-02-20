@@ -29,7 +29,7 @@
 			<td>任务名称</td>
 			<td>完成度</td>
 		</tr>
-		<% @dailies.each do |daily|%>
+		<% @ye.each do |daily|%>
 		<tr>
 			<td><%= daily.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
 			<td><%= daily.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
@@ -69,7 +69,7 @@
 			<td>任务名称</td>
 			<td>完成度</td>
 		</tr>
-		<% @dailies.each do |daily|%>
+		<% @tom.each do |daily|%>
 		<tr>
 			<td><%= daily.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
 			<td><%= daily.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
