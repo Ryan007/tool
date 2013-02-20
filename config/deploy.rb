@@ -5,40 +5,40 @@ require 'bundler/capistrano'
 
 set :rails_env, 'production'
 set :rvm_type, :system
-set :rvm_ruby_string, '1.9.3-p125@rails3211'
-set :rvm_path, '/usr/local/rvm/'
+set :rvm_ruby_string, '1.9.3-p125@rails3.2.11'
+set :rvm_path, '/home/ryan/.rvm/'
 set :rvm_bin_path, "#{rvm_path}/bin"
 set :rvm_lib_path, "#{rvm_path}/lib"
 set :deploy_via, :remote_cache
 
-set :bundle_cmd, "/usr/local/rvm/gems/ruby-1.9.3-p125@global/bin/bundle"
+set :bundle_cmd, "/home/ryan/.rvm/gems/ruby-1.9.3-p125@rails3.2.11/bin/bundle"
 set :passenger_cmd,  "#{bundle_cmd} exec passenger"
-set :rake, "/usr/local/rvm/gems/ruby-1.9.3-p125@rails3211/bin/rake"
+set :rake, "/home/ryan/.rvm/gems/ruby-1.9.3-p125@rails3.2.11/bin/rake"
 set :normalize_asset_timestamps, false
 
-set :application, "inc.tools.xiaoma.com"
+set :application, "www.tool.com"
 set :repository,  "git@github.com:Ryan007/tool.git"
 set :scm, :git
 
 
-role :web, "inc.tools.xiaoma.com"                          # Your HTTP server, Apache/etc
-role :app, "inc.tools.xiaoma.com"                          # This may be the same as your `Web` server
-role :db,  "inc.tools.xiaoma.com", :primary => true # This is where Rails migrations will run
+role :web, "www.tool.com"                          # Your HTTP server, Apache/etc
+role :app, "www.tool.com"                          # This may be the same as your `Web` server
+role :db,  "www.tool.com", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
-set :port, 22229
-# set :use_sudo, true
+# set :port, 22223
+set :use_sudo, true
 
 # set :sudo, 'rvmsudo'
 # set :sudo_prompt, 'password: '
 # set :password, '1q2w3e4r'
 # set :whenever_command, "bundle exec whenever"
-set :user, "wch"
-set :web_user, "nobody"
+set :user, "ryan"
+# set :web_user, "nobody"
 default_run_options[:pty] = true
 
 
 set :branch, "master"
-set :deploy_to, "/home/wch/www/tool/inc.tools.xiaoma.com/htdocs/#{application}"
+set :deploy_to, "/home/ryan/www/tool/www.tool.com/htdocs/#{application}"
 
 
 set :keep_releases, 5
@@ -55,19 +55,20 @@ task :update_crontab, :roles => :web, :except => { :no_release => true } do
   run "cd #{release_path} && rvmsudo whenever --update-crontab"
 end
 
-after "bundle:install", "symlink_database_yml"
+# after "bundle:install", "symlink_database_yml"
 # after "bundle:install", "update_crontab"
 
 namespace :deploy do
-  task :start, :roles => :web, :except => { :no_release => true } do 
-    run "cd #{current_path} && bundle exec passenger start --socket /tmp/inc.tools.xiaoma.com.socket -d -e production --pid-file /tmp/tool.pid"
+  task :start, :roles => :web, :except => { :no_release => true } do
+    run "cd /opt/nginx/sbin && #{try_sudo} ./nginx"
   end
   task :stop, :roles => :web, :except => { :no_release => true } do
-    run "cd #{current_path} && bundle exec passenger stop --pid-file /tmp/tool.pid"
+    run "/opt/nginx/sbin && #{try_sudo} ./nginx -s stop"
   end
   task :restart, :roles => :web, :except => { :no_release => true } do
-    run "cd #{current_path} && #{passenger_cmd} stop --pid-file /tmp/tool.pid"
-    run "cd #{current_path} && #{passenger_cmd} start --socket /tmp/inc.tools.xiaoma.com.socket -d -e production --pid-file /tmp/tool.pid"
+    run "cd /opt/nginx/sbin && #{try_sudo} ./nginx -s reload"
+    run "cd /opt/nginx/sbin && #{try_sudo} ./nginx -s stop"
+    run "cd /opt/nginx/sbin && #{try_sudo} ./nginx"
   end
 end
 

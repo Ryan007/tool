@@ -36,24 +36,42 @@
 			 '周四', '周五', '周六'],
 			dayNamesShort: ['周日', '周一', '周二', '周三',
 			 '周四', '周五', '周六'],
-			// selectable: true,
-			// selectHelper: true,
+			selectable: true,
+			selectHelper: true,
 			// select: function(start, end, allDay) {
-			// 	var title = prompt('事件名称:');
-			// 	if (title) {
-			// 		calendar.fullCalendar('renderEvent',
-			// 			{
-			// 				title: title,
-			// 				start: start,
-			// 				end: end,
-			// 				allDay: false
-			// 			},
-			// 			true // make the event "stick"
-			// 		);
-			// 	}
-			// 	calendar.fullCalendar('unselect');
+				// console.log(start);
+				// var title = prompt('事件名称:');
+				// if (title) {
+				// 	calendar.fullCalendar('renderEvent',
+				// 		{
+				// 			title: title,
+				// 			start: start,
+				// 			end: end,
+				// 			allDay: false
+				// 		},
+				// 		true // make the event "stick"
+				// 	);
+				// }
+				// calendar.fullCalendar('unselect');
 			// },
-			editable: true,
+			dayClick: function(date, allDay, jsEvent, view) {
+
+		        // if (allDay) {
+		        //     alert('Clicked on the entire day: ' + date);
+		        // }else{
+		        //     alert('Clicked on the slot: ' + date);
+		        // }
+
+		        console.log('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+
+		        // alert('Current view: ' + view.name);
+
+		        // change the day's background color just for fun
+		        // $(this).css('background-color', 'red');
+		        $('#hello').css('display', 'block');
+
+		    },
+			editable: false,
 			// eventSources: [
 			events: [
 				<% for index in 0..(@tasks.length-1) do %>
@@ -81,6 +99,13 @@
 		
 	});
 </script>
-
+<style type="css/text">
+	
+</style>
 <div id='loading' style='display:none'>loading...</div>
-<div id="daily_calendar">
+<div id="daily_calendar"></div>
+
+
+<div id='hello' style="display:none;">
+	hello world
+</div>
