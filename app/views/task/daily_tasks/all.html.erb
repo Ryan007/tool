@@ -1,5 +1,4 @@
-<h1>今日全组任务列表</h1>
-<h3><%= link_to '全组所有任务', "/task/daily_tasks/all"%></h3>
+<h1>全组所有任务列表</h1>
 <p style="color:red;"><%= notice %></p>
 <style>
   #line {height:50px;}
@@ -15,8 +14,7 @@
     <th colspan＝2 width='12%'>操作</th>
   </tr>
 
-<% @daily_tasks.group('user_id').each do |task| %>
-  <% @tasks.where("user_id=#{task.user_id}").order('plan_start_timeline').each do |daily_task| %>
+<% @daily_tasks.each do |daily_task| %>
   <tr>
     <td><%= daily_task.user.username%></td>
     <td><%= daily_task.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
@@ -26,6 +24,7 @@
     <td><%= daily_task.accomplishment %>%</td>
     <td><%= link_to '编辑', edit_task_daily_task_path(daily_task) %>|<%= link_to '删除', [:task,daily_task], method: :delete, data: { confirm: '确定删除?' } %></td>
   </tr>
-  <% end %>
 <% end %>
 </table>
+
+<%=h will_paginate @daily_tasks, :previous_label => '上一页',  :next_label => '下一页'%>

@@ -44,6 +44,10 @@ class Task::DailyTasksController < Task::BaseController
         end
     end
 
+    def all
+        @daily_tasks = DailyTask.order('plan_finish_timeline DESC').paginate(:page => params[:page], :per_page => 20)
+    end
+
 
     def show
         @refer = request.referer

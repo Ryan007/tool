@@ -132,6 +132,7 @@ Tools::Application.routes.draw do
     resources :daily_tasks do
       collection do
         get 'get_stuff_task'
+        get 'all'
       end
     end
   end
