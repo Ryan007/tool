@@ -1,21 +1,84 @@
 <h1>任务总汇</h1>
-<%= link_to '新建任务', new_task_daily_task_path %>
-<a href="<%= task_daily_tasks_url%>">所有任务</a>
-<h2>今天的任务</h2>
-<table border='1' bordercolor='1px' cellpadding='0' cellspacing='0' width='100%' style="line-height:20px;">
-	<tr style="font-weight:bold;text-align:center;size:16px;">
-		<td>开始时间</td>
-		<td>完成时间</td>
-		<td>任务名称</td>
-		<td>完成度</td>
-	</tr>
-	<% @dailies.each do |daily|%>
-	<tr>
-		<td><%= daily.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
-		<td><%= daily.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
-		<td><%= link_to daily.title, task_daily_task_path(daily)%></td>
-		<td><%= daily.accomplishment %>%</td>
-	</tr>
-	<% end %>
-</table>
+<%= link_to '新建任务', new_task_daily_task_path %>|<a href="<%= task_daily_tasks_url%>">所有任务</a>
+<script type]="text/javascript">
+	$(function(){
+		$("#task").click(function(){
+			$('#today').css('display', 'block');
+			$('#yesterday').css('display', 'none');
+			$('#tomorrow').css('display', 'none');
+		});
+		$("#task1").click(function(){
+			$('#today').css('display', 'none');
+			$('#yesterday').css('display', 'block');
+			$('#tomorrow').css('display', 'none');
+		});
+		$("#task2").click(function(){
+			$('#today').css('display', 'none');
+			$('#yesterday').css('display', 'none');
+			$('#tomorrow').css('display', 'block');
+		});
+	})
+</script>
+<h3> <a href="#" id='task1' >昨日任务</a> | <a href="#" id='task'>今天任务</a> | <a href="#" id="task2">明日计划</a></h3>
+<div id="yesterday" style="display:none;">
+	<p style='margin-top:10px;'>昨日任务</p>
+	<table border='1' bordercolor='1px' cellpadding='0' cellspacing='0' width='100%' style="line-height:20px;">
+		<tr style="font-weight:bold;text-align:center;size:16px;">
+			<td>开始时间</td>
+			<td>完成时间</td>
+			<td>任务名称</td>
+			<td>完成度</td>
+		</tr>
+		<% @dailies.each do |daily|%>
+		<tr>
+			<td><%= daily.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
+			<td><%= daily.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
+			<td><%= link_to daily.title, task_daily_task_path(daily)%></td>
+			<td><%= daily.accomplishment %>%</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+
+<div id="today">
+	<p style='margin-top:10px;'>今天任务</p>
+	<table border='1' bordercolor='1px' cellpadding='0' cellspacing='0' width='100%' style="line-height:20px;">
+		<tr style="font-weight:bold;text-align:center;size:16px;">
+			<td>开始时间</td>
+			<td>完成时间</td>
+			<td>任务名称</td>
+			<td>完成度</td>
+		</tr>
+		<% @dailies.group('user_id').each do |daily0|%>
+		<% @dailies.where("user_id=#{daily0.user_id}").each do |daily|%>
+		<tr>
+			<td><%= daily.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
+			<td><%= daily.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
+			<td><%= link_to daily.title, task_daily_task_path(daily)%></td>
+			<td><%= daily.accomplishment %>%</td>
+		</tr>
+		<% end %>
+		<% end %>
+	</table>
+</div>
+
+<div id="tomorrow" style="display:none;">
+	<p style='margin-top:10px;'>明日计划</p>
+	<table border='1' bordercolor='1px' cellpadding='0' cellspacing='0' width='100%' style="line-height:20px;">
+		<tr style="font-weight:bold;text-align:center;size:16px;">
+			<td>开始时间</td>
+			<td>完成时间</td>
+			<td>任务名称</td>
+			<td>完成度</td>
+		</tr>
+		<% @dailies.each do |daily|%>
+		<tr>
+			<td><%= daily.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
+			<td><%= daily.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
+			<td><%= link_to daily.title, task_daily_task_path(daily)%></td>
+			<td><%= daily.accomplishment %>%</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
 

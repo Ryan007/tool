@@ -15,13 +15,6 @@ class Task::MainController < Task::BaseController
 			(plan_start_timeline <? AND plan_finish_timeline >=?)",
 			@today, @tomorrow, @today, @tomorrow, @today, @tomorrow)
 
-
-		# .where(
-		# 	"(plan_start_timeline >=? AND plan_start_timeline < ?) 
-		# 	OR 
-		# 	(plan_finish_timeline >=? AND plan_finish_timeline <?)",
-		# 	@today, @tomorrow, @today, @tomorrow)
-
 		#.where("(plan_finish_timeline >= #{time_from.to_date} and plan_start_timeline <= #{time_to.to_date}) OR (plan_finish_timeline <= #{time_to.to_date} and plan_start_timeline <= #{time_to.to_date})")
 		# (plan_finish_timeline >= #{time_from.to_date} and plan_start_timeline <= #{time_to.to_date}) OR (plan_finish_timeline <= #{time_to.to_date} and plan_start_timeline <= #{time_to.to_date}) 
 		# plan_start_timeline <= unix_timestamp(#{time_from.to_date})
