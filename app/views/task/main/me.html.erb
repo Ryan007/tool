@@ -49,15 +49,13 @@
 			<td>任务名称</td>
 			<td>完成度</td>
 		</tr>
-		<% @dailies.group('user_id').each do |daily0|%>
-		<% @dailies.where("user_id=#{daily0.user_id}").each do |daily|%>
+		<% @dailies.each do |daily|%>
 		<tr>
 			<td><%= daily.plan_start_timeline.strftime('%Y-%m-%d %H:%M')%></td>
 			<td><%= daily.plan_finish_timeline.strftime('%Y-%m-%d %H:%M') %></td>
 			<td><%= link_to daily.title, task_daily_task_path(daily)%></td>
 			<td><%= daily.accomplishment %>%</td>
 		</tr>
-		<% end %>
 		<% end %>
 	</table>
 </div>

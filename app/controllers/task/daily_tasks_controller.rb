@@ -20,7 +20,23 @@ class Task::DailyTasksController < Task::BaseController
     end
 
     def index
-        @daily_tasks = DailyTask.all
+        @today = Time.now.midnight + 8.hours#(Time.now.beginning_of_day)
+        @tomorrow = Time.now.midnight + 1.day + 8.hours #(Time.now.end_of_day)
+        # @daily_tasks = DailyTask.all
+        @daily_tasks = DailyTask.where(
+            "(plan_start_timeline >=? AND plan_start_timeline < ?) 
+            OR 
+            (plan_finish_timeline >=? AND plan_finish_timeline <?)
+            OR 
+            (plan_start_timeline <? AND plan_finish_timeline >=?)",
+            @today, @tomorrow, @today, @tomorrow, @today, @tomorrow).group('user_id')
+        @tasks = DailyTask.where(
+            "(plan_start_timeline >=? AND plan_start_timeline < ?) 
+            OR 
+            (plan_finish_timeline >=? AND plan_finish_timeline <?)
+            OR 
+            (plan_start_timeline <? AND plan_finish_timeline >=?)",
+            @today, @tomorrow, @today, @tomorrow, @today, @tomorrow)
 
         respond_to do |format|
             format.html # index.html.erb

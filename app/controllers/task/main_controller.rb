@@ -6,6 +6,8 @@ class Task::MainController < Task::BaseController
 		@today = Time.now.midnight + 8.hours#(Time.now.beginning_of_day)
 		@tomorrow = Time.now.midnight + 1.day + 8.hours #(Time.now.end_of_day)
 		time_range = (Time.now.midnight - 1.day + 8.hours)..(Time.now.midnight+ 8.hours)
+		
+
 		@dailies = User.find(current_user.id).daily_tasks
 		.where(
 			"(plan_start_timeline >=? AND plan_start_timeline < ?) 
